@@ -10,6 +10,9 @@ export class IDataElement {
   aggregationType:string;
   optionset:string;
 }
+/**
+ * This is a data element encapsulation of the dhis dataElement object
+ */
 export class DataElement implements IDataElement{
   id:string;
   name:string;

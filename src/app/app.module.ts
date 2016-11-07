@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { LocationStrategy,HashLocationStrategy } from '@angular/common';
+import {routing} from "./app.routes";
 
 import { AppComponent } from './app.component';
 import { SumatraHomeComponent } from './apps/sumatra/sumatra-home/sumatra-home.component';
@@ -14,7 +15,11 @@ import { DriverCaptureHomeComponent } from './apps/driver-capture/driver-capture
 import { VehicleCaptureHomeComponent } from './apps/vehicle-capture/vehicle-capture-home/vehicle-capture-home.component';
 import { CommunityPolicingHomeComponent } from './apps/community-policing/community-policing-home/community-policing-home.component';
 import { InsuranceHomeComponent } from './apps/insurance-capture/insurance-home/insurance-home.component';
-import {routing} from "./app.routes";
+import {AddInsuranceComponent} from "./apps/insurance-capture/add-insurance/add-insurance.component";
+import { UpdateInsuranceComponent } from './apps/insurance-capture/update-insurance/update-insurance.component';
+import { ViewInsuranceComponent } from './apps/insurance-capture/view-insurance/view-insurance.component';
+import { ViewInsuranceVehiclesComponent } from './apps/insurance-capture/view-insurance-vehicles/view-insurance-vehicles.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +31,8 @@ import {routing} from "./app.routes";
     DriverCaptureHomeComponent,
     VehicleCaptureHomeComponent,
     CommunityPolicingHomeComponent,
-    InsuranceHomeComponent,
+    InsuranceHomeComponent,AddInsuranceComponent, UpdateInsuranceComponent, ViewInsuranceComponent, ViewInsuranceVehiclesComponent
+
   ],
   imports: [
     BrowserModule,

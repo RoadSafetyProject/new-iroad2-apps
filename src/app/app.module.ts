@@ -22,20 +22,30 @@ import { ViewInsuranceVehiclesComponent } from './apps/insurance-capture/view-in
 import { SumatraViewBusinessHistoryComponent } from './apps/sumatra/sumatra-view-business-history/sumatra-view-business-history.component';
 import { SumatraViewVehicleComponent } from './apps/sumatra/sumatra-view-vehicle/sumatra-view-vehicle.component';
 import { SumatraAddBusinessHistoryComponent } from './apps/sumatra/sumatra-add-business-history/sumatra-add-business-history.component';
+import { AddDriverComponent } from './apps/driver-capture/add-driver/add-driver.component';
+import { UpdateDriverComponent } from './apps/driver-capture/update-driver/update-driver.component';
+import { ViewDriverComponent } from './apps/driver-capture/view-driver/view-driver.component';
+import { ViewDriverLicenceComponent } from './apps/driver-capture/view-driver-licence/view-driver-licence.component';
+import { AddDriverLicenceComponent } from './apps/driver-capture/add-driver-licence/add-driver-licence.component';
+import { ViewDriverAccidentsComponent } from './apps/driver-capture/view-driver-accidents/view-driver-accidents.component';
+import { ViewDriverOffencesComponent } from './apps/driver-capture/view-driver-offences/view-driver-offences.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SumatraHomeComponent,SumatraViewBusinessHistoryComponent,SumatraViewVehicleComponent,SumatraAddBusinessHistoryComponent,
+    SumatraHomeComponent,SumatraViewBusinessHistoryComponent,
+    SumatraViewVehicleComponent,SumatraAddBusinessHistoryComponent,
     AccidentHommeComponent,
     AccidentViewHomeComponent,
     OffenceCaptureHomeComponent,
-    DriverCaptureHomeComponent,
+    DriverCaptureHomeComponent, AddDriverComponent, UpdateDriverComponent, ViewDriverComponent,
+    ViewDriverLicenceComponent,
+    AddDriverLicenceComponent, ViewDriverAccidentsComponent, ViewDriverOffencesComponent,
     VehicleCaptureHomeComponent,
     CommunityPolicingHomeComponent,
-    InsuranceHomeComponent,AddInsuranceComponent, UpdateInsuranceComponent, ViewInsuranceComponent, ViewInsuranceVehiclesComponent,
-
+    InsuranceHomeComponent,AddInsuranceComponent, UpdateInsuranceComponent,
+    ViewInsuranceComponent, ViewInsuranceVehiclesComponent,
   ],
   imports: [
     BrowserModule,

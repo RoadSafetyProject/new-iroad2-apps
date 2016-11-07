@@ -1,9 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+/**
+ * Created by chingalo on 11/7/16.
+ */
+import { ModuleWithProviders }  from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
-import { AppComponent } from './app.component';
 import { SumatraHomeComponent } from './apps/sumatra/sumatra-home/sumatra-home.component';
 import { AccidentHommeComponent } from './apps/accident-capture/accident-homme/accident-homme.component';
 import { AccidentViewHomeComponent } from './apps/accident-view/accident-view-home/accident-view-home.component';
@@ -12,27 +12,15 @@ import { DriverCaptureHomeComponent } from './apps/driver-capture/driver-capture
 import { VehicleCaptureHomeComponent } from './apps/vehicle-capture/vehicle-capture-home/vehicle-capture-home.component';
 import { CommunityPolicingHomeComponent } from './apps/community-policing/community-policing-home/community-policing-home.component';
 import { InsuranceHomeComponent } from './apps/insurance-capture/insurance-home/insurance-home.component';
-import {routing} from "./app.routes";
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    SumatraHomeComponent,
-    AccidentHommeComponent,
-    AccidentViewHomeComponent,
-    OffenceCaptureHomeComponent,
-    DriverCaptureHomeComponent,
-    VehicleCaptureHomeComponent,
-    CommunityPolicingHomeComponent,
-    InsuranceHomeComponent,
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    routing
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+export const routes: Routes  = [
+  { path: 'accidents', component: AccidentHommeComponent },
+  { path: 'offences', component: OffenceCaptureHomeComponent },
+  { path: 'sumatra', component: SumatraHomeComponent },
+  { path: 'community', component: CommunityPolicingHomeComponent },
+  { path: 'vehicles', component: VehicleCaptureHomeComponent },
+  { path: 'accident-view', component: AccidentViewHomeComponent },
+  { path: 'drivers', component: DriverCaptureHomeComponent }
+];
+
+export const routing : ModuleWithProviders = RouterModule.forRoot(routes);

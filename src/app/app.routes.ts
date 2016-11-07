@@ -45,9 +45,6 @@ import { ViewOffenceDriverComponent } from './apps/offence-capture/view-offence-
 import { ViewOffenceVehicleComponent } from './apps/offence-capture/view-offence-vehicle/view-offence-vehicle.component';
 import { ViewOffencePoliceComponent } from './apps/offence-capture/view-offence-police/view-offence-police.component';
 
-//routes for vehicle capture app
-import { VehicleCaptureHomeComponent } from './apps/vehicle-capture/vehicle-capture-home/vehicle-capture-home.component';
-
 //routes for accident capture
 import { AccidentHommeComponent } from './apps/accident-capture/accident-homme/accident-homme.component';
 import { AddAccidentComponent } from './apps/accident-capture/add-accident/add-accident.component';
@@ -60,9 +57,43 @@ import { ViewAccidentPassengersComponent } from './apps/accident-capture/view-ac
 import { ViewAccidentVehicleDriversComponent } from './apps/accident-capture/view-accident-vehicle-drivers/view-accident-vehicle-drivers.component';
 import { ViewAccidentPoliceComponent } from './apps/accident-capture/view-accident-police/view-accident-police.component';
 
+//routes for vehicle capture app
+import { VehicleCaptureHomeComponent } from './apps/vehicle-capture/vehicle-capture-home/vehicle-capture-home.component';
+import { AddVehicleComponent } from './apps/vehicle-capture/add-vehicle/add-vehicle.component';
+import { UpdateVehicleComponent } from './apps/vehicle-capture/update-vehicle/update-vehicle.component';
+import { ViewVehicleComponent } from './apps/vehicle-capture/view-vehicle/view-vehicle.component';
+import { ViewVehicleInsurancesComponent } from './apps/vehicle-capture/view-vehicle-insurances/view-vehicle-insurances.component';
+import { ViewVehicleBusinessLicenceComponent } from './apps/vehicle-capture/view-vehicle-business-licence/view-vehicle-business-licence.component';
+import { ViewVehicleOwnerComponent } from './apps/vehicle-capture/view-vehicle-owner/view-vehicle-owner.component';
+import { ViewVehicleInspectionComponent } from './apps/vehicle-capture/view-vehicle-inspection/view-vehicle-inspection.component';
+import { ViewVehicleAccidentsComponent } from './apps/vehicle-capture/view-vehicle-accidents/view-vehicle-accidents.component';
+import { ViewVehicleOffencesComponent } from './apps/vehicle-capture/view-vehicle-offences/view-vehicle-offences.component';
+import { AddVehicleInsurancesComponent } from './apps/vehicle-capture/add-vehicle-insurances/add-vehicle-insurances.component';
+import { AddVehicleInspectionComponent } from './apps/vehicle-capture/add-vehicle-inspection/add-vehicle-inspection.component';
+import { AddVehicleOwnerComponent } from './apps/vehicle-capture/add-vehicle-owner/add-vehicle-owner.component';
+import { AddVehicleLicenceComponent } from './apps/vehicle-capture/add-vehicle-licence/add-vehicle-licence.component';
+import { ViewVehicleLicenceComponent } from './apps/vehicle-capture/view-vehicle-licence/view-vehicle-licence.component';
+
 export const routes: Routes  = [
   { path: '', redirectTo : "insurances/all",pathMatch : "full"},
-  { path: 'vehicles', component: VehicleCaptureHomeComponent },
+
+  { path: 'vehicles', redirectTo : "vehicles/all",pathMatch : "full"},
+  { path: 'vehicles/all', component: VehicleCaptureHomeComponent },
+  { path: 'vehicles/add', component: AddVehicleComponent },
+  { path: 'vehicles/:id/update', component: UpdateVehicleComponent },
+  { path: 'vehicles/:id', redirectTo : "vehicles/:id/view",pathMatch : "full"},
+  { path: 'vehicles/:id/view', component: ViewVehicleComponent },
+  { path: 'vehicles/:id/insurances', component: ViewVehicleInsurancesComponent },
+  { path: 'vehicles/:id/insurances/add', component: AddVehicleInsurancesComponent },
+  { path: 'vehicles/:id/business-history', component: ViewVehicleBusinessLicenceComponent },
+  { path: 'vehicles/:id/licences', component: ViewVehicleLicenceComponent },
+  { path: 'vehicles/:id/licences/add', component: AddVehicleLicenceComponent },
+  { path: 'vehicles/:id/owner-history', component: ViewVehicleOwnerComponent },
+  { path: 'vehicles/:id/owner-history/add', component: AddVehicleOwnerComponent },
+  { path: 'vehicles/:id/inspection', component: ViewVehicleInspectionComponent },
+  { path: 'vehicles/:id/inspection/add', component: AddVehicleInspectionComponent },
+  { path: 'vehicles/:id/accidents', component: ViewVehicleAccidentsComponent },
+  { path: 'vehicles/:id/offences', component: ViewVehicleOffencesComponent },
 
   { path: 'accidents', redirectTo : "accidents/all",pathMatch : "full"},
   { path: 'accidents/all', component: AccidentHommeComponent },
@@ -89,8 +120,10 @@ export const routes: Routes  = [
   { path: 'offences/:id/vehicle', component: ViewOffenceVehicleComponent },
   { path: 'offences/:id/driver', component: ViewOffenceDriverComponent },
   { path: 'offences:id/police', component: ViewOffencePoliceComponent },
+
   { path: 'accident-view', component: AccidentViewHomeComponent },
   { path: 'community', component: CommunityPolicingHomeComponent },
+
   { path: 'drivers', redirectTo : "drivers/all",pathMatch : "full"},
   { path: 'drivers/all', component: DriverCaptureHomeComponent },
   { path: 'drivers/add', component: AddDriverComponent },
@@ -101,6 +134,7 @@ export const routes: Routes  = [
   { path: 'drivers/:id/licences/add', component: AddDriverLicenceComponent },
   { path: 'drivers/:id/accidents', component: ViewDriverAccidentsComponent },
   { path: 'drivers/:id/offences', component: ViewDriverOffencesComponent },
+
   { path: 'insurances', redirectTo : "insurances/all",pathMatch : "full"},
   { path: 'insurances/all', component: InsuranceHomeComponent },
   { path: 'insurances/add', component: AddInsuranceComponent },
@@ -108,6 +142,7 @@ export const routes: Routes  = [
   { path: 'insurances/:id', redirectTo : "insurances/:id/view",pathMatch : "full"},
   { path: 'insurances/:id/view', component: ViewInsuranceComponent },
   { path: 'insurances/:id/vehicles', component: ViewInsuranceVehiclesComponent },
+
   { path: 'sumatra', redirectTo : "sumatra/vehicles",pathMatch : "full"},
   { path: 'sumatra/vehicles', component: SumatraHomeComponent },
   { path: 'sumatra/vehicles/:id', redirectTo : "sumatra/vehicles/:id/view",pathMatch : "full"},

@@ -8,17 +8,17 @@ import {routing} from "./app.routes";
 
 import { AppComponent } from './app.component';
 
-import { VehicleCaptureHomeComponent } from './apps/vehicle-capture/vehicle-capture-home/vehicle-capture-home.component';
-
 import { InsuranceHomeComponent } from './apps/insurance-capture/insurance-home/insurance-home.component';
 import {AddInsuranceComponent} from "./apps/insurance-capture/add-insurance/add-insurance.component";
 import { UpdateInsuranceComponent } from './apps/insurance-capture/update-insurance/update-insurance.component';
 import { ViewInsuranceComponent } from './apps/insurance-capture/view-insurance/view-insurance.component';
 import { ViewInsuranceVehiclesComponent } from './apps/insurance-capture/view-insurance-vehicles/view-insurance-vehicles.component';
+
 import { SumatraHomeComponent } from './apps/sumatra/sumatra-home/sumatra-home.component';
 import { SumatraViewBusinessHistoryComponent } from './apps/sumatra/sumatra-view-business-history/sumatra-view-business-history.component';
 import { SumatraViewVehicleComponent } from './apps/sumatra/sumatra-view-vehicle/sumatra-view-vehicle.component';
 import { SumatraAddBusinessHistoryComponent } from './apps/sumatra/sumatra-add-business-history/sumatra-add-business-history.component';
+
 import { DriverCaptureHomeComponent } from './apps/driver-capture/driver-capture-home/driver-capture-home.component';
 import { AddDriverComponent } from './apps/driver-capture/add-driver/add-driver.component';
 import { UpdateDriverComponent } from './apps/driver-capture/update-driver/update-driver.component';
@@ -27,8 +27,11 @@ import { ViewDriverLicenceComponent } from './apps/driver-capture/view-driver-li
 import { AddDriverLicenceComponent } from './apps/driver-capture/add-driver-licence/add-driver-licence.component';
 import { ViewDriverAccidentsComponent } from './apps/driver-capture/view-driver-accidents/view-driver-accidents.component';
 import { ViewDriverOffencesComponent } from './apps/driver-capture/view-driver-offences/view-driver-offences.component';
+
 import { AccidentViewHomeComponent } from './apps/accident-view/accident-view-home/accident-view-home.component';
+
 import { CommunityPolicingHomeComponent } from './apps/community-policing/community-policing-home/community-policing-home.component';
+
 import { OffenceCaptureHomeComponent } from './apps/offence-capture/offence-capture-home/offence-capture-home.component';
 import { AddOffenceComponent } from './apps/offence-capture/add-offence/add-offence.component';
 import { UpdateOffenceComponent } from './apps/offence-capture/update-offence/update-offence.component';
@@ -39,6 +42,7 @@ import { AddOffencePaymentComponent } from './apps/offence-capture/add-offence-p
 import { ViewOffenceDriverComponent } from './apps/offence-capture/view-offence-driver/view-offence-driver.component';
 import { ViewOffenceVehicleComponent } from './apps/offence-capture/view-offence-vehicle/view-offence-vehicle.component';
 import { ViewOffencePoliceComponent } from './apps/offence-capture/view-offence-police/view-offence-police.component';
+
 import { AccidentHommeComponent } from './apps/accident-capture/accident-homme/accident-homme.component';
 import { AddAccidentComponent } from './apps/accident-capture/add-accident/add-accident.component';
 import { ViewAccidentComponent } from './apps/accident-capture/view-accident/view-accident.component';
@@ -49,6 +53,22 @@ import { ViewAccidentVehiclePassengersComponent } from './apps/accident-capture/
 import { ViewAccidentPassengersComponent } from './apps/accident-capture/view-accident-passengers/view-accident-passengers.component';
 import { ViewAccidentVehicleDriversComponent } from './apps/accident-capture/view-accident-vehicle-drivers/view-accident-vehicle-drivers.component';
 import { ViewAccidentPoliceComponent } from './apps/accident-capture/view-accident-police/view-accident-police.component';
+
+import { VehicleCaptureHomeComponent } from './apps/vehicle-capture/vehicle-capture-home/vehicle-capture-home.component';
+import { AddVehicleComponent } from './apps/vehicle-capture/add-vehicle/add-vehicle.component';
+import { UpdateVehicleComponent } from './apps/vehicle-capture/update-vehicle/update-vehicle.component';
+import { ViewVehicleComponent } from './apps/vehicle-capture/view-vehicle/view-vehicle.component';
+import { ViewVehicleInsurancesComponent } from './apps/vehicle-capture/view-vehicle-insurances/view-vehicle-insurances.component';
+import { ViewVehicleBusinessLicenceComponent } from './apps/vehicle-capture/view-vehicle-business-licence/view-vehicle-business-licence.component';
+import { ViewVehicleOwnerComponent } from './apps/vehicle-capture/view-vehicle-owner/view-vehicle-owner.component';
+import { ViewVehicleInspectionComponent } from './apps/vehicle-capture/view-vehicle-inspection/view-vehicle-inspection.component';
+import { ViewVehicleAccidentsComponent } from './apps/vehicle-capture/view-vehicle-accidents/view-vehicle-accidents.component';
+import { ViewVehicleOffencesComponent } from './apps/vehicle-capture/view-vehicle-offences/view-vehicle-offences.component';
+import { AddVehicleInsurancesComponent } from './apps/vehicle-capture/add-vehicle-insurances/add-vehicle-insurances.component';
+import { AddVehicleInspectionComponent } from './apps/vehicle-capture/add-vehicle-inspection/add-vehicle-inspection.component';
+import { AddVehicleOwnerComponent } from './apps/vehicle-capture/add-vehicle-owner/add-vehicle-owner.component';
+import { AddVehicleLicenceComponent } from './apps/vehicle-capture/add-vehicle-licence/add-vehicle-licence.component';
+import { ViewVehicleLicenceComponent } from './apps/vehicle-capture/view-vehicle-licence/view-vehicle-licence.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +87,17 @@ import { ViewAccidentPoliceComponent } from './apps/accident-capture/view-accide
     ViewInsuranceComponent, ViewInsuranceVehiclesComponent,
     AddOffenceComponent, UpdateOffenceComponent, ViewOffenceComponent,
     ViewOffenceRegistryComponent, ViewOffencePaymentComponent, AddOffencePaymentComponent,
-    ViewOffenceDriverComponent, ViewOffenceVehicleComponent, ViewOffencePoliceComponent, AddAccidentComponent, ViewAccidentComponent, UpdateAccidentComponent, ViewAccidentWitnessesComponent, ViewAccidentVehiclesComponent, ViewAccidentVehiclePassengersComponent, ViewAccidentPassengersComponent, ViewAccidentVehicleDriversComponent, ViewAccidentPoliceComponent,
+    ViewOffenceDriverComponent, ViewOffenceVehicleComponent, ViewOffencePoliceComponent, AddAccidentComponent,
+    ViewAccidentComponent, UpdateAccidentComponent, ViewAccidentWitnessesComponent, ViewAccidentVehiclesComponent,
+    ViewAccidentVehiclePassengersComponent, ViewAccidentPassengersComponent, ViewAccidentVehicleDriversComponent,
+    ViewAccidentPoliceComponent, AddVehicleComponent, UpdateVehicleComponent,
+    ViewVehicleComponent, ViewVehicleInsurancesComponent, ViewVehicleBusinessLicenceComponent,
+    ViewVehicleOwnerComponent, ViewVehicleInspectionComponent,
+    ViewVehicleAccidentsComponent, ViewVehicleOffencesComponent,
+    AddVehicleInsurancesComponent, AddVehicleInspectionComponent,
+    AddVehicleOwnerComponent,
+    AddVehicleLicenceComponent,
+    ViewVehicleLicenceComponent,
   ],
   imports: [
     BrowserModule,

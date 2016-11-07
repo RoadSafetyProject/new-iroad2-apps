@@ -4,12 +4,6 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AccidentHommeComponent } from './apps/accident-capture/accident-homme/accident-homme.component';
-
-
-
-import { VehicleCaptureHomeComponent } from './apps/vehicle-capture/vehicle-capture-home/vehicle-capture-home.component';
-
 //routes for accident view app
 import { AccidentViewHomeComponent } from './apps/accident-view/accident-view-home/accident-view-home.component';
 
@@ -51,9 +45,37 @@ import { ViewOffenceDriverComponent } from './apps/offence-capture/view-offence-
 import { ViewOffenceVehicleComponent } from './apps/offence-capture/view-offence-vehicle/view-offence-vehicle.component';
 import { ViewOffencePoliceComponent } from './apps/offence-capture/view-offence-police/view-offence-police.component';
 
+//routes for vehicle capture app
+import { VehicleCaptureHomeComponent } from './apps/vehicle-capture/vehicle-capture-home/vehicle-capture-home.component';
+
+//routes for accident capture
+import { AccidentHommeComponent } from './apps/accident-capture/accident-homme/accident-homme.component';
+import { AddAccidentComponent } from './apps/accident-capture/add-accident/add-accident.component';
+import { ViewAccidentComponent } from './apps/accident-capture/view-accident/view-accident.component';
+import { UpdateAccidentComponent } from './apps/accident-capture/update-accident/update-accident.component';
+import { ViewAccidentWitnessesComponent } from './apps/accident-capture/view-accident-witnesses/view-accident-witnesses.component';
+import { ViewAccidentVehiclesComponent } from './apps/accident-capture/view-accident-vehicles/view-accident-vehicles.component';
+import { ViewAccidentVehiclePassengersComponent } from './apps/accident-capture/view-accident-vehicle-passengers/view-accident-vehicle-passengers.component';
+import { ViewAccidentPassengersComponent } from './apps/accident-capture/view-accident-passengers/view-accident-passengers.component';
+import { ViewAccidentVehicleDriversComponent } from './apps/accident-capture/view-accident-vehicle-drivers/view-accident-vehicle-drivers.component';
+import { ViewAccidentPoliceComponent } from './apps/accident-capture/view-accident-police/view-accident-police.component';
+
 export const routes: Routes  = [
   { path: '', redirectTo : "insurances/all",pathMatch : "full"},
-  { path: 'accidents', component: AccidentHommeComponent },
+  { path: 'vehicles', component: VehicleCaptureHomeComponent },
+
+  { path: 'accidents', redirectTo : "accidents/all",pathMatch : "full"},
+  { path: 'accidents/all', component: AccidentHommeComponent },
+  { path: 'accidents/add', component: AddAccidentComponent },
+  { path: 'accidents/:id', redirectTo : "accidents/:id/view",pathMatch : "full"},
+  { path: 'accidents/:id/update', component: UpdateAccidentComponent },
+  { path: 'accidents/:id/view', component: ViewAccidentComponent },
+  { path: 'accidents/:id/witnesses', component: ViewAccidentWitnessesComponent },
+  { path: 'accidents/:id/vehicles', component: ViewAccidentVehiclesComponent },
+  { path: 'accidents/:id/vehicles/:vehicleId/passengers', component: ViewAccidentVehiclePassengersComponent },
+  { path: 'accidents/:id/vehicles/all/passengers', component: ViewAccidentPassengersComponent },
+  { path: 'accidents/:id/vehicles/:vehicleId/drivers', component: ViewAccidentVehicleDriversComponent },
+  { path: 'accidents/:id/police', component: ViewAccidentPoliceComponent },
 
   { path: 'offences', redirectTo : "offences/all",pathMatch : "full"},
   { path: 'offences/all', component: OffenceCaptureHomeComponent },
@@ -67,8 +89,6 @@ export const routes: Routes  = [
   { path: 'offences/:id/vehicle', component: ViewOffenceVehicleComponent },
   { path: 'offences/:id/driver', component: ViewOffenceDriverComponent },
   { path: 'offences:id/police', component: ViewOffencePoliceComponent },
-
-  { path: 'vehicles', component: VehicleCaptureHomeComponent },
   { path: 'accident-view', component: AccidentViewHomeComponent },
   { path: 'community', component: CommunityPolicingHomeComponent },
   { path: 'drivers', redirectTo : "drivers/all",pathMatch : "full"},

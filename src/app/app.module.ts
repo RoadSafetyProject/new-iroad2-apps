@@ -8,7 +8,6 @@ import {routing} from "./app.routes";
 
 import { AppComponent } from './app.component';
 
-import { AccidentHommeComponent } from './apps/accident-capture/accident-homme/accident-homme.component';
 import { VehicleCaptureHomeComponent } from './apps/vehicle-capture/vehicle-capture-home/vehicle-capture-home.component';
 
 import { InsuranceHomeComponent } from './apps/insurance-capture/insurance-home/insurance-home.component';
@@ -40,6 +39,16 @@ import { AddOffencePaymentComponent } from './apps/offence-capture/add-offence-p
 import { ViewOffenceDriverComponent } from './apps/offence-capture/view-offence-driver/view-offence-driver.component';
 import { ViewOffenceVehicleComponent } from './apps/offence-capture/view-offence-vehicle/view-offence-vehicle.component';
 import { ViewOffencePoliceComponent } from './apps/offence-capture/view-offence-police/view-offence-police.component';
+import { AccidentHommeComponent } from './apps/accident-capture/accident-homme/accident-homme.component';
+import { AddAccidentComponent } from './apps/accident-capture/add-accident/add-accident.component';
+import { ViewAccidentComponent } from './apps/accident-capture/view-accident/view-accident.component';
+import { UpdateAccidentComponent } from './apps/accident-capture/update-accident/update-accident.component';
+import { ViewAccidentWitnessesComponent } from './apps/accident-capture/view-accident-witnesses/view-accident-witnesses.component';
+import { ViewAccidentVehiclesComponent } from './apps/accident-capture/view-accident-vehicles/view-accident-vehicles.component';
+import { ViewAccidentVehiclePassengersComponent } from './apps/accident-capture/view-accident-vehicle-passengers/view-accident-vehicle-passengers.component';
+import { ViewAccidentPassengersComponent } from './apps/accident-capture/view-accident-passengers/view-accident-passengers.component';
+import { ViewAccidentVehicleDriversComponent } from './apps/accident-capture/view-accident-vehicle-drivers/view-accident-vehicle-drivers.component';
+import { ViewAccidentPoliceComponent } from './apps/accident-capture/view-accident-police/view-accident-police.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +67,7 @@ import { ViewOffencePoliceComponent } from './apps/offence-capture/view-offence-
     ViewInsuranceComponent, ViewInsuranceVehiclesComponent,
     AddOffenceComponent, UpdateOffenceComponent, ViewOffenceComponent,
     ViewOffenceRegistryComponent, ViewOffencePaymentComponent, AddOffencePaymentComponent,
-    ViewOffenceDriverComponent, ViewOffenceVehicleComponent, ViewOffencePoliceComponent,
+    ViewOffenceDriverComponent, ViewOffenceVehicleComponent, ViewOffencePoliceComponent, AddAccidentComponent, ViewAccidentComponent, UpdateAccidentComponent, ViewAccidentWitnessesComponent, ViewAccidentVehiclesComponent, ViewAccidentVehiclePassengersComponent, ViewAccidentPassengersComponent, ViewAccidentVehicleDriversComponent, ViewAccidentPoliceComponent,
   ],
   imports: [
     BrowserModule,

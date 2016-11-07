@@ -19,19 +19,22 @@ import {AddInsuranceComponent} from "./apps/insurance-capture/add-insurance/add-
 import { UpdateInsuranceComponent } from './apps/insurance-capture/update-insurance/update-insurance.component';
 import { ViewInsuranceComponent } from './apps/insurance-capture/view-insurance/view-insurance.component';
 import { ViewInsuranceVehiclesComponent } from './apps/insurance-capture/view-insurance-vehicles/view-insurance-vehicles.component';
+import { SumatraViewBusinessHistoryComponent } from './apps/sumatra/sumatra-view-business-history/sumatra-view-business-history.component';
+import { SumatraViewVehicleComponent } from './apps/sumatra/sumatra-view-vehicle/sumatra-view-vehicle.component';
+import { SumatraAddBusinessHistoryComponent } from './apps/sumatra/sumatra-add-business-history/sumatra-add-business-history.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SumatraHomeComponent,
+    SumatraHomeComponent,SumatraViewBusinessHistoryComponent,SumatraViewVehicleComponent,SumatraAddBusinessHistoryComponent,
     AccidentHommeComponent,
     AccidentViewHomeComponent,
     OffenceCaptureHomeComponent,
     DriverCaptureHomeComponent,
     VehicleCaptureHomeComponent,
     CommunityPolicingHomeComponent,
-    InsuranceHomeComponent,AddInsuranceComponent, UpdateInsuranceComponent, ViewInsuranceComponent, ViewInsuranceVehiclesComponent
+    InsuranceHomeComponent,AddInsuranceComponent, UpdateInsuranceComponent, ViewInsuranceComponent, ViewInsuranceVehiclesComponent,
 
   ],
   imports: [

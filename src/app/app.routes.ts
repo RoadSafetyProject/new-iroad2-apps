@@ -14,6 +14,7 @@ import { CommunityPolicingHomeComponent } from './apps/community-policing/commun
 import { InsuranceHomeComponent } from './apps/insurance-capture/insurance-home/insurance-home.component';
 
 export const routes: Routes  = [
+  { path: '', redirectTo : "accidents",pathMatch : "full"},
   { path: 'accidents', component: AccidentHommeComponent },
   { path: 'offences', component: OffenceCaptureHomeComponent },
   { path: 'sumatra', component: SumatraHomeComponent },

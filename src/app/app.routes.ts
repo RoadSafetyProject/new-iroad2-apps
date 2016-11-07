@@ -6,17 +6,17 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AccidentHommeComponent } from './apps/accident-capture/accident-homme/accident-homme.component';
 
-import { OffenceCaptureHomeComponent } from './apps/offence-capture/offence-capture-home/offence-capture-home.component';
+
 
 import { VehicleCaptureHomeComponent } from './apps/vehicle-capture/vehicle-capture-home/vehicle-capture-home.component';
 
-//routes for accident view
+//routes for accident view app
 import { AccidentViewHomeComponent } from './apps/accident-view/accident-view-home/accident-view-home.component';
 
-//routes for community policing
+//routes for community policing app
 import { CommunityPolicingHomeComponent } from './apps/community-policing/community-policing-home/community-policing-home.component';
 
-//rotes for insurance capture
+//rotes for insurance capture app
 import { InsuranceHomeComponent } from './apps/insurance-capture/insurance-home/insurance-home.component';
 import { AddInsuranceComponent } from "./apps/insurance-capture/add-insurance/add-insurance.component";
 import { UpdateInsuranceComponent } from './apps/insurance-capture/update-insurance/update-insurance.component';
@@ -29,7 +29,7 @@ import { SumatraViewBusinessHistoryComponent } from './apps/sumatra/sumatra-view
 import { SumatraViewVehicleComponent } from './apps/sumatra/sumatra-view-vehicle/sumatra-view-vehicle.component';
 import { SumatraAddBusinessHistoryComponent } from './apps/sumatra/sumatra-add-business-history/sumatra-add-business-history.component';
 
-//routes for driver capture
+//routes for driver capture app
 import { DriverCaptureHomeComponent } from './apps/driver-capture/driver-capture-home/driver-capture-home.component';
 import { AddDriverComponent } from './apps/driver-capture/add-driver/add-driver.component';
 import { UpdateDriverComponent } from './apps/driver-capture/update-driver/update-driver.component';
@@ -39,10 +39,35 @@ import { AddDriverLicenceComponent } from './apps/driver-capture/add-driver-lice
 import { ViewDriverAccidentsComponent } from './apps/driver-capture/view-driver-accidents/view-driver-accidents.component';
 import { ViewDriverOffencesComponent } from './apps/driver-capture/view-driver-offences/view-driver-offences.component';
 
+//rotes for offence capture app
+import { OffenceCaptureHomeComponent } from './apps/offence-capture/offence-capture-home/offence-capture-home.component';
+import { AddOffenceComponent } from './apps/offence-capture/add-offence/add-offence.component';
+import { UpdateOffenceComponent } from './apps/offence-capture/update-offence/update-offence.component';
+import { ViewOffenceComponent } from './apps/offence-capture/view-offence/view-offence.component';
+import { ViewOffenceRegistryComponent } from './apps/offence-capture/view-offence-registry/view-offence-registry.component';
+import { ViewOffencePaymentComponent } from './apps/offence-capture/view-offence-payment/view-offence-payment.component';
+import { AddOffencePaymentComponent } from './apps/offence-capture/add-offence-payment/add-offence-payment.component';
+import { ViewOffenceDriverComponent } from './apps/offence-capture/view-offence-driver/view-offence-driver.component';
+import { ViewOffenceVehicleComponent } from './apps/offence-capture/view-offence-vehicle/view-offence-vehicle.component';
+import { ViewOffencePoliceComponent } from './apps/offence-capture/view-offence-police/view-offence-police.component';
+
 export const routes: Routes  = [
   { path: '', redirectTo : "insurances/all",pathMatch : "full"},
   { path: 'accidents', component: AccidentHommeComponent },
-  { path: 'offences', component: OffenceCaptureHomeComponent },
+
+  { path: 'offences', redirectTo : "offences/all",pathMatch : "full"},
+  { path: 'offences/all', component: OffenceCaptureHomeComponent },
+  { path: 'offences/add', component: AddOffenceComponent },
+  { path: 'offences/:id/update', component: UpdateOffenceComponent },
+  { path: 'offences/:id', redirectTo : "offences/:id/view",pathMatch : "full"},
+  { path: 'offences/:id/view', component: ViewOffenceComponent },
+  { path: 'offences/:id/registry', component: ViewOffenceRegistryComponent },
+  { path: 'offences/:id/payment', component: ViewOffencePaymentComponent },
+  { path: 'offences/:id/payment/add', component: AddOffencePaymentComponent },
+  { path: 'offences/:id/vehicle', component: ViewOffenceVehicleComponent },
+  { path: 'offences/:id/driver', component: ViewOffenceDriverComponent },
+  { path: 'offences:id/police', component: ViewOffencePoliceComponent },
+
   { path: 'vehicles', component: VehicleCaptureHomeComponent },
   { path: 'accident-view', component: AccidentViewHomeComponent },
   { path: 'community', component: CommunityPolicingHomeComponent },

@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SumatraHomeComponent implements OnInit {
 
+  pageSize = 5;
+
+  total = 21;
+
   constructor() { }
 
   ngOnInit() {

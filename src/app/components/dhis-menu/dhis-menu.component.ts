@@ -19,12 +19,13 @@ export class DhisMenuComponent implements OnInit {
   start_module: string;
   application_style: string;
   constructor( private elementRef: ElementRef,  private http: Http ) {
-    window['dhis2'] = window['dhis2']|| {};
-    window['dhis2'].settings = window['dhis2'].settings || {};
-    window['dhis2'].settings.baseUrl = '/';
+
   }
 
   ngOnInit() {
+    window['dhis2'] = window['dhis2']|| {};
+    window['dhis2'].settings = window['dhis2'].settings || {};
+    window['dhis2'].settings.baseUrl = "demo";
     this.getSystemSettings()
       .subscribe(
         (data: any) => {

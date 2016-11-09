@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 
 import { LocationStrategy,HashLocationStrategy } from '@angular/common';
 import {routing} from "./app.routes";
-
 import { AppComponent } from './app.component';
 
 import { InsuranceHomeComponent } from './apps/insurance-capture/insurance-home/insurance-home.component';

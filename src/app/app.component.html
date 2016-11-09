@@ -1,3 +1,15 @@
 <h1>
   {{title}}
 </h1>
+<nav>
+  <a [routerLink]="['/accidents']">Accident</a>
+  <a [routerLink]="['/offences']">Offences</a>
+  <a [routerLink]="['/sumatra']">Sumatra</a>
+  <a [routerLink]="['/community']">Community policing</a>
+  <a [routerLink]="['/vehicles']">Vehicle</a>
+  <a [routerLink]="['/accident-view']">Accident View</a>
+  <a [routerLink]="['/drivers']">Drivers</a>
+  <a [routerLink]="['/insurances']">Insurance</a>
+</nav>
+
+<router-outlet></router-outlet>

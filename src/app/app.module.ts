@@ -72,6 +72,7 @@ import { ViewVehicleLicenceComponent } from './apps/vehicle-capture/view-vehicle
 import { DhisMenuComponent } from './components/dhis-menu/dhis-menu.component';
 import { DhisTableComponent } from './components/dhis-table/dhis-table.component';
 import { PagesPipe } from './components/dhis-table/pages.pipe';
+import { IsModel } from './models/is-model';
 
 @NgModule({
   declarations: [
@@ -104,6 +105,7 @@ import { PagesPipe } from './components/dhis-table/pages.pipe';
     DhisMenuComponent,
     DhisTableComponent,
     PagesPipe,
+    //IsModel
   ],
   imports: [
     BrowserModule,

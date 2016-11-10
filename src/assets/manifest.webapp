@@ -1,0 +1,21 @@
+{
+    "version": "0.1",
+    "name": "iROAD 2",
+    "description": "iROAD 2 app",
+    "launch_path": "index.html",
+    "icons": {
+        "16": "/img/icon.png",
+        "48": "/img/icon.png",
+        "128": "/img/icon.png"
+    },
+    "developer": {
+        "name": "iROAD 2 Team",
+        "url": "roadsafety.go.tz"
+    },
+    "default_locale": "en",
+    "activities": {
+        "dhis": {
+            "href": "../../.."
+        }
+    }
+}

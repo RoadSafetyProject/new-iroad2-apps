@@ -4,6 +4,8 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+//@todo adding laz loading for each app
+
 //routes for accident view app
 import { AccidentViewHomeComponent } from './apps/accident-view/accident-view-home/accident-view-home.component';
 

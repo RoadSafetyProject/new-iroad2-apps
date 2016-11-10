@@ -1,8 +1,19 @@
+import {ProgramStage} from "../models/program-stage";
 import { Injectable } from '@angular/core';
 
-@Injectable()
 export class ProgramStageService {
 
-  constructor() { }
+  protected programStage:ProgramStage;
+  constructor() {
+    //this.programStage = new T();
 
+    /*this.getProgramStage()/*.then((data) =>{
+      console.log(data);
+    })*/
+  }
+
+
+  getSchema():any {
+    //programStage.getName()
+  }
 }

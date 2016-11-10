@@ -69,6 +69,9 @@ import { AddVehicleOwnerComponent } from './apps/vehicle-capture/add-vehicle-own
 import { AddVehicleLicenceComponent } from './apps/vehicle-capture/add-vehicle-licence/add-vehicle-licence.component';
 import { ViewVehicleLicenceComponent } from './apps/vehicle-capture/view-vehicle-licence/view-vehicle-licence.component';
 import { DhisMenuComponent } from './components/dhis-menu/dhis-menu.component';
+import { DhisTableComponent } from './components/dhis-table/dhis-table.component';
+import { PagesPipe } from './components/dhis-table/pages.pipe';
+import { IsModel } from './models/is-model';
 
 @NgModule({
   declarations: [
@@ -99,6 +102,9 @@ import { DhisMenuComponent } from './components/dhis-menu/dhis-menu.component';
     AddVehicleLicenceComponent,
     ViewVehicleLicenceComponent,
     DhisMenuComponent,
+    DhisTableComponent,
+    PagesPipe,
+    //IsModel
   ],
   imports: [
     BrowserModule,

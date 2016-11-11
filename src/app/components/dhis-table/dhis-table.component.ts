@@ -1,5 +1,6 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input,ViewChild } from '@angular/core';
 import {PagesPipe} from './pages.pipe'
+import { ContextMenuService, ContextMenuComponent } from 'angular2-contextmenu';
 
 @Component({
   selector: 'dhis-table',
@@ -27,7 +28,37 @@ export class DhisTableComponent implements OnInit {
   };
   @Input() total:number;
 
-  constructor() { }
+  public items: any[] = [
+    { name: 'John', otherProperty: 'Foo' },
+    { name: 'Joe', otherProperty: 'Bar' },
+  ];
+
+  //@ViewChild('basicMenu') public basicMenu: ContextMenuComponent;
+
+  constructor(private contextMenuService: ContextMenuService) {}
+
+  public onContextMenu($event: MouseEvent, item: any): void {
+    this.contextMenuService.show.next({
+      actions: [
+        {
+          html: (item) => `Say hi!`,
+          click: (item) => alert('Hi, ' + item.name)
+        },
+        {
+          html: (item) => `Something else`,
+          click: (item) => alert('Or not...')
+        },
+      ],
+      event: $event,
+      item: item,
+    });
+    $event.preventDefault();
+    $event.stopPropagation();
+  }
+
+  public showMessage(message: string): void {
+    console.log(message);
+  }
 
   ngOnInit() {
   }

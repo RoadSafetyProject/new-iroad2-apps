@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { ContextMenuModule } from 'angular2-contextmenu';
 
 import { LocationStrategy,HashLocationStrategy } from '@angular/common';
 import {routing} from "./app.routes";
@@ -110,6 +111,7 @@ import { IsModel } from './models/is-model';
     BrowserModule,
     FormsModule,
     HttpModule,
+    ContextMenuModule,
     routing
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],

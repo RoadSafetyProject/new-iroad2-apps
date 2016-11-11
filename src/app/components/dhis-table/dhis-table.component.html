@@ -1,3 +1,18 @@
+
+<!--<ul>-->
+  <!--<li *ngFor="let item of items" [contextMenu]="basicMenu" [contextMenuSubject]="item">Right Click: {{item?.name}}</li>-->
+<!--</ul>-->
+<!--<context-menu #basicMenu>-->
+  <!--<template contextMenuItem (execute)="showMessage('Hi, ' + $event.item.name)">-->
+    <!--Say hi!-->
+  <!--</template>-->
+<!--</context-menu>-->
+
+<ul>
+  <li *ngFor="let item of items" (contextmenu)="onContextMenu($event, item)">Right Click: {{item.name}}</li>
+</ul>
+<context-menu></context-menu>
+
 <table class="table table-striped">
   <thead>
   <tr>
@@ -47,3 +62,5 @@
 
   </ul>
 </nav>
+
+

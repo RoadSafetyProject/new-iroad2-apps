@@ -28,27 +28,54 @@ export class DhisTableComponent implements OnInit {
   };
   @Input() total:number;
 
+  @Input() menuActions :any;
+  private contextMenuOptions : any;
+
+  //sample to testing context menu
   public items: any[] = [
-    { name: 'John', otherProperty: 'Foo' },
-    { name: 'Joe', otherProperty: 'Bar' },
+    { firstName: 'John', lastName: 'Mukulu',id : "1",username : "mukulu"},
+    { firstName: 'Joseph', lastName: 'Chingalo',id : "2",username : "chingalo"},
+    { firstName: 'Vincent', lastName: 'Minde',id : "3",username : "vincentminde"},
+    { firstName: 'Joel', lastName: 'Jacob',id : "4",username : "jay"},
+    { firstName: 'John', lastName: 'Foo',id : "5",username : "jfoo"},
   ];
 
   //@ViewChild('basicMenu') public basicMenu: ContextMenuComponent;
 
-  constructor(private contextMenuService: ContextMenuService) {}
+  constructor(private contextMenuService: ContextMenuService) {
 
+  }
+  ngOnInit() {
+    this.setContextMenuAction(this.menuActions);
+  }
+
+  /**
+   * method to set context menu, menuActions is array of object with two attribute title and url
+   * @param menuActions
+   */
+  //todo remain handling for all url conversion
+  private setContextMenuAction(menuActions){
+    this.contextMenuOptions = [];
+    menuActions.forEach((menuAction :any)=>{
+      this.contextMenuOptions.push({
+        html : ()=> menuAction.title,
+        click : (item)=>{
+          let url = menuAction.url.replace(':id',item.id);
+          console.log(url);
+        }
+      });
+    })
+  }
+
+
+  /**
+   * note item id object on the row
+   * @param $event
+   * @param item
+   */
   public onContextMenu($event: MouseEvent, item: any): void {
     this.contextMenuService.show.next({
-      actions: [
-        {
-          html: (item) => `Say hi!`,
-          click: (item) => alert('Hi, ' + item.name)
-        },
-        {
-          html: (item) => `Something else`,
-          click: (item) => alert('Or not...')
-        },
-      ],
+      actions: this.contextMenuOptions,
       event: $event,
       item: item,
     });
@@ -56,12 +83,6 @@ export class DhisTableComponent implements OnInit {
     $event.stopPropagation();
   }
 
-  public showMessage(message: string): void {
-    console.log(message);
-  }
-
-  ngOnInit() {
-  }
 
   pageChange(page){
     this._page = Math.ceil(page);

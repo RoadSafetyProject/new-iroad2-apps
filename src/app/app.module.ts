@@ -111,7 +111,9 @@ import { IsModel } from './models/is-model';
     BrowserModule,
     FormsModule,
     HttpModule,
-    ContextMenuModule,
+    ContextMenuModule.forRoot({
+      useBootstrap4: true,
+    }),
     routing
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],

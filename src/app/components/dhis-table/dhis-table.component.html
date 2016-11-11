@@ -7,11 +7,10 @@
     <!--Say hi!-->
   <!--</template>-->
 <!--</context-menu>-->
+<!--<ul>-->
+  <!--<li *ngFor="let item of items" (contextmenu)="onContextMenu($event, item)">Right Click: {{item.name}}</li>-->
+<!--</ul>-->
 
-<ul>
-  <li *ngFor="let item of items" (contextmenu)="onContextMenu($event, item)">Right Click: {{item.name}}</li>
-</ul>
-<context-menu></context-menu>
 
 <table class="table table-striped">
   <thead>
@@ -23,26 +22,28 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <th scope="row">1</th>
-    <td>Mark</td>
-    <td>Otto</td>
-    <td>@mdo</td>
+  <tr *ngFor="let item of items;let currentIndex = index" (contextmenu)="onContextMenu($event, item)">
+    <th scope="row">{{ currentIndex + 1 }}</th>
+    <td>{{ item.firstName }}</td>
+    <td>{{ item.lastName }}</td>
+    <td>{{ item.username }}</td>
   </tr>
-  <tr>
-    <th scope="row">2</th>
-    <td>Jacob</td>
-    <td>Thornton</td>
-    <td>@fat</td>
-  </tr>
-  <tr>
-    <th scope="row">3</th>
-    <td>Larry</td>
-    <td>the Bird</td>
-    <td>@twitter</td>
-  </tr>
+  <!--<tr>-->
+    <!--<th scope="row">2</th>-->
+    <!--<td>Jacob</td>-->
+    <!--<td>Thornton</td>-->
+    <!--<td>@fat</td>-->
+  <!--</tr>-->
+  <!--<tr>-->
+    <!--<th scope="row">3</th>-->
+    <!--<td>Larry</td>-->
+    <!--<td>the Bird</td>-->
+    <!--<td>@twitter</td>-->
+  <!--</tr>-->
   </tbody>
 </table>
+<context-menu [useBootstrap4]="true"></context-menu>
+
 <nav>
   <ul class="pagination">
 

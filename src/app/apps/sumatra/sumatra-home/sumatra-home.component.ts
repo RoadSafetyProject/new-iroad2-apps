@@ -14,12 +14,28 @@ export class SumatraHomeComponent implements OnInit {
 
   total = 21;
 
+  private menuActions : any;
   constructor(private vehicleService:VehicleService) {
 
   }
 
   ngOnInit() {
+    this.initiateMenuActions();
     //this.vehicleService.getAll()
+  }
+
+  initiateMenuActions(){
+    this.menuActions =[
+      {
+        title : "View Vehicle",
+        url : "sumatra/vehicles/:id"
+      },{
+        title : "Add Business Licence",
+        url : "sumatra/vehicles/:id/business-history/add"
+      },{
+        title : "View Business Licence",
+        url : "sumatra/vehicles/:id/business-history"
+      }];
   }
 
 }

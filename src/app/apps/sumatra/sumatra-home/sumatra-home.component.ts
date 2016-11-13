@@ -15,13 +15,20 @@ export class SumatraHomeComponent implements OnInit {
   total = 21;
 
   private menuActions : any;
+  private vehicleProgram;
+  private vehicles;
   constructor(private vehicleService:VehicleService) {
 
   }
 
   ngOnInit() {
     this.initiateMenuActions();
-    //this.vehicleService.getAll()
+    this.vehicleService.getProgram().then((vehicleProgram) =>{
+      this.vehicleProgram = vehicleProgram;
+      this.vehicleService.getEvents().then(vehicles =>{
+        this.vehicles = vehicles;
+      })
+    })
   }
 
   initiateMenuActions(){

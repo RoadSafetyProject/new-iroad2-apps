@@ -72,7 +72,7 @@ import { ViewVehicleLicenceComponent } from './apps/vehicle-capture/view-vehicle
 import { DhisMenuComponent } from './components/dhis-menu/dhis-menu.component';
 import { DhisTableComponent } from './components/dhis-table/dhis-table.component';
 import { PagesPipe } from './components/dhis-table/pages.pipe';
-import { IsModel } from './models/is-model';
+import { ExtractDataValuePipe } from './components/dhis-table/extract-data-value.pipe';
 
 @NgModule({
   declarations: [
@@ -105,7 +105,7 @@ import { IsModel } from './models/is-model';
     DhisMenuComponent,
     DhisTableComponent,
     PagesPipe,
-    //IsModel
+    ExtractDataValuePipe
   ],
   imports: [
     BrowserModule,

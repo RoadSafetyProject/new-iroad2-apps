@@ -1,12 +1,15 @@
 import { Component, OnInit,Input,ViewChild } from '@angular/core';
 import {PagesPipe} from './pages.pipe'
 import { ContextMenuService, ContextMenuComponent } from 'angular2-contextmenu';
+import {IProgramStage} from "../../models/program-stage";
+import {IEventsWrapper} from "../../models/event";
+import {ExtractDataValuePipe} from "./extract-data-value.pipe";
 
 @Component({
   selector: 'dhis-table',
   templateUrl: './dhis-table.component.html',
   styleUrls: ['./dhis-table.component.css'],
-  providers: [ PagesPipe ]
+  providers: [ PagesPipe,ExtractDataValuePipe ]
 })
 export class DhisTableComponent implements OnInit {
 
@@ -29,6 +32,8 @@ export class DhisTableComponent implements OnInit {
   @Input() total:number;
 
   @Input() menuActions :any;
+  @Input() programStage :IProgramStage;
+  @Input() eventWrapper :IEventsWrapper;
   private contextMenuOptions : any;
 
   //sample to testing context menu

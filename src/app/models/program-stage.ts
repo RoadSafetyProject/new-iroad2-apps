@@ -1,8 +1,10 @@
 import {ProgramStageDataElement} from "./program-stage-data-element";
 import {IsModel} from "./is-model";
+import {Program} from "./program";
 
 export interface IProgramStage {
   id:string;
+  program:Program;
   displayName:string;
   description:string;
   captureCoordinates:boolean;
@@ -14,6 +16,7 @@ export interface IProgramStage {
  */
 export abstract class ProgramStage implements IProgramStage,IsModel{
   id:string;
+  program:Program;
   displayName:string;
   description:string;
   captureCoordinates:boolean;
@@ -23,10 +26,14 @@ export abstract class ProgramStage implements IProgramStage,IsModel{
     if(programStage){
       this.id = programStage.id;
       this.displayName = programStage.displayName;
+      this.program = programStage.program;
       this.description = programStage.description;
       this.captureCoordinates = programStage.captureCoordinates;
       this.programStageDataElements = programStage.programStageDataElements;
     }
+  }
+  getProgramStageDataElements(){
+    return this.programStageDataElements;
   }
   abstract getName():string;
 }

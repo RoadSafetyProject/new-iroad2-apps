@@ -1,4 +1,8 @@
 <p>
   sumatra-home works!
 </p>
-<dhis-table [(pageSize)]="pageSize" [(total)]="total" [(menuActions)]="menuActions"></dhis-table>
+<div *ngIf="vehicleProgram">
+  <dhis-table [(pageSize)]="pageSize"
+              [(total)]="total" [(menuActions)]="menuActions"
+              [(programStage)]="vehicleProgram" [(eventWrapper)]="vehicles"></dhis-table>
+</div>

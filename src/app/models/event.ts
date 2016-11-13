@@ -45,3 +45,14 @@ export class Event implements IEvent{
 
   }
 }
+export interface IPager {
+  page:number;
+  pageCount:number;
+  total:number;
+  pageSize:number;
+}
+export interface IEventsWrapper {
+  pager:IPager;
+  events:Array<Event>;
+}
+

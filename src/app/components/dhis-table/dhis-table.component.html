@@ -16,26 +16,26 @@
 </table>
 <context-menu [useBootstrap4]="true"></context-menu>
 
-<nav>
+<nav *ngIf="eventWrapper">
   <ul class="pagination">
 
-    <li [ngClass]="{'disabled': _page == 1}" class="page-item" (click)="pageChange(1)"><a href="javascript:void(0)"
+    <li [ngClass]="{'disabled': eventWrapper.pager.page == 1}" class="page-item" (click)="pageChange(1)"><a href="javascript:void(0)"
                                                                                           class="page-link">First</a>
     </li>
-    <li [ngClass]="{'disabled': _page == 1}" class="page-item">
-      <a href="javascript:void(0)" (click)="pageChange(_page - 1)" class="page-link" aria-label="Previous">
+    <li [ngClass]="{'disabled': eventWrapper.pager.page == 1}" class="page-item">
+      <a href="javascript:void(0)" (click)="pageChange(eventWrapper.pager.page - 1)" class="page-link" aria-label="Previous">
         <span aria-hidden="true">«</span>
       </a>
     </li>
-    <li [ngClass]="{'active': _page == key}" class="page-item" *ngFor="let key of _pageSize | pages:total"
+    <li [ngClass]="{'active': eventWrapper.pager.page == key}" class="page-item" *ngFor="let key of eventWrapper.pager.pageCount | pages"
         (click)="pageChange(key)"><a href="javascript:void(0)" class="page-link">{{key}}</a></li>
-    <li [ngClass]="{'disabled': _page == ceil(total/ _pageSize)}" class="page-item" (click)="pageChange(_page + 1)">
+    <li [ngClass]="{'disabled': eventWrapper.pager.page == eventWrapper.pager.pageCount}" class="page-item" (click)="pageChange(eventWrapper.pager.page + 1)">
       <a href="javascript:void(0)" class="page-link">
         <span aria-hidden="true">»</span>
       </a>
     </li>
-    <li [ngClass]="{'disabled': _page == ceil(total/ _pageSize)}" class="page-item"
-        (click)="pageChange(total/ _pageSize)"><a href="javascript:void(0)" class="page-link">Last</a></li>
+    <li [ngClass]="{'disabled': eventWrapper.pager.page == eventWrapper.pager.pageCount}" class="page-item"
+        (click)="pageChange(eventWrapper.pager.total/ eventWrapper.pager.pageSize)"><a href="javascript:void(0)" class="page-link">Last</a></li>
 
   </ul>
 </nav>

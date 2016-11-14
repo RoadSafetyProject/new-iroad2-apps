@@ -1,3 +1,8 @@
 <p>
   sumatra-view-business-history works!
 </p>
+<div *ngIf="vehicleProgram">
+  <dhis-table [(pageSize)]="pageSize"
+              [(total)]="total" [(menuActions)]="menuActions"
+              [(programStage)]="vehicleProgram" [(eventWrapper)]="vehicles"></dhis-table>
+</div>

@@ -24,7 +24,6 @@ export class SumatraViewVehicleComponent implements OnInit {
       this.vehicleProgramStage = vehicleProgram;
       this.vehicleService.get(this.id).then((vehicle) =>{
         this.vehicle = vehicle;
-        console.log(vehicle.event);
       })
     })
   }

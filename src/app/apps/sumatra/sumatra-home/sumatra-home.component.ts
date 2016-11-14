@@ -26,6 +26,7 @@ export class SumatraHomeComponent implements OnInit {
     this.vehicleService.getProgram().then((vehicleProgram) =>{
       this.vehicleProgram = vehicleProgram;
       this.vehicleService.getEvents().then(vehicles =>{
+        console.log(vehicles);
         this.vehicles = vehicles;
       })
     })

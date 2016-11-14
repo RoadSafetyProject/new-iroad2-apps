@@ -24,7 +24,6 @@ export class VehicleService{
           ",displayInReports,compulsory,allowProvidedElseWhere,allowFutureDate,sortOrder]" +
           "&filter=program.name:eq:"
           + (new Vehicle()).getName()).subscribe((results) =>{
-          console.log(results.json().programStages[0].program);
           this.vehicleProgram = new Vehicle(results.json().programStages[0]);
           resolve(this.vehicleProgram);
         })
@@ -36,6 +35,13 @@ export class VehicleService{
       this.http.get("api/events.json?program=" + this.vehicleProgram.program.id).subscribe((results) =>{
         this.vehicles = results.json();
         resolve(this.vehicles);
+      })
+    });
+  }
+  get(id){
+    return new Promise((resolve, reject) => {
+      this.http.get("api/events/" + id+ ".json").subscribe((results) =>{
+        resolve(results.json());
       })
     });
   }

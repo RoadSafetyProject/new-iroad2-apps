@@ -1,16 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {IProgramStageDataElement} from "../../models/program-stage-data-element";
 import {IEvent} from "../../models/event";
+import {IDataElement} from "../../models/data-element";
 
 @Pipe({
   name: 'extractDataValue'
 })
 export class ExtractDataValuePipe implements PipeTransform {
 
-  transform(event: IEvent, programStageDataElement: IProgramStageDataElement): any {
+  transform(event: IEvent, dataElement: IDataElement): any {
     let value = "";
     event.dataValues.forEach((dataValue) =>{
-      if(dataValue.dataElement == programStageDataElement.dataElement.id){
+      if(dataValue.dataElement == dataElement.id){
         value = dataValue.value
       }
     })

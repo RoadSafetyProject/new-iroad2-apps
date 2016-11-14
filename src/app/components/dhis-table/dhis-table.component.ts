@@ -4,6 +4,7 @@ import { ContextMenuService, ContextMenuComponent } from 'angular2-contextmenu';
 import {IProgramStage} from "../../models/program-stage";
 import {IEventsWrapper} from "../../models/event";
 import {ExtractDataValuePipe} from "./extract-data-value.pipe";
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'dhis-table',
@@ -36,18 +37,9 @@ export class DhisTableComponent implements OnInit {
   @Input() eventWrapper :IEventsWrapper;
   private contextMenuOptions : any;
 
-  //sample to testing context menu
-  public items: any[] = [
-    { firstName: 'John', lastName: 'Mukulu',id : "1",username : "mukulu"},
-    { firstName: 'Joseph', lastName: 'Chingalo',id : "2",username : "chingalo"},
-    { firstName: 'Vincent', lastName: 'Minde',id : "3",username : "vincentminde"},
-    { firstName: 'Joel', lastName: 'Jacob',id : "4",username : "jay"},
-    { firstName: 'John', lastName: 'Foo',id : "5",username : "jfoo"},
-  ];
-
   //@ViewChild('basicMenu') public basicMenu: ContextMenuComponent;
 
-  constructor(private contextMenuService: ContextMenuService) {
+  constructor(private contextMenuService: ContextMenuService,private router: Router) {
 
   }
   ngOnInit() {
@@ -64,8 +56,9 @@ export class DhisTableComponent implements OnInit {
     menuActions.forEach((menuAction :any)=>{
       this.contextMenuOptions.push({
         html : ()=> menuAction.title,
-        click : (item)=>{
-          let url = menuAction.url.replace(':id',item.id);
+        click : (event)=>{
+          let url = menuAction.url.replace(':id',event.event);
+          this.router.navigate([url]);
           console.log(url);
         }
       });
@@ -78,11 +71,11 @@ export class DhisTableComponent implements OnInit {
    * @param $event
    * @param item
    */
-  public onContextMenu($event: MouseEvent, item: any): void {
+  public onContextMenu($event: MouseEvent, event: any): void {
     this.contextMenuService.show.next({
       actions: this.contextMenuOptions,
       event: $event,
-      item: item,
+      item: event,
     });
     $event.preventDefault();
     $event.stopPropagation();
@@ -90,7 +83,7 @@ export class DhisTableComponent implements OnInit {
 
 
   pageChange(page){
-    this._page = Math.ceil(page);
+    this._page = this.ceil(page);
   }
   ceil(value){
     return Math.ceil(value);

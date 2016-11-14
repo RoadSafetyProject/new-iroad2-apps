@@ -1,0 +1,10 @@
+<table class="table table-striped">
+  <tbody>
+  <tr *ngFor="let programStageDataElement of programStage.programStageDataElements" (contextmenu)="onContextMenu($event, event)">
+    <th scope="row">{{ programStageDataElement.dataElement.name }}</th>
+    <td >
+      <dhis-view [(event)]="event" [(dataElement)]="programStageDataElement.dataElement"></dhis-view>
+    </td>
+  </tr>
+  </tbody>
+</table>

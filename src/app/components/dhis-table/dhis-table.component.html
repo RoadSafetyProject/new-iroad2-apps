@@ -1,4 +1,4 @@
-<table class="table table-striped">
+<table class="table table-striped table-hover">
   <thead>
   <tr>
     <th>#</th>
@@ -10,7 +10,7 @@
   <tbody *ngIf="eventWrapper">
   <tr *ngFor="let event of eventWrapper.events;let currentIndex = index" (contextmenu)="onContextMenu($event, event)">
     <th scope="row">{{ currentIndex + 1 }}</th>
-    <td *ngFor="let programStageDataElement of programStage.programStageDataElements">{{ event | extractDataValue:programStageDataElement}}</td>
+    <td *ngFor="let programStageDataElement of programStage.programStageDataElements">{{ event | extractDataValue:programStageDataElement.dataElement}}</td>
   </tr>
   </tbody>
 </table>

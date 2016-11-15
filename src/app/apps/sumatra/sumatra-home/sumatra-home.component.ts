@@ -10,10 +10,6 @@ import {VehicleService} from "../../../services/vehicle.service";
 })
 export class SumatraHomeComponent implements OnInit {
 
-  pageSize = 5;
-
-  total = 21;
-
   private menuActions : any;
   private vehicleProgram;
   private vehicles;

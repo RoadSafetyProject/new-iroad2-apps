@@ -14,24 +14,6 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class DhisTableComponent implements OnInit {
 
-  private _pageSize: any = 10;
-  @Input() set pageSize(pageSize:any){
-    if(pageSize){
-      this._pageSize = 5;
-    }else{
-      this._pageSize = pageSize;
-    }
-  };
-  private _page: any = 1;
-  @Input() set page(page:any){
-    if(page){
-      this._page = 1;
-    }else{
-      this._page = page;
-    }
-  };
-  @Input() total:number;
-
   @Input() menuActions :any;
   @Input() programStage :IProgramStage;
   @Input() eventWrapper :IEventsWrapper;
@@ -83,9 +65,6 @@ export class DhisTableComponent implements OnInit {
 
 
   pageChange(page){
-    this._page = this.ceil(page);
-  }
-  ceil(value){
-    return Math.ceil(value);
+    //this._page = this.ceil(page);
   }
 }

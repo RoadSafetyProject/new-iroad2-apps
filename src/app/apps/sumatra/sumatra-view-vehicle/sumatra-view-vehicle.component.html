@@ -1,6 +1,6 @@
-<p>
-  sumatra-view-vehicle works!
-</p>
+<h3>
+  View Vehicle Details!
+</h3>
 <div *ngIf="vehicle" class="row">
   <div class="col-sm-9">
     <div class="col-sm-10">
@@ -12,18 +12,27 @@
   <div class="col-sm-3">
     <div class="card">
       <div class="card-header">
-        Menu
+        Related Menu
+      </div>
+      <div class="card-block">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/sumatra','vehicles',vehicle.event,'business-history']">Bussiness History</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/sumatra','vehicles',vehicle.event,'business-history','add']">Add New Bussiness Lisence</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        Main Menu
       </div>
       <div class="card-block">
         <ul class="nav">
           <li class="nav-item">
             <a class="nav-link active" href="#/sumatra/vehicles">List Vehicles</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/sumatra','vehicles',vehicle.event,'bussiness-history']">Bussiness History</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#/sumatra/vehicles/{{vehicle.event}}/bussiness-history/add">Add New Bussiness Lisence</a>
           </li>
         </ul>
       </div>

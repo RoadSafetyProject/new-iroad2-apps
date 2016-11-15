@@ -5,9 +5,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class PagesPipe implements PipeTransform {
 
-  transform(pageSize?: any, total?: any): any {
+  transform(pageCount?: any): any {
     var array = [];
-    for(let i = 1;i <= Math.ceil(total/pageSize);i++){
+    for(let i = 1;i <= pageCount;i++){
       array.push(i);
     }
     return array;

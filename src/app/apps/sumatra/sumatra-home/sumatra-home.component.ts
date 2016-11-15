@@ -10,10 +10,6 @@ import {VehicleService} from "../../../services/vehicle.service";
 })
 export class SumatraHomeComponent implements OnInit {
 
-  pageSize = 5;
-
-  total = 21;
-
   private menuActions : any;
   private vehicleProgram;
   private vehicles;
@@ -26,7 +22,6 @@ export class SumatraHomeComponent implements OnInit {
     this.vehicleService.getProgram().then((vehicleProgram) =>{
       this.vehicleProgram = vehicleProgram;
       this.vehicleService.getEvents().then(vehicles =>{
-        console.log(vehicles);
         this.vehicles = vehicles;
       })
     })

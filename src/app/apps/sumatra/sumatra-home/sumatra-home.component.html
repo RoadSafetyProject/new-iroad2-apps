@@ -1,11 +1,21 @@
 <h3>
-  Vehicle List
+  Sumatra App
 </h3>
 <ol class="breadcrumb">
   <li class="breadcrumb-item"><a href="#/sumatra/vehicles">Home</a></li>
   <li class="breadcrumb-item">Vehicles</li>
 </ol>
-<div *ngIf="vehicleProgram">
-  <dhis-table [(menuActions)]="menuActions"
-              [(programStage)]="vehicleProgram" [(eventWrapper)]="vehicles"></dhis-table>
+<div *ngIf="vehicleProgram" class="row">
+  <div class="col-sm-9">
+    <div class="card">
+      <div class="card-header">
+        Vehicle List
+      </div>
+      <div class="card-block">
+        <dhis-table [(menuActions)]="menuActions"
+                    [(programStage)]="vehicleProgram" [(eventWrapper)]="vehicles"></dhis-table>
+      </div>
+    </div>
+  </div>
 </div>
+

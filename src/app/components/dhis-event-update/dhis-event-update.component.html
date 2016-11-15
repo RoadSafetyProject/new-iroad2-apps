@@ -1,0 +1,10 @@
+<table class="table">
+  <tbody>
+  <tr  *ngFor="let programStageDataElement of programStage.programStageDataElements">
+    <th scope="row" *ngIf="programStageDataElement.displayInReports">{{ programStageDataElement.dataElement.name }}</th>
+    <td *ngIf="programStageDataElement.displayInReports">
+      {{ programStageDataElement|json }}
+    </td>
+  </tr>
+  </tbody>
+</table>

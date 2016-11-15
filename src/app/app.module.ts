@@ -75,8 +75,9 @@ import { PagesPipe } from './components/dhis-table/pages.pipe';
 import { ExtractDataValuePipe } from './components/dhis-table/extract-data-value.pipe';
 import { DhisEventComponent } from './components/dhis-event/dhis-event.component';
 import { DhisViewComponent } from './components/dhis-view/dhis-view.component';
-import { DhisEventFormComponent } from './components/dhis-event-form/dhis-event-form.component';
-import { DhisEventAddComponent } from './components/dhis-event-add/dhis-event-add.component';
+import {DhisEventAddComponent} from "./components/dhis-event-add/dhis-event-add.component";
+import { DhisEventUpdateComponent } from './components/dhis-event-update/dhis-event-update.component';
+
 
 @NgModule({
   declarations: [
@@ -112,8 +113,8 @@ import { DhisEventAddComponent } from './components/dhis-event-add/dhis-event-ad
     ExtractDataValuePipe,
     DhisEventComponent,
     DhisViewComponent,
-    DhisEventFormComponent,
     DhisEventAddComponent,
+    DhisEventUpdateComponent,
 
   ],
   imports: [

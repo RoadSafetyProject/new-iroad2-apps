@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { DhisEventFormComponent } from './dhis-event-form.component';
+import { DhisEventUpdateComponent } from './dhis-event-update.component';
 
-describe('DhisEventFormComponent', () => {
-  let component: DhisEventFormComponent;
-  let fixture: ComponentFixture<DhisEventFormComponent>;
+describe('DhisEventUpdateComponent', () => {
+  let component: DhisEventUpdateComponent;
+  let fixture: ComponentFixture<DhisEventUpdateComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DhisEventFormComponent ]
+      declarations: [ DhisEventUpdateComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DhisEventFormComponent);
+    fixture = TestBed.createComponent(DhisEventUpdateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

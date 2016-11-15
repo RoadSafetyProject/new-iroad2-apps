@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
+import {ProgramStage} from "../../models/program-stage";
 
 @Component({
-  selector: 'app-dhis-event-add',
+  selector: 'dhis-event-add',
   templateUrl: './dhis-event-add.component.html',
   styleUrls: ['./dhis-event-add.component.css']
 })
 export class DhisEventAddComponent implements OnInit {
 
-  constructor() { }
+  @Input() programStage :ProgramStage;
+  constructor() {
+
+  }
 
   ngOnInit() {
+    console.log(this.programStage)
   }
 
 }

@@ -17,7 +17,7 @@ export abstract class ProgramStageService {
       if(this.programStage){
         resolve(this.programStage);
       }else{
-        this.http.get("api/programStages.json?fields=id,program,displayName,description,captureCoordinates,programStageDataElements[" +
+        this.http.get("../../../api/programStages.json?fields=id,program,displayName,description,captureCoordinates,programStageDataElements[" +
           "dataElement[id,name,shortName,code,description,valueType,domainType,formName,aggregationType,optionSet[id,options[id,name,code]]]" +
           ",displayInReports,compulsory,allowProvidedElseWhere,allowFutureDate,sortOrder]" +
           "&filter=program.name:eq:"
@@ -37,14 +37,14 @@ export abstract class ProgramStageService {
   }
   get(id){
     return new Promise((resolve, reject) => {
-      this.http.get("api/events/" + id+ ".json").subscribe((results) =>{
+      this.http.get("../../../api/events/" + id+ ".json").subscribe((results) =>{
         resolve(results.json());
       })
     });
   }
   getEventsByDataElement(dataElementName,value){
     return new Promise((resolve, reject) => {
-      this.http.get("api/sqlViews.json?filter=name:eq:Find Event").subscribe((results) =>{
+      this.http.get("../../../api/sqlViews.json?filter=name:eq:Find Event").subscribe((results) =>{
         let sqlViewResult = results.json();
         let dataElement = "";
         this.programStage.programStageDataElements.forEach((programStageDataElement) =>{
@@ -52,7 +52,7 @@ export abstract class ProgramStageService {
             dataElement = programStageDataElement.dataElement.id;
           }
         })
-        this.http.get("api/sqlViews/" + sqlViewResult.sqlViews[0].id + "/data.json?var=dataElement:" + dataElement + "&var=value:" + value).subscribe((results) =>{
+        this.http.get("../../../api/sqlViews/" + sqlViewResult.sqlViews[0].id + "/data.json?var=dataElement:" + dataElement + "&var=value:" + value).subscribe((results) =>{
           let eventIDs = [];
           let queryResults = results.json();
           console.log("Query:",queryResults);

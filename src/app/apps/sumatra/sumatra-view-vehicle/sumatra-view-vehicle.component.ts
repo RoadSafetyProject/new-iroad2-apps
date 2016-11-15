@@ -12,7 +12,7 @@ export class SumatraViewVehicleComponent implements OnInit {
 
   vehicle;
   id;
-  vehicleProgramStage
+  vehicleProgramStage;
 
   constructor(private vehicleService:VehicleService,private route: ActivatedRoute) { }
 
@@ -22,7 +22,7 @@ export class SumatraViewVehicleComponent implements OnInit {
     });
     this.vehicleService.getProgram().then((vehicleProgram) =>{
       this.vehicleProgramStage = vehicleProgram;
-      this.vehicleService.get(this.id).then((vehicle) =>{
+      this.vehicleService.get(this.id).then((vehicle : any) =>{
         this.vehicle = vehicle;
       })
     })

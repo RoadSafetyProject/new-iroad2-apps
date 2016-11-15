@@ -1,3 +1,32 @@
-<p>
-  sumatra-add-business-history works!
-</p>
+<h3>
+  Add Business Licence 
+</h3>
+<ol class="breadcrumb" >
+  <li class="breadcrumb-item"><a href="#/sumatra/vehicles">Home</a></li>
+  <li class="breadcrumb-item"><a [routerLink]="['/sumatra','vehicles',id]">Vehicle</a></li>
+  <li class="breadcrumb-item active">Licenses</li>
+</ol>
+
+<div *ngIf="businessHistoryProgramStage" class="row">
+  <div class="col-sm-9">
+    <div class="col-sm-10">
+      <div>
+        <dhis-event-add [(programStage)]="businessHistoryProgramStage"></dhis-event-add>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-header">
+        Main Menu
+      </div>
+      <div class="card-block">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#/sumatra/vehicles">List Vehicles</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

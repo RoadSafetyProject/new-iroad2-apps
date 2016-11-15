@@ -1,0 +1,66 @@
+<table class="table table-striped">
+  <tbody>
+  <tr  *ngFor="let programStageDataElement of programStage.programStageDataElements">
+    <th scope="row" *ngIf="programStageDataElement.displayInReports">{{ programStageDataElement.dataElement.name }}</th>
+    <td *ngIf="programStageDataElement.displayInReports">
+      <div *ngIf="programStageDataElement.dataElement.optionSet">
+        <select class="form-control">
+          <option value="">Select {{programStageDataElement.dataElement.name}}</option>
+          <option *ngFor="let option of programStageDataElement.dataElement.optionSet.options" value="{{ option.code }}">{{ option.name }}</option>
+        </select>
+      </div>
+      <div *ngIf="!programStageDataElement.dataElement.optionSet">
+        <div *ngIf="programStageDataElement.dataElement.valueType == 'INTEGER' ||programStageDataElement.dataElement.valueType == 'NUMBER'">
+          <input type="number" class="form-control" >
+        </div>
+        <div *ngIf="programStageDataElement.dataElement.valueType == 'INTEGER_POSITIVE'">
+          <input type="number" class="form-control" min="1" >
+        </div>
+        <div *ngIf="programStageDataElement.dataElement.valueType == 'INTEGER_NEGATIVE'">
+          <input type="number" class="form-control" max="-1" >
+        </div>
+        <div *ngIf="programStageDataElement.dataElement.valueType == 'INTEGER_ZERO_OR_POSITIVE'">
+          <input type="number" class="form-control" min="0" >
+        </div>
+        <div *ngIf="programStageDataElement.dataElement.valueType == 'UNIT_INTERVAL'">
+          <input type="text" class="form-control" >
+        </div>
+        <div *ngIf="programStageDataElement.dataElement.valueType == 'PERCENTAGE'">
+          <input type="text" class="form-control" >
+        </div>
+        <div *ngIf="programStageDataElement.dataElement.valueType == 'TEXT'">
+          <input type="text" class="form-control" >
+        </div>
+        <div *ngIf="programStageDataElement.dataElement.valueType == 'COORDINATE'">
+          <input type="text" class="form-control" >
+        </div>
+        <div *ngIf="programStageDataElement.dataElement.valueType == 'BOOLEAN'">
+          <select class="form-control">
+            <option value="">Select {{programStageDataElement.dataElement.name}}</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+        <div *ngIf="programStageDataElement.dataElement.valueType == 'TRUE_ONLY'">
+          <select class="form-control">
+            <option value="">Select {{programStageDataElement.dataElement.name}}</option>
+            <option value="true">Yes</option>
+          </select>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button (click)="cancel()" type="button" class="btn btn-warning form-control">
+        Cancel
+      </button>
+    </td>
+    <td>
+      <button (click)="saveEvent()" type="button" class="btn btn-success form-control">
+        Save
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>

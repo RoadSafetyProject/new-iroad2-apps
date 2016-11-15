@@ -1,16 +1,22 @@
-<div class="row">
-  <div class="col-sm-10">
-    <h3>
-      View Vehicle Business History Details!
-    </h3>
-  </div>
-</div>
+<h3>
+  Sumatra App
+</h3>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="#/sumatra/vehicles">Home</a></li>
+  <li class="breadcrumb-item"><a [routerLink]="['/sumatra','vehicles',id]">Vehicle</a></li>
+  <li class="breadcrumb-item active">Licenses</li>
+</ol>
 <div *ngIf="businessHistoryProgram" class="row">
   <div class="col-sm-9">
-      <div>
+    <div class="card">
+      <div class="card-header">
+        Vehicle Business License History
+      </div>
+      <div class="card-block">
         <dhis-table [(menuActions)]="menuActions"
                     [(programStage)]="businessHistoryProgram" [(eventWrapper)]="vehicleHistory"></dhis-table>
       </div>
+    </div>
   </div>
   <div class="col-sm-3">
     <div class="card">
@@ -20,7 +26,7 @@
       <div class="card-block">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/sumatra','vehicles',id,'business-history']">Bussiness History</a>
+            <a class="nav-link" [routerLink]="['/sumatra','vehicles',id]">Back to Vehicle</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/sumatra','vehicles',id,'business-history','add']">Add New Bussiness Lisence</a>

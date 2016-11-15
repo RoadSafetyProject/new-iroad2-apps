@@ -1,3 +1,47 @@
-<p>
-  vehicle-capture-home works!
-</p>
+<h3>
+  Vehicle Capture
+</h3>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="#/sumatra/vehicles">Home</a></li>
+  <li class="breadcrumb-item active">Vehicle</li>
+</ol>
+<div *ngIf="vehicleProgram" class="row">
+  <div class="col-sm-9">
+    <div class="card">
+      <div class="card-header">
+        Vehicle List
+      </div>
+      <div class="card-block">
+        <dhis-table [(menuActions)]="menuActions"
+                    [(programStage)]="vehicleProgram" [(eventWrapper)]="vehicles"></dhis-table>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-header">
+        Related Menu
+      </div>
+      <div class="card-block">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['vehicles','add']">Create New Vehicle</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        Main Menu
+      </div>
+      <div class="card-block">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#/vehicles/all">List Vehicles</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+

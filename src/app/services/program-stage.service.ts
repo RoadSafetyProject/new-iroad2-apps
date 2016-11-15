@@ -30,7 +30,7 @@ export abstract class ProgramStageService {
   }
   getEvents(additionalParams?){
     return new Promise((resolve, reject) => {
-      this.http.get("api/events.json?program=" + this.programStage.program.id +"&"+additionalParams).subscribe((results) =>{
+      this.http.get("../../../api/events.json?program=" + this.programStage.program.id +"&"+additionalParams).subscribe((results) =>{
         resolve(results.json());
       })
     });

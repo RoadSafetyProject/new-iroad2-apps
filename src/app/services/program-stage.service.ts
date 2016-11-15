@@ -30,7 +30,7 @@ export abstract class ProgramStageService {
   }
   getEvents(additionalParams?){
     return new Promise((resolve, reject) => {
-      this.http.get("api/events.json?program=" + this.programStage.program.id).subscribe((results) =>{
+      this.http.get("api/events.json?program=" + this.programStage.program.id +"&"+additionalParams).subscribe((results) =>{
         resolve(results.json());
       })
     });
@@ -62,7 +62,7 @@ export abstract class ProgramStageService {
           if (eventIDs.length == 0) {
             resolve({events:[],pager:{}});
           } else {
-            this.getEvents({event:eventIDs.join(";")}).then((eventWrapper) => {
+            this.getEvents("event="+eventIDs.join(";")).then((eventWrapper) => {
               resolve(eventWrapper);
             })
           }

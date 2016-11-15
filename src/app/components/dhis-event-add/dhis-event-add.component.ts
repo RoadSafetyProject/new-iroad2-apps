@@ -10,17 +10,17 @@ import {Location} from '@angular/common';
 export class DhisEventAddComponent implements OnInit {
 
   @Input() programStage :ProgramStage;
-  constructor(private loacation : Location) {
+  constructor(private location : Location) {
 
   }
 
   ngOnInit() {
-    console.log(this.programStage)
+    console.log(this.location)
   }
 
   cancel():void{
     console.log('cancel');
-    this.loacation.back();
+    this.location.back();
   }
 
   saveEvent():void{

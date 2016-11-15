@@ -41,7 +41,6 @@ export class DhisTableComponent implements OnInit {
         click : (event)=>{
           let url = menuAction.url.replace(':id',event.event);
           this.router.navigate([url]);
-          console.log(url);
         }
       });
     })

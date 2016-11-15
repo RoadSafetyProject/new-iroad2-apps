@@ -3,7 +3,19 @@
   <tr  *ngFor="let programStageDataElement of programStage.programStageDataElements">
     <th scope="row" *ngIf="programStageDataElement.displayInReports">{{ programStageDataElement.dataElement.name }}</th>
     <td *ngIf="programStageDataElement.displayInReports">
-      {{ programStageDataElement|json }}
+      {{ programStageDataElement| json }}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button type="button" class="btn btn-primary ">
+        cancel
+      </button>
+    </td>
+    <td>
+      <button type="button" class="btn btn-success ">
+        save
+      </button>
     </td>
   </tr>
   </tbody>

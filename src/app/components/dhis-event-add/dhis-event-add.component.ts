@@ -1,5 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
 import {ProgramStage} from "../../models/program-stage";
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'dhis-event-add',
@@ -9,12 +10,22 @@ import {ProgramStage} from "../../models/program-stage";
 export class DhisEventAddComponent implements OnInit {
 
   @Input() programStage :ProgramStage;
-  constructor() {
+  constructor(private loacation : Location) {
 
   }
 
   ngOnInit() {
     console.log(this.programStage)
   }
+
+  cancel():void{
+    console.log('cancel');
+    this.loacation.back();
+  }
+
+  saveEvent():void{
+    console.log('saving event');
+  }
+
 
 }

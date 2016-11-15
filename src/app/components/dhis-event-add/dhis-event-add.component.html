@@ -34,9 +34,32 @@
         <div *ngIf="programStageDataElement.dataElement.valueType == 'COORDINATE'">
           <input type="text" class="form-control" >
         </div>
-        <div *ngIf="programStageDataElement.dataElement.valueType == 'BOOLEAN'"></div>
-        <div *ngIf="programStageDataElement.dataElement.valueType == 'TRUE_ONLY'"></div>
+        <div *ngIf="programStageDataElement.dataElement.valueType == 'BOOLEAN'">
+          <select class="form-control">
+            <option value="">Select {{programStageDataElement.dataElement.name}}</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+        <div *ngIf="programStageDataElement.dataElement.valueType == 'TRUE_ONLY'">
+          <select class="form-control">
+            <option value="">Select {{programStageDataElement.dataElement.name}}</option>
+            <option value="true">Yes</option>
+          </select>
+        </div>
       </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button (click)="cancel()" type="button" class="btn btn-warning form-control">
+        Cancel
+      </button>
+    </td>
+    <td>
+      <button (click)="saveEvent()" type="button" class="btn btn-success form-control">
+        Save
+      </button>
     </td>
   </tr>
   </tbody>

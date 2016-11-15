@@ -18,7 +18,7 @@ export abstract class ProgramStageService {
         resolve(this.programStage);
       }else{
         this.http.get("api/programStages.json?fields=id,program,displayName,description,captureCoordinates,programStageDataElements[" +
-          "dataElement[id,name,shortName,code,description,valueType,domainType,formName,aggregationType,optionset]" +
+          "dataElement[id,name,shortName,code,description,valueType,domainType,formName,aggregationType,optionSet[id,options[id,name,code]]]" +
           ",displayInReports,compulsory,allowProvidedElseWhere,allowFutureDate,sortOrder]" +
           "&filter=program.name:eq:"
           + (new (this.getSchema())()).getName()).subscribe((results) =>{

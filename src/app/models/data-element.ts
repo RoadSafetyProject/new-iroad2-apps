@@ -1,3 +1,5 @@
+import {OptionSet} from "./option-set";
+
 export class IDataElement {
   id:string;
   name:string;
@@ -8,7 +10,7 @@ export class IDataElement {
   domainType:string;
   formName:string;
   aggregationType:string;
-  optionset:string;
+  optionSet:OptionSet;
 }
 /**
  * This is a data element encapsulation of the dhis dataElement object
@@ -23,7 +25,7 @@ export class DataElement implements IDataElement{
   domainType:string;
   formName:string;
   aggregationType:string;
-  optionset:string;
+  optionSet:OptionSet;
 
   constructor(dataElement:IDataElement){
     this.id = dataElement.id;
@@ -35,7 +37,7 @@ export class DataElement implements IDataElement{
     this.domainType = dataElement.domainType;
     this.formName = dataElement.formName;
     this.aggregationType = dataElement.aggregationType;
-    this.optionset = dataElement.optionset;
+    this.optionSet = dataElement.optionSet;
   }
 
 }

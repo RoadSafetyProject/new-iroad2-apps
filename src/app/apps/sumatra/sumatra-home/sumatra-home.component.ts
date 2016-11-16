@@ -32,6 +32,11 @@ export class SumatraHomeComponent implements OnInit {
       this.vehicles = vehicles;
     })
   }
+  pageChange(page) {
+    this.vehicleService.getEvents({page:page}).then(vehicles =>{
+      this.vehicles = vehicles;
+    })
+  }
 
   initiateMenuActions(){
     this.menuActions =[

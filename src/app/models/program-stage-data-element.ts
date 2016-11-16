@@ -6,7 +6,7 @@ export interface IProgramStageDataElement {
   compulsory:boolean;
   allowProvidedElseWhere:boolean;
   allowFutureDate:boolean;
-  sortOrder:number;
+  sortOrder:boolean;
 }
 /**
  * This is a program stage data element encapsulation of the dhis programStagedataElement object
@@ -17,7 +17,7 @@ export class ProgramStageDataElement implements IProgramStageDataElement{
   compulsory:boolean;
   allowProvidedElseWhere:boolean;
   allowFutureDate:boolean;
-  sortOrder:number;
+  sortOrder:boolean;
 
   constructor(programStageDataElement:IProgramStageDataElement){
     this.dataElement = programStageDataElement.dataElement;

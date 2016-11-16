@@ -13,7 +13,7 @@
       </div>
       <div class="card-block">
         <dhis-table [(menuActions)]="menuActions"
-                    [(programStage)]="vehicleProgram" [(eventWrapper)]="vehicles"></dhis-table>
+                    [(programStage)]="vehicleProgram" [(eventWrapper)]="vehicles" (onSearch)="search($event)"></dhis-table>
       </div>
     </div>
   </div>

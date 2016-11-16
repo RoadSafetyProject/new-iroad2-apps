@@ -1,7 +1,18 @@
 <div>
-  <app-loader *ngIf="!eventWrapper" [text]="'Loading...'"></app-loader>
+  <app-loader *ngIf="!programStage" [text]="'Loading...'"></app-loader>
 </div>
-<div *ngIf="eventWrapper">
+<div *ngIf="programStage">
+  <div class="row" *ngIf="onSearch.observers.length > 0">
+    <div class="col-sm-4 pull-right">
+      <div class="input-group input-group-lg">
+        <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" [disabled]="searchText == '' || !searchText" type="button" (click)="search()">Search!</button>
+      </span>
+      </div>
+    </div>
+  </div>
+  <br />
   <table class="table table-striped table-hover table-bordered">
     <thead>
     <tr>
@@ -16,12 +27,12 @@
       </template>
     </tr>
     </thead>
-    <tbody>
+    <tbody *ngIf="eventWrapper">
     <tr *ngFor="let event of eventWrapper.events;let currentIndex = index" (contextmenu)="onContextMenu($event, event)">
       <th scope="row">{{ currentIndex + 1 }}</th>
       <!--<td *ngFor="let programStageDataElement of programStage.programStageDataElements">{{ event | extractDataValue:programStageDataElement.dataElement}}</td>-->
       <template ngFor let-programStageDataElement [ngForOf]="programStage.programStageDataElements">
-        <td *ngIf="programStageDataElement.displayInReports">
+        <td *ngIf="programStageDataElement.displayInReports" (click)="onRowClick(event)">
           {{ event | extractDataValue:programStageDataElement.dataElement}}
         </td>
       </template>
@@ -33,6 +44,13 @@
         <div class="alert alert-info" role="alert">
           <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
         </div>
+      </td>
+    </tr>
+    </tfoot>
+    <tfoot *ngIf="!eventWrapper">
+    <tr>
+      <td colspan="100%">
+        <app-loader [text]="'Loading...'"></app-loader>
       </td>
     </tr>
     </tfoot>

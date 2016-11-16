@@ -35,6 +35,39 @@ export abstract class ProgramStageService {
       })
     });
   }
+  searchEvents(value,dataElementNames?){
+    return new Promise((resolve, reject) => {
+      this.http.get("../../../api/sqlViews.json?filter=name:eq:Search Event").subscribe((results) =>{
+        let sqlViewResult = results.json();
+        let dataElements = [];
+        this.programStage.programStageDataElements.forEach((programStageDataElement) =>{
+          if(dataElementNames){
+            if(dataElementNames.indexOf(programStageDataElement.dataElement.name) > 0){
+              dataElements.push(programStageDataElement.dataElement.id);
+            }
+          }else{
+            dataElements.push(programStageDataElement.dataElement.id);
+          }
+        })
+        console.log(dataElements.join(","));
+        this.http.get("../../../api/sqlViews/" + sqlViewResult.sqlViews[0].id + "/data.json?var=dataElements:" + dataElements.join(" ") + "&var=value:" + value).subscribe((results) =>{
+          let eventIDs = [];
+          let queryResults = results.json();
+          console.log("Query:",queryResults);
+          queryResults.rows.forEach((row) =>{
+            eventIDs.push(row[0]);
+          });
+          if (eventIDs.length == 0) {
+            resolve({events:[],pager:{}});
+          } else {
+            this.getEvents("event="+eventIDs.join(";")).then((eventWrapper) => {
+              resolve(eventWrapper);
+            })
+          }
+        })
+      })
+    });
+  }
   get(id){
     return new Promise((resolve, reject) => {
       this.http.get("../../../api/events/" + id+ ".json").subscribe((results) =>{

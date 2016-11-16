@@ -78,6 +78,7 @@ import { DhisEventComponent } from './components/dhis-event/dhis-event.component
 import { DhisViewComponent } from './components/dhis-view/dhis-view.component';
 import {DhisEventAddComponent} from "./components/dhis-event-add/dhis-event-add.component";
 import { DhisEventUpdateComponent } from './components/dhis-event-update/dhis-event-update.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 
 @NgModule({
@@ -116,7 +117,7 @@ import { DhisEventUpdateComponent } from './components/dhis-event-update/dhis-ev
     DhisViewComponent,
     DhisEventAddComponent,
     DhisEventUpdateComponent,
-
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

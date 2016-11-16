@@ -1,4 +1,4 @@
-import { Component, OnInit,Input,ViewChild } from '@angular/core';
+import { Component, OnInit,Input,ViewChild,Output,EventEmitter } from '@angular/core';
 import {PagesPipe} from './pages.pipe'
 import { ContextMenuService, ContextMenuComponent } from 'angular2-contextmenu';
 import {IProgramStage} from "../../models/program-stage";
@@ -17,17 +17,26 @@ export class DhisTableComponent implements OnInit {
   @Input() menuActions :any;
   @Input() programStage :IProgramStage;
   @Input() eventWrapper :IEventsWrapper;
+  @Output() onSearch = new EventEmitter();
   private contextMenuOptions : any;
 
   //@ViewChild('basicMenu') public basicMenu: ContextMenuComponent;
-
+  searchText;
   constructor(private contextMenuService: ContextMenuService,private router: Router) {
-
+    console.log(this.eventWrapper);
   }
   ngOnInit() {
     this.setContextMenuAction(this.menuActions);
   }
-
+  search(){
+    this.eventWrapper = undefined;
+    this.onSearch.emit(this.searchText)
+  }
+  onRowClick(event){
+    if(this.contextMenuOptions.length > 0){
+      console.log(this.contextMenuOptions[0].click(event));
+    }
+  }
   /**
    * method to set context menu, menuActions is array of object with two attribute title and url
    * @param menuActions

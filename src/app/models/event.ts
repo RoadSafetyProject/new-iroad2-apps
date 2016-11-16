@@ -6,7 +6,7 @@ export interface IEvent {
   programStage:string;
   orgUnit:string;
   dueDate:string;
-  event:string;
+  event?:string;
   status:string;
   eventDate:string;
   coordinate?:Coordinate
@@ -28,22 +28,24 @@ export class Event implements IEvent{
   created:string;
   dataValues:Array<DataValue>;
 
-  constructor(event:IEvent){
+  constructor(event){
     this.program = event.program;
     this.programStage = event.programStage;
     this.orgUnit = event.orgUnit;
     this.dueDate = event.dueDate;
-    this.event = event.event;
     this.status = event.status;
     this.eventDate = event.eventDate;
     this.lastUpdated = event.lastUpdated;
     this.created = event.created;
     this.dataValues = event.dataValues;
+    if(event.event){
+      this.event = event.event;
+    }
     if(event.coordinate){
       this.coordinate = event.coordinate;
     }
-
   }
+
 }
 export interface IPager {
   page:number;

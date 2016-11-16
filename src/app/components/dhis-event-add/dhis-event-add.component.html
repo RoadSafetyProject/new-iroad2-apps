@@ -2,7 +2,7 @@
 <table class="table table-striped">
   <tbody>
   <tr  *ngFor="let programStageDataElement of programStage.programStageDataElements">
-    <th scope="row" *ngIf="programStageDataElement.displayInReports">{{ programStageDataElement.dataElement.name }}</th>
+    <th scope="row" *ngIf="programStageDataElement.displayInReports">{{ programStageDataElement.dataElement.name }} <span  *ngIf="programStageDataElement.compulsory">*</span></th>
     <td *ngIf="programStageDataElement.displayInReports">
       <div *ngIf="programStageDataElement.dataElement.optionSet"  >
         <select class="form-control" [(ngModel)]="dataValuesObject[programStageDataElement.dataElement.id]">
@@ -51,9 +51,9 @@
         <div *ngIf="programStageDataElement.dataElement.valueType == 'DATE'">
           <div class="input-group" >
             <input type="text" class="form-control " name="inputBeginDate" value="{{dataValuesObject[programStageDataElement.dataElement.id] | date:'MM/dd/yyyy'}}"
-                   (focus)="openDataPicker(programStageDataElement.dataElement)"
+                   (focus)="openOrCloseDataPicker(programStageDataElement.dataElement)"
             />
-            <span (click)="openDataPicker(programStageDataElement.dataElement)" class="input-group-addon">
+            <span (click)="openOrCloseDataPicker(programStageDataElement.dataElement)" class="input-group-addon">
               <i class="fa fa-calendar"></i>
             </span>
           </div>

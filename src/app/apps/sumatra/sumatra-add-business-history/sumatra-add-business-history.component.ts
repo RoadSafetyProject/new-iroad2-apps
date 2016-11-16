@@ -11,6 +11,7 @@ import { ActivatedRoute,Params,Router,NavigationEnd } from '@angular/router';
 export class SumatraAddBusinessHistoryComponent implements OnInit {
 
   private businessHistoryProgramStage;
+  private relationDataElementValueObject: any = {};
   id;
 
   constructor(private businessHistoryService:BusinessHistoryService,private route: ActivatedRoute,private router: Router) {
@@ -20,8 +21,14 @@ export class SumatraAddBusinessHistoryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.businessHistoryService.getProgram().then((businessHistoryProgram) =>{
+    this.businessHistoryService.getProgram().then((businessHistoryProgram : any) =>{
       this.businessHistoryProgramStage = businessHistoryProgram;
+      let relationDataElement = "Program_Vehicle";
+      businessHistoryProgram.programStageDataElements.forEach((programStageDataElement :any)=>{
+        if(programStageDataElement.dataElement.name.toLowerCase() == relationDataElement.toLowerCase()){
+          this.relationDataElementValueObject[programStageDataElement.dataElement.id] = this.id;
+        }
+      })
     })
   }
 

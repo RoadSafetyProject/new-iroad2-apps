@@ -31,7 +31,7 @@ export class DataValue implements IDataValue{
    * @param dataValue
    *
    */
-  constructor(dataValue:IDataValue){
+  constructor(dataValue){
     this.dataElement = dataValue.dataElement;
     this.value = dataValue.value;
 

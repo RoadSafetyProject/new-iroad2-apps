@@ -1,6 +1,7 @@
 import { Component, OnInit, Input} from '@angular/core';
 import {ProgramStage} from "../../models/program-stage";
 import {Location} from '@angular/common';
+import * as moment from 'moment';
 
 @Component({
   selector: 'dhis-event-add',
@@ -9,21 +10,39 @@ import {Location} from '@angular/common';
 })
 export class DhisEventAddComponent implements OnInit {
 
-  @Input() programStage :ProgramStage;
-  constructor(private location : Location) {
+  @Input() programStage:ProgramStage;
 
+  private dataValuesObject:any;
+
+  private showDatePicker:any;
+
+  constructor(private location:Location) {
+    this.showDatePicker = {};
+    this.dataValuesObject = {};
   }
 
   ngOnInit() {
-    console.log(this.location)
+    console.log(this.programStage)
   }
 
-  cancel():void{
-    console.log('cancel');
+  openDataPicker(dataElement) {
+    if (this.showDatePicker[dataElement.id]) {
+      this.closeDataPicker(dataElement);
+    } else {
+      this.showDatePicker[dataElement.id] = true;
+    }
+  }
+
+  closeDataPicker(dataElement) {
+    this.showDatePicker[dataElement.id] = false;
+  }
+
+  cancel():void {
     this.location.back();
   }
 
-  saveEvent():void{
+  saveEvent():void {
+    console.log(this.dataValuesObject);
     console.log('saving event');
   }
 

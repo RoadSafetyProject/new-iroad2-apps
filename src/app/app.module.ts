@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ContextMenuModule } from 'angular2-contextmenu';
+import { DatepickerModule } from 'ng2-bootstrap/components/datepicker';
 
 import { LocationStrategy,HashLocationStrategy } from '@angular/common';
 import {routing} from "./app.routes";
@@ -120,7 +121,7 @@ import { DhisEventUpdateComponent } from './components/dhis-event-update/dhis-ev
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpModule,DatepickerModule,
     ContextMenuModule.forRoot({
       useBootstrap4: true,
     }),

@@ -1,52 +1,68 @@
+
 <table class="table table-striped">
   <tbody>
   <tr  *ngFor="let programStageDataElement of programStage.programStageDataElements">
     <th scope="row" *ngIf="programStageDataElement.displayInReports">{{ programStageDataElement.dataElement.name }}</th>
     <td *ngIf="programStageDataElement.displayInReports">
-      <div *ngIf="programStageDataElement.dataElement.optionSet">
-        <select class="form-control">
+      <div *ngIf="programStageDataElement.dataElement.optionSet"  >
+        <select class="form-control" [(ngModel)]="dataValuesObject[programStageDataElement.dataElement.id]">
           <option value="">Select {{programStageDataElement.dataElement.name}}</option>
           <option *ngFor="let option of programStageDataElement.dataElement.optionSet.options" value="{{ option.code }}">{{ option.name }}</option>
         </select>
       </div>
       <div *ngIf="!programStageDataElement.dataElement.optionSet">
         <div *ngIf="programStageDataElement.dataElement.valueType == 'INTEGER' ||programStageDataElement.dataElement.valueType == 'NUMBER'">
-          <input type="number" class="form-control" >
+          <input type="number" class="form-control" [(ngModel)]="dataValuesObject[programStageDataElement.dataElement.id]" >
         </div>
         <div *ngIf="programStageDataElement.dataElement.valueType == 'INTEGER_POSITIVE'">
-          <input type="number" class="form-control" min="1" >
+          <input type="number" class="form-control" min="1" [(ngModel)]="dataValuesObject[programStageDataElement.dataElement.id]" >
         </div>
         <div *ngIf="programStageDataElement.dataElement.valueType == 'INTEGER_NEGATIVE'">
-          <input type="number" class="form-control" max="-1" >
+          <input type="number" class="form-control" max="-1" [(ngModel)]="dataValuesObject[programStageDataElement.dataElement.id]" >
         </div>
         <div *ngIf="programStageDataElement.dataElement.valueType == 'INTEGER_ZERO_OR_POSITIVE'">
-          <input type="number" class="form-control" min="0" >
+          <input type="number" class="form-control" min="0" [(ngModel)]="dataValuesObject[programStageDataElement.dataElement.id]" >
         </div>
         <div *ngIf="programStageDataElement.dataElement.valueType == 'UNIT_INTERVAL'">
-          <input type="text" class="form-control" >
+          <input type="text" class="form-control" [(ngModel)]="dataValuesObject[programStageDataElement.dataElement.id]" >
         </div>
         <div *ngIf="programStageDataElement.dataElement.valueType == 'PERCENTAGE'">
-          <input type="text" class="form-control" >
+          <input type="text" class="form-control" [(ngModel)]="dataValuesObject[programStageDataElement.dataElement.id]" >
         </div>
         <div *ngIf="programStageDataElement.dataElement.valueType == 'TEXT'">
-          <input type="text" class="form-control" >
+          <input type="text" class="form-control" [(ngModel)]="dataValuesObject[programStageDataElement.dataElement.id]" >
         </div>
         <div *ngIf="programStageDataElement.dataElement.valueType == 'COORDINATE'">
-          <input type="text" class="form-control" >
+          <input type="text" class="form-control" [(ngModel)]="dataValuesObject[programStageDataElement.dataElement.id]" >
         </div>
         <div *ngIf="programStageDataElement.dataElement.valueType == 'BOOLEAN'">
-          <select class="form-control">
+          <select class="form-control" [(ngModel)]="dataValuesObject[programStageDataElement.dataElement.id]">
             <option value="">Select {{programStageDataElement.dataElement.name}}</option>
             <option value="true">Yes</option>
             <option value="false">No</option>
           </select>
         </div>
         <div *ngIf="programStageDataElement.dataElement.valueType == 'TRUE_ONLY'">
-          <select class="form-control">
+          <select class="form-control" [(ngModel)]="dataValuesObject[programStageDataElement.dataElement.id]">
             <option value="">Select {{programStageDataElement.dataElement.name}}</option>
             <option value="true">Yes</option>
           </select>
         </div>
+        <div *ngIf="programStageDataElement.dataElement.valueType == 'DATE'">
+          <div class="input-group" >
+            <input type="text" class="form-control " name="inputBeginDate" value="{{dataValuesObject[programStageDataElement.dataElement.id] | date:'MM/dd/yyyy'}}"
+                   (focus)="openDataPicker(programStageDataElement.dataElement)"
+            />
+            <span (click)="openDataPicker(programStageDataElement.dataElement)" class="input-group-addon">
+              <i class="fa fa-calendar"></i>
+            </span>
+          </div>
+
+          <div *ngIf="showDatePicker[programStageDataElement.dataElement.id]"  style="position: absolute; z-index:10; min-height:290px;">
+            <datepicker name="test" [showWeeks]="false"  [(ngModel)]="dataValuesObject[programStageDataElement.dataElement.id]" ></datepicker>
+          </div>
+        </div>
+
       </div>
     </td>
   </tr>

@@ -7,9 +7,10 @@
       </div>
     </td>
   </tr>
-  <tr  *ngFor="let programStageDataElement of programStage.programStageDataElements">
+  <tr  *ngFor="let programStageDataElement of programStage.programStageDataElements| orderBy : 'sortOrder': true">
     <th scope="row" *ngIf="!programStageDataElement.allowProvidedElsewhere">{{ programStageDataElement.dataElement.name }} <span  *ngIf="programStageDataElement.compulsory">*</span></th>
     <td *ngIf="!programStageDataElement.allowProvidedElsewhere">
+
       <div *ngIf="programStageDataElement.dataElement.optionSet"  >
         <select class="form-control" [(ngModel)]="dataValuesObject[programStageDataElement.dataElement.id]">
           <option value="">Select {{programStageDataElement.dataElement.name}}</option>

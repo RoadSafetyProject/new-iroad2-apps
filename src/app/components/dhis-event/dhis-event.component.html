@@ -1,10 +1,13 @@
 <table class="table table-striped">
   <tbody>
-  <tr *ngFor="let programStageDataElement of programStage.programStageDataElements" (contextmenu)="onContextMenu($event, event)">
-    <th scope="row">{{ programStageDataElement.dataElement.name }}</th>
-    <td >
-      <dhis-view [(event)]="event" [(dataElement)]="programStageDataElement.dataElement"></dhis-view>
-    </td>
-  </tr>
+  <template ngFor let-programStageDataElement [ngForOf]="programStage.programStageDataElements | orderBy : 'sortOrder': true">
+    <tr *ngIf="!programStageDataElement.allowProvidedElseWhere" (contextmenu)="onContextMenu($event, event)">
+      <th scope="row">{{ programStageDataElement.dataElement.name }}</th>
+      <td >
+        <dhis-view [(event)]="event" [(dataElement)]="programStageDataElement.dataElement"></dhis-view>
+      </td>
+    </tr>
+  </template>
+
   </tbody>
 </table>

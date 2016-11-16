@@ -18,6 +18,8 @@ export class DhisTableComponent implements OnInit {
   @Input() programStage :IProgramStage;
   @Input() eventWrapper :IEventsWrapper;
   @Output() onSearch = new EventEmitter();
+  @Output() onPageChange = new EventEmitter();
+
   private contextMenuOptions : any;
 
   //@ViewChild('basicMenu') public basicMenu: ContextMenuComponent;
@@ -28,13 +30,17 @@ export class DhisTableComponent implements OnInit {
   ngOnInit() {
     this.setContextMenuAction(this.menuActions);
   }
+
+  /**
+   * Sends a search request
+   */
   search(){
     this.eventWrapper = undefined;
     this.onSearch.emit(this.searchText)
   }
   onRowClick(event){
     if(this.contextMenuOptions.length > 0){
-      console.log(this.contextMenuOptions[0].click(event));
+      this.contextMenuOptions[0].click(event);
     }
   }
   /**
@@ -73,6 +79,11 @@ export class DhisTableComponent implements OnInit {
 
 
   pageChange(page){
+    if(this.eventWrapper.pager.page != page){
+      this.eventWrapper = undefined;
+      this.onPageChange.emit(page)
+    }
     //this._page = this.ceil(page);
+
   }
 }

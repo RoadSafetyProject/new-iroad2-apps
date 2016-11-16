@@ -22,7 +22,7 @@ export class DhisTableComponent implements OnInit {
   //@ViewChild('basicMenu') public basicMenu: ContextMenuComponent;
 
   constructor(private contextMenuService: ContextMenuService,private router: Router) {
-
+    console.log(this.eventWrapper);
   }
   ngOnInit() {
     this.setContextMenuAction(this.menuActions);

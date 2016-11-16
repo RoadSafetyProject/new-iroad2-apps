@@ -1,9 +1,15 @@
-
 <table class="table table-striped">
-  <tbody>
+  <tbody *ngIf="!isLoadingData">
+  <tr *ngIf="isFormInValid">
+    <td colspan="100%">
+      <div class="alert alert-danger" role="alert">
+        <span *ngFor="let inValidFormField of inValidFormFields">{{ inValidFormField }}, </span> are required fields
+      </div>
+    </td>
+  </tr>
   <tr  *ngFor="let programStageDataElement of programStage.programStageDataElements">
-    <th scope="row" *ngIf="programStageDataElement.displayInReports">{{ programStageDataElement.dataElement.name }} <span  *ngIf="programStageDataElement.compulsory">*</span></th>
-    <td *ngIf="programStageDataElement.displayInReports">
+    <th scope="row" *ngIf="!programStageDataElement.allowProvidedElsewhere">{{ programStageDataElement.dataElement.name }} <span  *ngIf="programStageDataElement.compulsory">*</span></th>
+    <td *ngIf="!programStageDataElement.allowProvidedElsewhere">
       <div *ngIf="programStageDataElement.dataElement.optionSet"  >
         <select class="form-control" [(ngModel)]="dataValuesObject[programStageDataElement.dataElement.id]">
           <option value="">Select {{programStageDataElement.dataElement.name}}</option>
@@ -78,5 +84,21 @@
       </button>
     </td>
   </tr>
+  <tr *ngIf="isFormInValid">
+    <td colspan="100%">
+      <div class="alert alert-danger" role="alert">
+        <span *ngFor="let inValidFormField of inValidFormFields">{{ inValidFormField }}, </span>
+        <span *ngIf="inValidFormFields.length >1">are required fields</span>
+        <span *ngIf="inValidFormFields.length == 1">is required field</span>
+      </div>
+    </td>
+  </tr>
   </tbody>
+  <tfoot *ngIf="isLoadingData">
+  <tr>
+    <td colspan="100%">
+      <app-loader [text]="'Loading...'"></app-loader>
+    </td>
+  </tr>
+  </tfoot>
 </table>

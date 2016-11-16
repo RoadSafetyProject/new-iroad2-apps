@@ -19,7 +19,7 @@ export abstract class ProgramStageService {
       }else{
         this.http.get("../../../api/programStages.json?fields=id,program,displayName,description,captureCoordinates,programStageDataElements[" +
           "dataElement[id,name,shortName,code,description,valueType,domainType,formName,aggregationType,optionSet[id,options[id,name,code]]]" +
-          ",displayInReports,compulsory,allowProvidedElseWhere,allowFutureDate,sortOrder]" +
+          ",displayInReports,compulsory,allowProvidedElsewhere,allowFutureDate,sortOrder]" +
           "&filter=program.name:eq:"
           + (new (this.getSchema())()).getName()).subscribe((results) =>{
           this.programStage = new (this.getSchema())(results.json().programStages[0]);
@@ -49,11 +49,9 @@ export abstract class ProgramStageService {
             dataElements.push(programStageDataElement.dataElement.id);
           }
         })
-        console.log(dataElements.join(","));
         this.http.get("../../../api/sqlViews/" + sqlViewResult.sqlViews[0].id + "/data.json?var=dataElements:" + dataElements.join(" ") + "&var=value:" + value).subscribe((results) =>{
           let eventIDs = [];
           let queryResults = results.json();
-          console.log("Query:",queryResults);
           queryResults.rows.forEach((row) =>{
             eventIDs.push(row[0]);
           });
@@ -88,7 +86,6 @@ export abstract class ProgramStageService {
         this.http.get("../../../api/sqlViews/" + sqlViewResult.sqlViews[0].id + "/data.json?var=dataElement:" + dataElement + "&var=value:" + value).subscribe((results) =>{
           let eventIDs = [];
           let queryResults = results.json();
-          console.log("Query:",queryResults);
           queryResults.rows.forEach((row) =>{
             eventIDs.push(row[0]);
           });

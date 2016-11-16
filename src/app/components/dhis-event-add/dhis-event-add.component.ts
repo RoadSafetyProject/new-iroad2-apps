@@ -17,7 +17,11 @@ export class DhisEventAddComponent implements OnInit {
 
   private dataValuesObject:any;
   private showDatePicker:any;
+  private isLoadingData :boolean = true;
+  private isFormInValid : boolean = false;
+  private inValidFormFields :Array<string>;
 
+  //todo validation fields using form builder directive
   constructor(private location:Location,private eventService:EventService) {
     this.showDatePicker = {};
     this.dataValuesObject = {};
@@ -27,6 +31,12 @@ export class DhisEventAddComponent implements OnInit {
     if(this.relationDataElementValueObject){
       this.dataValuesObject = this.relationDataElementValueObject;
     }
+    this.programStage.programStageDataElements.forEach((programStageDataElement : any)=>{
+      if(programStageDataElement.dataElement.optionSet){
+        this.dataValuesObject[programStageDataElement.dataElement.id] = "";
+      }
+    });
+    this.isLoadingData = false;
   }
 
   openOrCloseDataPicker(dataElement) {
@@ -42,16 +52,41 @@ export class DhisEventAddComponent implements OnInit {
   }
 
   saveEvent():void {
-    this.eventService.saveOrUpdateEvent(this.dataValuesObject,this.programStage,event).then(response=>{
-      console.log(JSON.stringify(response));
-      console.log('Success save event');
-      console.log('ready to return to back');
-      this.cancel();
-    },error=>{
-      console.log('ops error occurred ',error);
-    }).catch(e=>{
-      console.log('ops exception occurred ',e);
+    //todo validate for required fields using form builder directive
+    let formValidationResult = this.getFormValidationResult(this.programStage.programStageDataElements,this.dataValuesObject);
+    this.isFormInValid = !formValidationResult.isFormValid;
+    this.inValidFormFields = formValidationResult.inValidFields;
+    if(formValidationResult.isFormValid){
+      this.isLoadingData = true;
+      this.eventService.saveOrUpdateEvent(this.dataValuesObject,this.programStage,event).then(response=>{
+        this.isLoadingData = false;
+        this.cancel();
+      },error=>{
+        this.isLoadingData = false;
+        console.log('ops error occurred ',error);
+        this.cancel();
+      }).catch(e=>{
+        this.isLoadingData = false;
+        console.log('ops exception occurred ',e);
+        this.cancel();
+      });
+    }
+  }
+
+  getFormValidationResult(programStageDataElements,dataValuesObject){
+    let formValidationResult = {
+      isFormValid : true,
+      inValidFields : []
+    };
+    programStageDataElements.forEach((programStageDataElement:any)=> {
+      if (programStageDataElement.compulsory) {
+        if (!dataValuesObject[programStageDataElement.dataElement.id] || dataValuesObject[programStageDataElement.dataElement.id] == "") {
+          formValidationResult.isFormValid = false;
+          formValidationResult.inValidFields.push(programStageDataElement.dataElement.name);
+        }
+      }
     });
+    return formValidationResult;
   }
 
 

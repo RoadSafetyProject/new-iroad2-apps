@@ -1,7 +1,7 @@
 
 <table class="table table-striped">
   <tbody>
-  <tr  *ngFor="let programStageDataElement of programStage.programStageDataElements">
+  <tr  *ngFor="let programStageDataElement of programStage.programStageDataElements | orderBy : 'sortOrder': true">
     <th scope="row" *ngIf="programStageDataElement.displayInReports">{{ programStageDataElement.dataElement.name }} <span  *ngIf="programStageDataElement.compulsory">*</span></th>
     <td *ngIf="programStageDataElement.displayInReports">
       <div *ngIf="programStageDataElement.dataElement.optionSet"  >

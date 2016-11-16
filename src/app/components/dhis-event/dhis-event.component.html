@@ -1,7 +1,7 @@
 <table class="table table-striped">
   <tbody>
   <template ngFor let-programStageDataElement [ngForOf]="programStage.programStageDataElements | orderBy : 'sortOrder': true">
-    <tr (contextmenu)="onContextMenu($event, event)">
+    <tr *ngIf="!programStageDataElement.allowProvidedElseWhere" (contextmenu)="onContextMenu($event, event)">
       <th scope="row">{{ programStageDataElement.dataElement.name }}</th>
       <td >
         <dhis-view [(event)]="event" [(dataElement)]="programStageDataElement.dataElement"></dhis-view>

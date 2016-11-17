@@ -3,6 +3,7 @@ import {ProgramStage} from "../../models/program-stage";
 import {Location} from '@angular/common';
 import * as moment from 'moment';
 import {EventService} from "../../services/event.service";
+import {Event} from "../../models/event";
 
 @Component({
   selector: 'dhis-event-add',
@@ -14,13 +15,13 @@ export class DhisEventAddComponent implements OnInit {
 
   @Input() programStage:ProgramStage;
   @Input() relationDataElementValueObject : any;
+  @Input() event : Event;
 
   private dataValuesObject:any;
   private showDatePicker:any;
   private isLoadingData :boolean = true;
   private isFormInValid : boolean = false;
   private inValidFormFields :Array<string>;
-  private selectedDates :any = {};
 
   //todo validation fields using form builder directive
   constructor(private location:Location,private eventService:EventService) {
@@ -37,10 +38,15 @@ export class DhisEventAddComponent implements OnInit {
         this.dataValuesObject[programStageDataElement.dataElement.id] = "";
       }
     });
+    console.log('event : ',this.event);
     this.isLoadingData = false;
   }
 
 
+  /**
+   * toggle date picker
+   * @param dataElement
+     */
   openOrCloseDataPicker(dataElement) {
     if(this.showDatePicker[dataElement.id]){
       this.showDatePicker[dataElement.id] = !this.showDatePicker[dataElement.id];
@@ -49,6 +55,11 @@ export class DhisEventAddComponent implements OnInit {
     }
   }
 
+  /**
+   * close date picker if user select date
+   * @param dataElement
+   * @param event
+     */
   closeDatePicker(dataElement,event){
     if(this.dataValuesObject[dataElement.id] != event.toString()){
       if(this.showDatePicker[dataElement.id]){
@@ -62,11 +73,16 @@ export class DhisEventAddComponent implements OnInit {
     this.location.back();
   }
 
+  /**
+   * trigger saving action for form
+   */
   saveEvent():void {
     //todo validate for required fields using form builder directive
     let formValidationResult = this.getFormValidationResult(this.programStage.programStageDataElements,this.dataValuesObject);
     this.isFormInValid = !formValidationResult.isFormValid;
     this.inValidFormFields = formValidationResult.inValidFields;
+
+    //checking whether form is valid or not for submission process
     if(formValidationResult.isFormValid){
       this.isLoadingData = true;
       this.eventService.saveOrUpdateEvent(this.dataValuesObject,this.programStage,event).then(response=>{
@@ -84,6 +100,12 @@ export class DhisEventAddComponent implements OnInit {
     }
   }
 
+  /**
+   * get validation results
+   * @param programStageDataElements
+   * @param dataValuesObject
+   * @returns {{isFormValid: boolean, inValidFields: Array}}
+     */
   getFormValidationResult(programStageDataElements,dataValuesObject){
     let formValidationResult = {
       isFormValid : true,

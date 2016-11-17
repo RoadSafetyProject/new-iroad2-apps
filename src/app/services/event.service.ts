@@ -22,7 +22,7 @@ export class EventService {
     let self = this;
     if (event.event) {
       //update event
-      event.dataValue = this.getDataValues(dataValuesObject);
+      event.dataValue = this.getDataValues(dataValuesObject,programStage.programStageDataElements);
       return new Promise((resolve, reject) => {
         self.putEvent(new Event(event)).then(response=>{
           resolve(response)
@@ -34,7 +34,6 @@ export class EventService {
       })
     } else {
       //create new event
-      //@todo orgUnit id has not been set
       let eventData = {
         program: programStage.program.id,
         programStage: programStage.id,
@@ -44,7 +43,7 @@ export class EventService {
         eventDate: new Date().toISOString(),
         lastUpdated: new Date().toISOString(),
         created: new Date().toISOString(),
-        dataValues: this.getDataValues(dataValuesObject)
+        dataValues: this.getDataValues(dataValuesObject,programStage.programStageDataElements)
       };
       return new Promise((resolve, reject) => {
         self.http.get("api/me.json?fields=organisationUnits").subscribe(orgUnitRespense=>{
@@ -69,14 +68,23 @@ export class EventService {
    * @param dataValuesObject
    * @returns {Array<DataValue>}
      */
-  getDataValues(dataValuesObject){
+  getDataValues(dataValuesObject,programStageDataElements){
     let dataValues : Array<DataValue> = [];
-    Object.keys(dataValuesObject).forEach(dataElementId=>{
-      let dataValue = {
-        dataElement : dataElementId,value : dataValuesObject[dataElementId]
-      };
-      dataValues.push(new DataValue(dataValue));
+    programStageDataElements.forEach((programStageDataElement : any)=>{
+      let dataElementId = programStageDataElement.dataElement.id;
+      if(dataValuesObject[dataElementId]){
+        let value = dataValuesObject[dataElementId];
+        //formation date values to dhis 2 support date type
+        if(programStageDataElement.dataElement.valueType == "DATE"){
+          let dateObject = new Date(value);
+          let month = dateObject.getMonth() + 1;
+          let date  = dateObject.getDate();
+          value = dateObject.getFullYear() + "-" + (month > 9?month : "0"+month)+ "-"+(date > 9?date :"0"+date);
+        }
+        dataValues.push(new DataValue({dataElement : dataElementId,value : value}));
+      }
     });
+    console.log(dataValues);
     return dataValues;
   }
 

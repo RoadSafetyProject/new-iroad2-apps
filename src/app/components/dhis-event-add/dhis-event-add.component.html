@@ -66,7 +66,7 @@
           </div>
 
           <div *ngIf="showDatePicker[programStageDataElement.dataElement.id]"  style="position: absolute; z-index:10; min-height:290px;">
-            <datepicker name="test" [showWeeks]="false"  [(ngModel)]="dataValuesObject[programStageDataElement.dataElement.id]" ></datepicker>
+            <datepicker name="test" [showWeeks]="false" (ngModelChange)="closeDatePicker(programStageDataElement.dataElement,$event)" [(ngModel)]="dataValuesObject[programStageDataElement.dataElement.id]" ></datepicker>
           </div>
         </div>
 

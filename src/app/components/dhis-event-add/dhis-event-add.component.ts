@@ -20,6 +20,7 @@ export class DhisEventAddComponent implements OnInit {
   private isLoadingData :boolean = true;
   private isFormInValid : boolean = false;
   private inValidFormFields :Array<string>;
+  private selectedDates :any = {};
 
   //todo validation fields using form builder directive
   constructor(private location:Location,private eventService:EventService) {
@@ -39,11 +40,21 @@ export class DhisEventAddComponent implements OnInit {
     this.isLoadingData = false;
   }
 
+
   openOrCloseDataPicker(dataElement) {
-    if (this.showDatePicker[dataElement.id]) {
-      this.showDatePicker[dataElement.id] = false;
-    } else {
+    if(this.showDatePicker[dataElement.id]){
+      this.showDatePicker[dataElement.id] = !this.showDatePicker[dataElement.id];
+    }else{
       this.showDatePicker[dataElement.id] = true;
+    }
+  }
+
+  closeDatePicker(dataElement,event){
+    if(this.dataValuesObject[dataElement.id] != event.toString()){
+      if(this.showDatePicker[dataElement.id]){
+        this.dataValuesObject[dataElement.id] = new Date(event);
+        this.showDatePicker[dataElement.id] = false;
+      }
     }
   }
 

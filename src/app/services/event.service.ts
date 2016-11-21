@@ -66,7 +66,7 @@ export class EventService {
   /**
    *
    * @param dataValuesObject
-   * @returns {Array<DataValue>}
+   * @param programStageDataElements
      */
   getDataValues(dataValuesObject,programStageDataElements){
     let dataValues : Array<DataValue> = [];
@@ -84,7 +84,6 @@ export class EventService {
         dataValues.push(new DataValue({dataElement : dataElementId,value : value}));
       }
     });
-    console.log(dataValues);
     return dataValues;
   }
 

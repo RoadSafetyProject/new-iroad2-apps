@@ -1,4 +1,39 @@
-<p>
-  insurance-home works!
-</p>
+
+<h3>
+  Insurance Capture App
+</h3>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="#insurances/all">Home</a></li>
+  <li class="breadcrumb-item">Insurance Companies</li>
+</ol>
+
+<div *ngIf="insuranceCompanyProgram" class="row">
+  <div class="col-sm-9 col-md-10 col-lg-10">
+    <div class="card">
+      <div class="card-header">
+        Insurance Companies List
+      </div>
+      <div class="card-block">
+        <dhis-table [(menuActions)]="menuActions"
+                    [(programStage)]="insuranceCompanyProgram" [(eventWrapper)]="insuranceCompanies"
+                    (onSearch)="search($event)" (onPageChange)="pageChange($event)"></dhis-table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-3 col-md-2 col-lg-2">
+    <div class="card">
+      <div class="card-header">
+        Main Menu
+      </div>
+      <div class="card-block">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/insurances','add']">Add Insurance company</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 

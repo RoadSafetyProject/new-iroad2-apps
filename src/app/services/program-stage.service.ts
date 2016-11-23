@@ -54,7 +54,10 @@ export abstract class ProgramStageService {
           }else{
             dataElements.push(programStageDataElement.dataElement.id);
           }
-        })
+        });
+        if (sqlViewResult.sqlViews.length == 0) {
+          resolve({events:[],pager:{}});
+        }
         this.http.get("../../../api/sqlViews/" + sqlViewResult.sqlViews[0].id + "/data.json?var=dataElements:" + dataElements.join(" ") + "&var=value:" + value).subscribe((results) =>{
           let eventIDs = [];
           let queryResults = results.json();

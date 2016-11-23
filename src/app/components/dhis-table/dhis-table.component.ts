@@ -15,8 +15,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 export class DhisTableComponent implements OnInit {
 
   @Input() menuActions :any;
-  @Input() programStage :IProgramStage;
-  @Input() eventWrapper :IEventsWrapper;
+  @Input() programStage :any;
+  @Input() eventWrapper :any;
   @Output() onSearch = new EventEmitter();
   @Output() onPageChange = new EventEmitter();
 
@@ -26,6 +26,7 @@ export class DhisTableComponent implements OnInit {
   searchText;
   constructor(private contextMenuService: ContextMenuService,private router: Router) {
     console.log(this.eventWrapper);
+    console.log(this.programStage)
   }
   ngOnInit() {
     this.setContextMenuAction(this.menuActions);

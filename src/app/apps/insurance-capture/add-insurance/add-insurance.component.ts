@@ -15,9 +15,9 @@ export class AddInsuranceComponent implements OnInit {
   constructor(private InsuranceService : InsuranceService) { }
 
   ngOnInit() {
-    //this.InsuranceService.getProgram().then(programStage=>{
-    //  this.programStage = programStage;
-    //})
+    this.InsuranceService.getProgram().then(programStage=>{
+      this.programStage = programStage;
+    })
   }
 
 }

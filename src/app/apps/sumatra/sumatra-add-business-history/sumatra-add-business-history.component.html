@@ -9,8 +9,11 @@
 
 <div *ngIf="businessHistoryProgramStage" class="row">
   <div class="col-sm-9">
-    <div class="col-sm-10">
-      <div>
+    <div class="card">
+      <div class="card-header">
+        Create Vehicle Details
+      </div>
+      <div class="card-block">
         <dhis-event-add [(programStage)]="businessHistoryProgramStage" [(relationDataElementValueObject)]="relationDataElementValueObject" ></dhis-event-add>
       </div>
     </div>

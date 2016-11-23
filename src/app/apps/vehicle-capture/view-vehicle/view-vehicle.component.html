@@ -1,3 +1,52 @@
-<p>
-  view-vehicle works!
-</p>
+<h3>
+  View Vehicle Details!
+</h3>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="#/sumatra/vehicles">Home</a></li>
+  <li class="breadcrumb-item active">Vehicle</li>
+</ol>
+<div *ngIf="vehicle" class="row">
+  <div class="col-sm-9">
+    <div class="card">
+      <div class="card-header">
+        Vehicle Details
+      </div>
+      <div class="card-block">
+        <dhis-event [(event)]="vehicle" [(programStage)]="vehicleProgramStage"></dhis-event>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-header">
+        Related Menu
+      </div>
+      <div class="card-block">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/sumatra','vehicles',vehicle.event,'business-history','add']">Edit Vehicle</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/sumatra','vehicles',vehicle.event,'business-history','add']">Add New Bussiness Lisence</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/sumatra','vehicles',vehicle.event,'business-history']">Bussiness History</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        Main Menu
+      </div>
+      <div class="card-block">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#/sumatra/vehicles">List Vehicles</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

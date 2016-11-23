@@ -7,13 +7,23 @@
   <li class="breadcrumb-item active">Licenses</li>
 </ol>
 
-<div *ngIf="businessHistoryProgramStage" class="row">
-  <div class="col-sm-9 col-md-10 col-lg-10">
-    <div>
-      <dhis-event-add [(programStage)]="businessHistoryProgramStage" [(relationDataElementValueObject)]="relationDataElementValueObject" ></dhis-event-add>
+
+{{ businessHistoryProgramStage }}
+<div  class="row">
+  <div class="col-sm-9 col-md-9 col-lg-10">
+    <div class="card">
+      <div class="card-header">
+        Create Vehicle Details
+      </div>
+      <div class="card-block">
+        <div *ngIf="businessHistoryProgramStage">
+          <dhis-event-add [(programStage)]="businessHistoryProgramStage" [(relationDataElementValueObject)]="relationDataElementValueObject" ></dhis-event-add>
+        </div>
+
+      </div>
     </div>
   </div>
-  <div class="col-sm-3 col-md-2 col-md-2">
+  <div class="col-sm-3 col-md-3 col-lg-2">
     <div class="card">
       <div class="card-header">
         Related Menu

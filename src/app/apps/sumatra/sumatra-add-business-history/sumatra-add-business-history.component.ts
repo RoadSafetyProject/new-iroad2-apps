@@ -10,7 +10,7 @@ import { ActivatedRoute,Params,Router,NavigationEnd } from '@angular/router';
 })
 export class SumatraAddBusinessHistoryComponent implements OnInit {
 
-  private businessHistoryProgramStage;
+  private businessHistoryProgramStage :any;
   private relationDataElementValueObject: any = {};
   id;
 

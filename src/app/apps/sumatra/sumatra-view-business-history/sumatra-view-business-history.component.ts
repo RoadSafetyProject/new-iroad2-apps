@@ -30,6 +30,12 @@ export class SumatraViewBusinessHistoryComponent implements OnInit {
     })
   }
 
+  search(searchText) {
+    console.log(searchText);
+    this.businessHistoryService.searchEvents(searchText).then(vehicleHistory =>{
+      this.vehicleHistory = vehicleHistory;
+    })
+  }
   initiateMenuActions(){
     this.menuActions =[
       {

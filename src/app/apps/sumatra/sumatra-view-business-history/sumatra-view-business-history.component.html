@@ -13,7 +13,7 @@
         Vehicle Business License History
       </div>
       <div class="card-block">
-        <dhis-table [(menuActions)]="menuActions"
+        <dhis-table [(menuActions)]="menuActions" (onSearch)="search($event)"
                     [(programStage)]="businessHistoryProgram" [(eventWrapper)]="vehicleHistory"></dhis-table>
       </div>
     </div>

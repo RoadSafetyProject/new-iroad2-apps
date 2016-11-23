@@ -20,11 +20,22 @@ export class EventService {
      */
   saveOrUpdateEvent(dataValuesObject, programStage, event) {
     let self = this;
-    if (event.event) {
-      //update event
-      event.dataValue = this.getDataValues(dataValuesObject,programStage.programStageDataElements);
+    //todo revamp service for format
+    if (event && event.event) {
+      let eventData = {
+        event : event.event,
+        program: programStage.program.id,
+        programStage: programStage.id,
+        orgUnit: event.orgUnit,
+        dueDate: event.dueDate,
+        status: event.status,
+        eventDate: event.eventDate,
+        lastUpdated: new Date().toISOString(),
+        created: event.created,
+        dataValues: this.getDataValues(dataValuesObject,programStage.programStageDataElements)
+      };
       return new Promise((resolve, reject) => {
-        self.putEvent(new Event(event)).then(response=>{
+        self.putEvent(new Event(eventData)).then(response=>{
           resolve(response)
         },error=>{
           reject(error);
@@ -74,7 +85,7 @@ export class EventService {
       let dataElementId = programStageDataElement.dataElement.id;
       if(dataValuesObject[dataElementId]){
         let value = dataValuesObject[dataElementId];
-        //formation date values to dhis 2 support date type
+        //format date values to dhis 2 support date type
         if(programStageDataElement.dataElement.valueType == "DATE"){
           let dateObject = new Date(value);
           let month = dateObject.getMonth() + 1;
@@ -87,7 +98,6 @@ export class EventService {
     return dataValues;
   }
 
-
   putEvent(event){
     let self = this;
     return new Promise((resolve, reject) => {
@@ -99,10 +109,10 @@ export class EventService {
     });
   }
 
-  postEvent(event,orgUnitRespense){
+  postEvent(event,orgUnitResponse){
     let self = this;
     return new Promise((resolve, reject) => {
-      event.orgUnit = orgUnitRespense.organisationUnits[0].id;
+      event.orgUnit = orgUnitResponse.organisationUnits[0].id;
       self.http.post("api/events.json",event).subscribe(response=>{
         resolve(response.json());
       },error=>{

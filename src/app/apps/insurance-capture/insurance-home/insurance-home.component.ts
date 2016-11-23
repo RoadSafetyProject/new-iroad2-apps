@@ -46,11 +46,11 @@ export class InsuranceHomeComponent implements OnInit {
   initiateMenuActions(){
     this.menuActions =[
       {
-        title : "view",
+        title : "View",
         url : "insurances/:id/view"
       },
       {
-        title : "Update",
+        title : "Edit",
         url : "insurances/:id/update"
       },
       {

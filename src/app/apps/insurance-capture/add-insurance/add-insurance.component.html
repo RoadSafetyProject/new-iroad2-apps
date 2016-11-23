@@ -1,3 +1,32 @@
-<p>
-  add-insurance works!
-</p>
+<h3>
+  Insurance Capture App
+</h3>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="#insurances/all">Home</a></li>
+  <li class="breadcrumb-item">Add Insurance Company</li>
+</ol>
+
+<div  class="row">
+  <div class="col-sm-9 col-md-10 col-lg-10">
+    {{ programStage |json }}
+    <div>
+      <!--<dhis-event-add [(programStage)]="programStage" ></dhis-event-add>-->
+    </div>
+  </div>
+
+  <div class="col-sm-3 col-md-2 col-lg-2">
+    <div class="card">
+      <div class="card-header">
+        Main Menu
+      </div>
+      <div class="card-block">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/insurances','all']">List Companies</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -40,7 +40,7 @@ export class DhisEventAddComponent implements OnInit {
         }
       });
     }
-    if(this.event.dataValues){
+    if(this.event){
       this.event.dataValues.forEach((dataValue : any)=>{
         this.dataValuesObject[dataValue.dataElement]=dataValue.value;
       });

@@ -33,12 +33,18 @@ export class DhisEventAddComponent implements OnInit {
     if(this.relationDataElementValueObject){
       this.dataValuesObject = this.relationDataElementValueObject;
     }
-    this.programStage.programStageDataElements.forEach((programStageDataElement : any)=>{
-      if(programStageDataElement.dataElement.optionSet){
-        this.dataValuesObject[programStageDataElement.dataElement.id] = "";
-      }
-    });
-    console.log('event : ',this.event);
+    if(this.programStage){
+      this.programStage.programStageDataElements.forEach((programStageDataElement : any)=>{
+        if(programStageDataElement.dataElement.optionSet){
+          this.dataValuesObject[programStageDataElement.dataElement.id] = "";
+        }
+      });
+    }
+    if(this.event.dataValues){
+      this.event.dataValues.forEach((dataValue : any)=>{
+        this.dataValuesObject[dataValue.dataElement]=dataValue.value;
+      });
+    }
     this.isLoadingData = false;
   }
 
@@ -85,7 +91,7 @@ export class DhisEventAddComponent implements OnInit {
     //checking whether form is valid or not for submission process
     if(formValidationResult.isFormValid){
       this.isLoadingData = true;
-      this.eventService.saveOrUpdateEvent(this.dataValuesObject,this.programStage,event).then(response=>{
+      this.eventService.saveOrUpdateEvent(this.dataValuesObject,this.programStage,this.event).then(response=>{
         this.isLoadingData = false;
         this.cancel();
       },error=>{

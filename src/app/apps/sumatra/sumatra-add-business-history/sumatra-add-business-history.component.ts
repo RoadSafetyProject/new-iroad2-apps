@@ -28,7 +28,7 @@ export class SumatraAddBusinessHistoryComponent implements OnInit {
         if(programStageDataElement.dataElement.name.toLowerCase() == relationDataElement.toLowerCase()){
           this.relationDataElementValueObject[programStageDataElement.dataElement.id] = this.id;
         }
-      })
+      });
     })
   }
 

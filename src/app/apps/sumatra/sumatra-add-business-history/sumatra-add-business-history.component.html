@@ -7,8 +7,6 @@
   <li class="breadcrumb-item active">Licenses</li>
 </ol>
 
-
-{{ businessHistoryProgramStage }}
 <div  class="row">
   <div class="col-sm-9 col-md-9 col-lg-10">
     <div class="card">
@@ -17,7 +15,12 @@
       </div>
       <div class="card-block">
         <div *ngIf="businessHistoryProgramStage">
-          <dhis-event-add [(programStage)]="businessHistoryProgramStage" [(relationDataElementValueObject)]="relationDataElementValueObject" ></dhis-event-add>
+          <div>
+            <dhis-event-add [(programStage)]="businessHistoryProgramStage" [(relationDataElementValueObject)]="relationDataElementValueObject" ></dhis-event-add>
+          </div>
+        </div>
+        <div *ngIf="!businessHistoryProgramStage">
+          <app-loader [text]="'Loading...'"></app-loader>
         </div>
 
       </div>

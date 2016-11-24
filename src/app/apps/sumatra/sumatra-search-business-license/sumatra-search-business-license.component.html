@@ -5,15 +5,15 @@
   <li class="breadcrumb-item"><a href="#/sumatra/vehicles">Home</a></li>
   <li class="breadcrumb-item">Vehicles</li>
 </ol>
-<div *ngIf="vehicleProgram" class="row">
+<div *ngIf="businessHistoryProgram" class="row">
   <div class="col-sm-9">
     <div class="card">
       <div class="card-header">
-        Vehicle List
+        Business License Search
       </div>
       <div class="card-block">
         <dhis-table [(menuActions)]="menuActions"
-                    [(programStage)]="vehicleProgram" [(eventWrapper)]="vehicles"
+                    [(programStage)]="businessHistoryProgram" [(eventWrapper)]="vehicleHistory"
                     (onSearch)="search($event)" (onPageChange)="pageChange($event)"></dhis-table>
       </div>
     </div>
@@ -26,7 +26,7 @@
       <div class="card-block">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/sumatra','business-history']">Search Bussiness License</a>
+            <a class="nav-link" [routerLink]="['/sumatra','vehicles']">Search Vehicles</a>
           </li>
         </ul>
       </div>

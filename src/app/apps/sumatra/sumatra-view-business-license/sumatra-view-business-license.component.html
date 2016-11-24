@@ -1,20 +1,18 @@
 <h3>
-  Sumatra App
+  View Business Details!
 </h3>
 <ol class="breadcrumb">
   <li class="breadcrumb-item"><a href="#/sumatra/vehicles">Home</a></li>
-  <li class="breadcrumb-item"><a [routerLink]="['/sumatra','vehicles',id]">Vehicle</a></li>
-  <li class="breadcrumb-item active">Licenses</li>
+  <li class="breadcrumb-item active">Vehicle</li>
 </ol>
-<div *ngIf="businessHistoryProgram" class="row">
+<div *ngIf="vehicleLicense" class="row">
   <div class="col-sm-9">
     <div class="card">
       <div class="card-header">
-        Vehicle Business License History
+        Vehicle Details
       </div>
       <div class="card-block">
-        <dhis-table [(menuActions)]="menuActions" (onSearch)="search($event)"
-                    [(programStage)]="businessHistoryProgram" [(eventWrapper)]="vehicleHistory"></dhis-table>
+        <dhis-event [(event)]="vehicleLicense" [(programStage)]="businessHistoryProgram"></dhis-event>
       </div>
     </div>
   </div>
@@ -26,10 +24,7 @@
       <div class="card-block">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/sumatra','vehicles',id]">Back to Vehicle</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/sumatra','vehicles',id,'business-history','add']">Add New Bussiness Lisence</a>
+            <a class="nav-link" [routerLink]="['/sumatra','business-history',vehicleLicense.event,'vehicle']">View Vehicle</a>
           </li>
         </ul>
       </div>

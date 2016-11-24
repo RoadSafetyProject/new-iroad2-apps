@@ -67,7 +67,7 @@ export abstract class ProgramStageService {
           if (eventIDs.length == 0) {
             resolve({events:[],pager:{}});
           } else {
-            this.getEvents("event="+eventIDs.join(";")).then((eventWrapper) => {
+            this.getEvents({event :eventIDs.join(";")}).then((eventWrapper) => {
               resolve(eventWrapper);
             })
           }

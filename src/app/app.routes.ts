@@ -75,6 +75,8 @@ import { AddVehicleInspectionComponent } from './apps/vehicle-capture/add-vehicl
 import { AddVehicleOwnerComponent } from './apps/vehicle-capture/add-vehicle-owner/add-vehicle-owner.component';
 import { AddVehicleLicenceComponent } from './apps/vehicle-capture/add-vehicle-licence/add-vehicle-licence.component';
 import { ViewVehicleLicenceComponent } from './apps/vehicle-capture/view-vehicle-licence/view-vehicle-licence.component';
+import {SumatraSearchBusinessLicenseComponent} from "./apps/sumatra/sumatra-search-business-license/sumatra-search-business-license.component";
+import {SumatraViewBusinessLicenseComponent} from "./apps/sumatra/sumatra-view-business-license/sumatra-view-business-license.component";
 
 export const routes: Routes  = [
   { path: '', redirectTo : "insurances/all",pathMatch : "full"},
@@ -151,6 +153,9 @@ export const routes: Routes  = [
   { path: 'sumatra/vehicles/:id/view', component: SumatraViewVehicleComponent },
   { path: 'sumatra/vehicles/:id/business-history', component: SumatraViewBusinessHistoryComponent },
   { path: 'sumatra/vehicles/:id/business-history/add', component: SumatraAddBusinessHistoryComponent },
+  { path: 'sumatra/business-history', component: SumatraSearchBusinessLicenseComponent },
+  { path: 'sumatra/business-history/:id', component: SumatraViewBusinessLicenseComponent },
+  { path: 'sumatra/business-history/:bussinessId/vehicle', component: SumatraViewVehicleComponent }
 ];
 
 export const routing : ModuleWithProviders = RouterModule.forRoot(routes);

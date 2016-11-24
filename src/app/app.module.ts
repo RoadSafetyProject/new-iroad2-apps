@@ -80,6 +80,8 @@ import {DhisEventAddComponent} from "./components/dhis-event-add/dhis-event-add.
 import { DhisEventUpdateComponent } from './components/dhis-event-update/dhis-event-update.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { OrderByPipe } from './pipes/order-by.pipe';
+import { SumatraViewBusinessLicenseComponent } from './apps/sumatra/sumatra-view-business-license/sumatra-view-business-license.component';
+import { SumatraSearchBusinessLicenseComponent } from './apps/sumatra/sumatra-search-business-license/sumatra-search-business-license.component';
 
 
 @NgModule({
@@ -119,7 +121,9 @@ import { OrderByPipe } from './pipes/order-by.pipe';
     DhisEventAddComponent,
     DhisEventUpdateComponent,
     LoaderComponent,
-    OrderByPipe
+    OrderByPipe,
+    SumatraViewBusinessLicenseComponent,
+    SumatraSearchBusinessLicenseComponent
   ],
   imports: [
     BrowserModule,

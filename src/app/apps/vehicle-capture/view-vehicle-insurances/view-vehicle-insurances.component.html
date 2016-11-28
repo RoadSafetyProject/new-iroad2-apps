@@ -1,3 +1,36 @@
-<p>
-  view-vehicle-insurances works!
-</p>
+<h3>
+  Vehicle Business License
+</h3>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="#/sumatra/vehicles">Home</a></li>
+  <li class="breadcrumb-item">Vehicles</li>
+</ol>
+<div *ngIf="vehicleInsuranceProgram" class="row">
+  <div class="col-sm-9">
+    <div class="card">
+      <div class="card-header">
+        Business License Search
+      </div>
+      <div class="card-block">
+        <dhis-table [(menuActions)]="menuActions"
+                    [(programStage)]="vehicleInsuranceProgram" [(eventWrapper)]="vehicleInsuranceHistory"
+                    (onSearch)="search($event)" (onPageChange)="pageChange($event)"></dhis-table>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-header">
+        Related Menu
+      </div>
+      <div class="card-block">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/sumatra','vehicles']">Search Vehicles</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+

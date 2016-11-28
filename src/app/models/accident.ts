@@ -1,5 +1,5 @@
 import {ProgramStage} from "./program-stage";
-export class Offence extends ProgramStage{
+export class Accident extends ProgramStage{
   getName():string {
     return "Offence Event";
   }

@@ -43,6 +43,25 @@ export abstract class ProgramStageService {
   }
   searchEvents(value,dataElementNames?){
     return new Promise((resolve, reject) => {
+      if(this.programStage){
+        this._searchEvents(value,dataElementNames).then((results)=>{
+          resolve(results);
+        },(error)=>{
+          reject(error);
+        })
+      }else{
+        this.getProgram().then(() =>{
+          this._searchEvents(value,dataElementNames).then((results)=>{
+            resolve(results);
+          },(error)=>{
+            reject(error);
+          })
+        })
+      }
+    });
+  }
+  _searchEvents(value,dataElementNames?){
+    return new Promise((resolve, reject) => {
       this.http.get("../../../api/sqlViews.json?filter=name:eq:Search Event").subscribe((results) =>{
         let sqlViewResult = results.json();
         let dataElements = [];
@@ -83,6 +102,26 @@ export abstract class ProgramStageService {
     });
   }
   getEventsByDataElement(dataElementName,value){
+    return new Promise((resolve, reject) => {
+      if(this.programStage){
+
+        this._getEventsByDataElement(dataElementName,value).then((results)=>{
+          resolve(results);
+        },(error)=>{
+          reject(error);
+        })
+      }else{
+        this.getProgram().then(() =>{
+          this._getEventsByDataElement(dataElementName,value).then((results)=>{
+            resolve(results);
+          },(error)=>{
+            reject(error);
+          })
+        })
+      }
+    });
+  }
+  _getEventsByDataElement(dataElementName,value){
     return new Promise((resolve, reject) => {
       this.http.get("../../../api/sqlViews.json?filter=name:eq:Find Event").subscribe((results) =>{
         let sqlViewResult = results.json();

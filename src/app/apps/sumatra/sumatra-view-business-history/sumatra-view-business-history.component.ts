@@ -18,10 +18,10 @@ export class SumatraViewBusinessHistoryComponent implements OnInit {
     this.route.params.forEach((params: Params) => {
       this.id = params['id'];
     });
+    this.initiateMenuActions();
   }
 
   ngOnInit() {
-    this.initiateMenuActions();
     this.businessHistoryService.getProgram().then((businessHistoryProgram) =>{
       this.businessHistoryProgram = businessHistoryProgram;
       this.businessHistoryService.getEventsByVehicle(this.id).then(vehicleHistory =>{
@@ -32,9 +32,13 @@ export class SumatraViewBusinessHistoryComponent implements OnInit {
 
   search(searchText) {
     console.log(searchText);
-    this.businessHistoryService.searchEvents(searchText).then(vehicleHistory =>{
-      this.vehicleHistory = vehicleHistory;
-    })
+    if(searchText == ""){
+      this.ngOnInit()
+    }else{
+      this.businessHistoryService.searchEvents(searchText).then(vehicleHistory =>{
+        this.vehicleHistory = vehicleHistory;
+      })
+    }
   }
   initiateMenuActions(){
     this.menuActions =[

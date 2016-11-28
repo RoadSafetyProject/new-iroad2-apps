@@ -10,7 +10,7 @@ import { ActivatedRoute,Params,Router,NavigationEnd } from '@angular/router';
 })
 export class AddVehicleComponent implements OnInit {
 
-  private vehicleProgramStage;
+  private vehicleProgramStage :any;
   private relationDataElementValueObject: any = {};
   id;
 
@@ -28,7 +28,7 @@ export class AddVehicleComponent implements OnInit {
         if(programStageDataElement.dataElement.name.toLowerCase() == relationDataElement.toLowerCase()){
           this.relationDataElementValueObject[programStageDataElement.dataElement.id] = this.id;
         }
-      })
+      });
     })
   }
 

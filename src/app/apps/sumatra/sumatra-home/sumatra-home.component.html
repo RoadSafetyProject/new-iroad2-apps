@@ -5,7 +5,7 @@
   <li class="breadcrumb-item"><a href="#/sumatra/vehicles">Home</a></li>
   <li class="breadcrumb-item">Vehicles</li>
 </ol>
-<div *ngIf="vehicleProgram" class="row">
+<div class="row">
   <div class="col-sm-9">
     <div class="card">
       <div class="card-header">
@@ -18,7 +18,7 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-3">
+  <div *ngIf="vehicleProgram" class="col-sm-3">
     <div class="card">
       <div class="card-header">
         Related Menu

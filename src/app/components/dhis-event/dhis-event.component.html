@@ -1,4 +1,7 @@
-<table class="table table-striped">
+<div>
+  <app-loader *ngIf="!event" [text]="'Loading...'"></app-loader>
+</div>
+<table *ngIf="event" class="table table-striped">
   <tbody>
   <template ngFor let-programStageDataElement [ngForOf]="programStage.programStageDataElements | orderBy : 'sortOrder': true">
     <tr *ngIf="!programStageDataElement.allowProvidedElseWhere" (contextmenu)="onContextMenu($event, event)">

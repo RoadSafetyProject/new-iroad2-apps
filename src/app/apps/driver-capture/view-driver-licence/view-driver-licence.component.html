@@ -1,3 +1,43 @@
-<p>
-  view-driver-licence works!
-</p>
+
+<h3>
+  Driver Capture App
+</h3>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="#drivers/all">Home</a></li>
+  <li class="breadcrumb-item">Add Driver Licence</li>
+</ol>
+
+<div class="row">
+  <div class="col-sm-9 col-md-9 col-lg-10">
+    <!--<div class="card">-->
+    <!--<div class="card-header">-->
+    <!--Driver List-->
+    <!--</div>-->
+    <!--<div class="card-block" *ngIf="programStage">-->
+    <!--<dhis-table [(menuActions)]="menuActions"-->
+    <!--[(programStage)]="programStage" [(eventWrapper)]="drivers"-->
+    <!--(onSearch)="search($event)" (onPageChange)="pageChange($event)"></dhis-table>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div *ngIf="!programStage">-->
+    <!--<app-loader [text]="'Loading...'"></app-loader>-->
+    <!--</div>-->
+  </div>
+
+  <div class="col-sm-3 col-md-3 col-lg-2">
+    <div class="card">
+      <div class="card-header">
+        Main Menu
+      </div>
+      <div class="card-block">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/drivers','all']">View Drivers</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+

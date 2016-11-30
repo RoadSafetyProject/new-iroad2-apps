@@ -9,13 +9,14 @@ import {DriverService} from "../../../services/driver.service";
 })
 export class DriverCaptureHomeComponent implements OnInit {
 
-  private programStage : any;
-  private drivers : any;
+  private programStage;
+  private drivers;
   private menuActions : any;
 
   constructor(private DriverService:DriverService) { }
 
   ngOnInit() {
+    this.initiateMenuActions();
     this.DriverService.getProgram().then(programStage=>{
       this.programStage = programStage;
       this.DriverService.getEvents().then(events=>{
@@ -43,9 +44,29 @@ export class DriverCaptureHomeComponent implements OnInit {
   initiateMenuActions(){
     this.menuActions =[
       {
-        title : "",
-        url : ""
+        title : "View Driver",
+        url : "drivers/:id/view"
       },
+      {
+        title : "Edit Driver",
+        url : "drivers/:id/update"
+      },
+      {
+        title : "View Licence History",
+        url : "drivers/:id/licences"
+      },
+      {
+        title : "Add Licence History",
+        url : "drivers/:id/licences/add"
+      },
+      {
+        title : "View Accidents",
+        url : "drivers/:id/accidents"
+      },
+      {
+        title : "View Offences",
+        url : "drivers/:id/offences"
+      }
     ];
   }
 

@@ -36,7 +36,8 @@ export class DhisTableComponent implements OnInit {
    */
   search(){
     this.eventWrapper = undefined;
-    this.onSearch.emit(this.searchText)
+    this.onSearch.emit(this.searchText);
+    return false;
   }
   onRowClick(event){
     if(this.contextMenuOptions.length > 0){

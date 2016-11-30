@@ -17,6 +17,7 @@ export class VehicleCaptureHomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.vehicleProgram = undefined;
     this.initiateMenuActions();
     this.vehicleService.getProgram().then((vehicleProgram) =>{
       this.vehicleProgram = vehicleProgram;
@@ -25,7 +26,20 @@ export class VehicleCaptureHomeComponent implements OnInit {
       })
     })
   }
-
+  search(searchText) {
+    if(searchText == ""){
+      this.ngOnInit()
+    }else{
+      this.vehicleService.searchEvents(searchText).then(vehicles =>{
+        this.vehicles = vehicles;
+      })
+    }
+  }
+  pageChange(page) {
+    this.vehicleService.getEvents({page:page}).then(vehicles =>{
+      this.vehicles = vehicles;
+    })
+  }
   initiateMenuActions(){
     this.menuActions =[
       {

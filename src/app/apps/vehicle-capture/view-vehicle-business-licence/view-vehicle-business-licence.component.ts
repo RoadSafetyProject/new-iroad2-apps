@@ -13,8 +13,11 @@ export class ViewVehicleBusinessLicenceComponent implements OnInit {
   private menuActions : any;
   private businessHistoryProgram;
   private vehicleHistory;
-  constructor(private businessHistoryService:BusinessHistoryService) {
-
+  id;
+  constructor(private businessHistoryService:BusinessHistoryService,private route: ActivatedRoute) {
+    this.route.params.forEach((params: Params) => {
+      this.id = params['id'];
+    });
   }
 
   ngOnInit() {

@@ -27,7 +27,6 @@ export class SumatraHomeComponent implements OnInit {
     })
   }
   search(searchText) {
-    console.log(searchText);
     this.vehicleService.searchEvents(searchText).then(vehicles =>{
       this.vehicles = vehicles;
     })

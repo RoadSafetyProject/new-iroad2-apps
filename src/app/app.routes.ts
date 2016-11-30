@@ -79,7 +79,7 @@ import {SumatraSearchBusinessLicenseComponent} from "./apps/sumatra/sumatra-sear
 import {SumatraViewBusinessLicenseComponent} from "./apps/sumatra/sumatra-view-business-license/sumatra-view-business-license.component";
 
 export const routes: Routes  = [
-  { path: '', redirectTo : "insurances/all",pathMatch : "full"},
+  { path: '', redirectTo : "drivers/all",pathMatch : "full"},
 
   { path: 'vehicles', redirectTo : "vehicles/all",pathMatch : "full"},
   { path: 'vehicles/all', component: VehicleCaptureHomeComponent },

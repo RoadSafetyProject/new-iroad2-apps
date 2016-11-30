@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ContextMenuModule } from 'angular2-contextmenu';
 import { DatepickerModule } from 'ng2-bootstrap/components/datepicker';
+import { TooltipModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { LocationStrategy,HashLocationStrategy } from '@angular/common';
 import {routing} from "./app.routes";
@@ -128,7 +129,7 @@ import { SumatraSearchBusinessLicenseComponent } from './apps/sumatra/sumatra-se
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,DatepickerModule,
+    HttpModule,DatepickerModule,TooltipModule,
     ContextMenuModule.forRoot({
       useBootstrap4: true,
     }),

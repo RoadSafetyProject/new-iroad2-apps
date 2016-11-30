@@ -6,7 +6,8 @@
   <li class="breadcrumb-item"><a href="#drivers/all">Home</a></li>
   <li class="breadcrumb-item">View Driver</li>
 </ol>
-
+<span tooltipPlacement="top" tooltip="On the Left!">left</span>
+<i class="fa fa-question-circle" aria-hidden="true"></i>
 <div class="row">
   <div class="col-sm-9 col-md-9 col-lg-10">
     <div *ngIf="programStage && event">
@@ -27,6 +28,22 @@
   </div>
 
   <div class="col-sm-3 col-md-3 col-lg-2">
+    <div class="card">
+      <div class="card-header">
+        Related Menu
+      </div>
+      <div class="card-block">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/drivers',id,'update']">Edit Driver</a>
+            <a class="nav-link" [routerLink]="['/drivers',id,'licences']">View Licence</a>
+            <a class="nav-link" [routerLink]="['/drivers',id,'licences','add']">Add Licence</a>
+            <a class="nav-link" [routerLink]="['/drivers',id,'accidents']">View Accidents</a>
+            <a class="nav-link" [routerLink]="['/drivers',id,'offences']">View Offences</a>
+          </li>
+        </ul>
+      </div>
+    </div>
     <div class="card">
       <div class="card-header">
         Main Menu

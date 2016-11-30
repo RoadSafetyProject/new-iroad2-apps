@@ -27,6 +27,22 @@
   <div class="col-sm-3 col-md-3 col-lg-2">
     <div class="card">
       <div class="card-header">
+        Related Menu
+      </div>
+      <div class="card-block">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/drivers',id,'view']">View Driver</a>
+            <a class="nav-link" [routerLink]="['/drivers',id,'update']">Edit Driver</a>
+            <a class="nav-link" [routerLink]="['/drivers',id,'licences','add']">Add Licence</a>
+            <a class="nav-link" [routerLink]="['/drivers',id,'licences']">View Licences</a>
+            <a class="nav-link" [routerLink]="['/drivers',id,'accidents']">View Accidents</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
         Main Menu
       </div>
       <div class="card-block">

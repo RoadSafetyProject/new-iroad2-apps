@@ -10,7 +10,8 @@
   <div class="col-sm-9 col-md-10 col-lg-10">
     <div *ngIf="programStage">
       <div>
-        <dhis-event-add [(programStage)]="programStage" ></dhis-event-add>
+        <dhis-table [(menuActions)]="menuActions" (onSearch)="search($event)"
+                    [(programStage)]="programStage" [(eventWrapper)]="vehicles"></dhis-table>
       </div>
     </div>
     <div *ngIf="!programStage">

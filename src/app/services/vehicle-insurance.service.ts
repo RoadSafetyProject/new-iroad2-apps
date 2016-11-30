@@ -12,4 +12,13 @@ export class VehicleInsuranceService extends ProgramStageService{
   getSchema():any {
     return VehicleInsurance;
   }
+  getInsuredVehicles(id){
+    return new Promise((resolve, reject) => {
+      this.getEventsByDataElement("Program_Insurance",id).then((eventWrapper)=>{
+        resolve(eventWrapper);
+      },()=>{
+        reject();
+      })
+    })
+  }
 }

@@ -14,16 +14,16 @@ export class ViewInsuranceComponent implements OnInit {
   private event : any;
   private id;
 
-  constructor(private InsuranceService : InsuranceService,private route: ActivatedRoute,private router: Router) {
+  constructor(private insuranceService : InsuranceService,private route: ActivatedRoute,private router: Router) {
     this.route.params.forEach((params: Params) => {
       this.id = params['id'];
     });
   }
 
   ngOnInit() {
-    this.InsuranceService.getProgram().then(programStage=>{
+    this.insuranceService.getProgram().then(programStage=>{
       this.programStage = programStage;
-      this.InsuranceService.get(this.id).then(event=>{
+      this.insuranceService.get(this.id).then(event=>{
         this.event = event;
       },error=>{
         console.log(error);

@@ -2,11 +2,11 @@
     "version": "0.1",
     "name": "Sumatra",
     "description": "Water Point",
-    "launch_path": "index.html#/sumatra/vehicles",
+    "launch_path": "index.html#/insurances",
     "icons": {
-        "16": "assets/sumatra.png",
-        "48": "assets/sumatra.png",
-        "128": "assets/sumatra.png"
+        "16": "assets/insurance.png",
+        "48": "assets/insurance.png",
+        "128": "assets/insurance.png"
     },
     "developer": {
         "name": "HISPTZ",

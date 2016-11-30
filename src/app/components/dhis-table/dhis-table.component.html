@@ -8,7 +8,7 @@
         <div class="input-group input-group-lg">
           <input type="text" [(ngModel)]="searchText" name="search" class="form-control" placeholder="Search for...">
       <span class="input-group-btn">
-        <button class="btn btn-default" [disabled]="searchText" type="submit">Search!</button>
+        <button class="btn btn-default" [disabled]="!searchText" type="submit">Search!</button>
       </span>
         </div>
       </form>

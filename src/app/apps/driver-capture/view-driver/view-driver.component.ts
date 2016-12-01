@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Params,Router,NavigationEnd } from '@angular/router';
 import {DriverService} from "../../../services/driver.service";
 
-import { TooltipModule } from 'ng2-bootstrap/ng2-bootstrap';
-
 @Component({
   selector: 'app-view-driver',
   templateUrl: './view-driver.component.html',

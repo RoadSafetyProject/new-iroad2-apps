@@ -37,6 +37,10 @@ export class DhisEventAddComponent implements OnInit {
       this.programStage.programStageDataElements.forEach((programStageDataElement : any)=>{
         if(programStageDataElement.dataElement.optionSet){
           this.dataValuesObject[programStageDataElement.dataElement.id] = "";
+        }else if(programStageDataElement.dataElement.valueType == 'BOOLEAN'){
+          this.dataValuesObject[programStageDataElement.dataElement.id] = "";
+        }else if(programStageDataElement.dataElement.valueType == 'TRUE_ONLY'){
+          this.dataValuesObject[programStageDataElement.dataElement.id] = "";
         }
       });
     }

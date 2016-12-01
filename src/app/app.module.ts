@@ -78,7 +78,6 @@ import { ExtractDataValuePipe } from './components/dhis-table/extract-data-value
 import { DhisEventComponent } from './components/dhis-event/dhis-event.component';
 import { DhisViewComponent } from './components/dhis-view/dhis-view.component';
 import {DhisEventAddComponent} from "./components/dhis-event-add/dhis-event-add.component";
-import { DhisEventUpdateComponent } from './components/dhis-event-update/dhis-event-update.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { OrderByPipe } from './pipes/order-by.pipe';
 import { SumatraViewBusinessLicenseComponent } from './apps/sumatra/sumatra-view-business-license/sumatra-view-business-license.component';
@@ -120,7 +119,6 @@ import { SumatraSearchBusinessLicenseComponent } from './apps/sumatra/sumatra-se
     DhisEventComponent,
     DhisViewComponent,
     DhisEventAddComponent,
-    DhisEventUpdateComponent,
     LoaderComponent,
     OrderByPipe,
     SumatraViewBusinessLicenseComponent,

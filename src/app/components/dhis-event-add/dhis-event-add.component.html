@@ -8,7 +8,16 @@
     </td>
   </tr>
   <tr  *ngFor="let programStageDataElement of programStage.programStageDataElements| orderBy : 'sortOrder': true">
-    <th scope="row" *ngIf="!programStageDataElement.allowProvidedElsewhere">{{ programStageDataElement.dataElement.name }} <span  *ngIf="programStageDataElement.compulsory">*</span></th>
+    <th scope="row" *ngIf="!programStageDataElement.allowProvidedElsewhere">
+      {{ programStageDataElement.dataElement.name }}
+      <span  *ngIf="programStageDataElement.compulsory">*</span>
+      <span class="pull-right" *ngIf="programStageDataElement.dataElement.description">
+        <span tooltipPlacement="top" tooltip="{{programStageDataElement.dataElement.description}}">
+          <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+        </span>
+      </span>
+
+    </th>
     <td *ngIf="!programStageDataElement.allowProvidedElsewhere">
 
       <div *ngIf="programStageDataElement.dataElement.optionSet"  >

@@ -9,16 +9,16 @@
 
 <div class="row">
   <div class="col-sm-9 col-md-9 col-lg-10">
-    <!--<div class="card">-->
-    <!--<div class="card-header">-->
-    <!--Driver List-->
-    <!--</div>-->
+    <div class="card">
+    <div class="card-header">
+    Driver's Offences history
+    </div>
     <!--<div class="card-block" *ngIf="programStage">-->
     <!--<dhis-table [(menuActions)]="menuActions"-->
     <!--[(programStage)]="programStage" [(eventWrapper)]="drivers"-->
     <!--(onSearch)="search($event)" (onPageChange)="pageChange($event)"></dhis-table>-->
     <!--</div>-->
-    <!--</div>-->
+    </div>
     <!--<div *ngIf="!programStage">-->
     <!--<app-loader [text]="'Loading...'"></app-loader>-->
     <!--</div>-->
@@ -33,9 +33,17 @@
         <ul class="nav">
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/drivers',id,'view']">View Driver</a>
+            </li>
+          <li class="nav-item">
             <a class="nav-link" [routerLink]="['/drivers',id,'update']">Edit Driver</a>
+            </li>
+          <li class="nav-item">
             <a class="nav-link" [routerLink]="['/drivers',id,'licences','add']">Add Licence</a>
+            </li>
+          <li class="nav-item">
             <a class="nav-link" [routerLink]="['/drivers',id,'licences']">View Licences</a>
+            </li>
+          <li class="nav-item">
             <a class="nav-link" [routerLink]="['/drivers',id,'accidents']">View Accidents</a>
           </li>
         </ul>

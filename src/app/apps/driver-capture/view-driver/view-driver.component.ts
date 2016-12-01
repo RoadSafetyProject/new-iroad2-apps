@@ -12,7 +12,6 @@ export class ViewDriverComponent implements OnInit {
 
   private programStage : any;
   private event : any;
-  private relationDataElementValueObject: any = {};
   private id;
 
   constructor(private DriverService : DriverService,private route: ActivatedRoute,private router: Router) {

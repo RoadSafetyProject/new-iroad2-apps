@@ -13,4 +13,9 @@ export class DriverLicenceHistoryService extends ProgramStageService{
   getSchema():any {
     return DriverLicenceHistory;
   }
+
+  getEventByDriver(driverId){
+    let relationDataElement = "Program_Driver";
+    return this.getEventsByDataElement(relationDataElement,driverId);
+  }
 }

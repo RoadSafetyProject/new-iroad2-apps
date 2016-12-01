@@ -13,14 +13,14 @@
       <div class="card-header">
         Driver Licence History
       </div>
-      <!--<div class="card-block" *ngIf="programStage">-->
-      <!--<dhis-table [(menuActions)]="menuActions"-->
-      <!--[(programStage)]="programStage" [(eventWrapper)]="drivers"-->
-      <!--(onSearch)="search($event)" (onPageChange)="pageChange($event)"></dhis-table>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--<div *ngIf="!programStage">-->
-      <!--<app-loader [text]="'Loading...'"></app-loader>-->
+      <div class="card-block" *ngIf="(programStage && driverLicenceHistory)">
+        <dhis-table
+          [(programStage)]="programStage" [(eventWrapper)]="driverLicenceHistory"
+          (onSearch)="search($event)" (onPageChange)="pageChange($event)"></dhis-table>
+      </div>
+    </div>
+    <div *ngIf="!(programStage && driverLicenceHistory)">
+      <app-loader [text]="'Loading...'"></app-loader>
     </div>
   </div>
 

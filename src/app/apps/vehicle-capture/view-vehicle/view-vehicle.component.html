@@ -1,5 +1,5 @@
 <h3>
-  View Vehicle Details!
+  Driver Capture App
 </h3>
 <ol class="breadcrumb">
   <li class="breadcrumb-item"><a href="#/sumatra/vehicles">Home</a></li>
@@ -11,8 +11,11 @@
       <div class="card-header">
         Vehicle Details
       </div>
-      <div class="card-block">
+      <div class="card-block" *ngIf="(vehicle && vehicleProgramStage)">
         <dhis-event [(event)]="vehicle" [(programStage)]="vehicleProgramStage"></dhis-event>
+      </div>
+      <div *ngIf="!(vehicle && vehicleProgramStage)">
+        <app-loader [text]="'Loading...'"></app-loader>
       </div>
     </div>
   </div>

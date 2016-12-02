@@ -1,3 +1,65 @@
-<p>
-  update-driver works!
-</p>
+
+<h3>
+  Driver Capture App
+</h3>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="#drivers/all">Home</a></li>
+  <li class="breadcrumb-item">Edit Driver</li>
+</ol>
+
+<div class="row">
+  <div class="col-sm-9 col-md-9 col-lg-10">
+    <div class="card">
+      <div class="card-header">
+        Edit Driver
+      </div>
+      <div class="card-block" *ngIf="(programStage && event)">
+        <dhis-event-add [(programStage)]="programStage" [(event)]="event"></dhis-event-add>
+      </div>
+    </div>
+    <div *ngIf="!(programStage && event)">
+      <app-loader [text]="'Loading...'"></app-loader>
+    </div>
+  </div>
+
+  <div class="col-sm-3 col-md-3 col-lg-2">
+    <div class="card">
+      <div class="card-header">
+        Related Menu
+      </div>
+      <div class="card-block">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/drivers',id,'view']">View Driver</a>
+           </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/drivers',id,'licences']">View Licence</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/drivers',id,'licences','add']">Add Licence</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/drivers',id,'accidents']">View Accident</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/drivers',id,'offences']">View Offences</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        Main Menu
+      </div>
+      <div class="card-block">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/drivers','all']">View Drivers</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+

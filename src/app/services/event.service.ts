@@ -17,7 +17,7 @@ export class EventService {
    * @param programStage
    * @param event
    * @returns {Promise<T>}
-     */
+   */
   saveOrUpdateEvent(dataValuesObject, programStage, event) {
     let self = this;
     //todo revamp service for format
@@ -78,7 +78,7 @@ export class EventService {
    *
    * @param dataValuesObject
    * @param programStageDataElements
-     */
+   */
   getDataValues(dataValuesObject,programStageDataElements){
     let dataValues : Array<DataValue> = [];
     programStageDataElements.forEach((programStageDataElement : any)=>{

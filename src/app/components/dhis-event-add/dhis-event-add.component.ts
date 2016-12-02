@@ -24,6 +24,7 @@ export class DhisEventAddComponent implements OnInit {
   private inValidFormFields :Array<string>;
 
   //todo validation fields using form builder directive
+  //todo handling of files for example photo uploading
   constructor(private location:Location,private eventService:EventService) {
     this.showDatePicker = {};
     this.dataValuesObject = {};
@@ -36,6 +37,10 @@ export class DhisEventAddComponent implements OnInit {
     if(this.programStage){
       this.programStage.programStageDataElements.forEach((programStageDataElement : any)=>{
         if(programStageDataElement.dataElement.optionSet){
+          this.dataValuesObject[programStageDataElement.dataElement.id] = "";
+        }else if(programStageDataElement.dataElement.valueType == 'BOOLEAN'){
+          this.dataValuesObject[programStageDataElement.dataElement.id] = "";
+        }else if(programStageDataElement.dataElement.valueType == 'TRUE_ONLY'){
           this.dataValuesObject[programStageDataElement.dataElement.id] = "";
         }
       });

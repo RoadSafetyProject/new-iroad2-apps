@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute,Params,Router,NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-view-driver-offences',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewDriverOffencesComponent implements OnInit {
 
-  constructor() { }
+  private id;
+
+  constructor(private route: ActivatedRoute,private router: Router) {
+    this.route.params.forEach((params: Params) => {
+      this.id = params['id'];
+    });
+  }
+
 
   ngOnInit() {
   }

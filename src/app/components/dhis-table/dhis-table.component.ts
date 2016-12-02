@@ -28,7 +28,10 @@ export class DhisTableComponent implements OnInit {
     //console.log(this.eventWrapper);
   }
   ngOnInit() {
-    this.setContextMenuAction(this.menuActions);
+    if(this.menuActions){
+      this.setContextMenuAction(this.menuActions);
+    }
+
   }
 
   /**

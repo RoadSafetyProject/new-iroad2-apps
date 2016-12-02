@@ -13,15 +13,14 @@
     <div class="card-header">
     Driver's Accidents
     </div>
-    <!--<div class="card-block" *ngIf="programStage">-->
-    <!--<dhis-table [(menuActions)]="menuActions"-->
-    <!--[(programStage)]="programStage" [(eventWrapper)]="drivers"-->
-    <!--(onSearch)="search($event)" (onPageChange)="pageChange($event)"></dhis-table>-->
-    <!--</div>-->
+      <div class="card-block" *ngIf="(programStage && events)">
+        <dhis-table [(programStage)]="programStage" [(eventWrapper)]="events"
+                    (onSearch)="search($event)" (onPageChange)="pageChange($event)"></dhis-table>
+      </div>
     </div>
-    <!--<div *ngIf="!programStage">-->
-    <!--<app-loader [text]="'Loading...'"></app-loader>-->
-    <!--</div>-->
+    <div *ngIf="!(programStage && events)">
+      <app-loader [text]="'Loading...'"></app-loader>
+    </div>
   </div>
 
   <div class="col-sm-3 col-md-3 col-lg-2">

@@ -26,7 +26,11 @@ export class ViewDriverAccidentsComponent implements OnInit {
       this.programStage = accidentProgramStage;
       this.AccidentVehicleService.getProgram().then((programStage : any)=>{
         this.AccidentVehicleService.getAccidentIdsByDriver(this.id).then(accidentIds=>{
-          this.AccidentService.getAccientsByIds(accidentIds);
+          this.AccidentService.getAccidentsByIds(accidentIds).then(events=>{
+            this.events = events;
+          },error=>{
+            //fail to get events
+          });
         },error=>{
           //fail to get accident ids
         });
@@ -37,5 +41,17 @@ export class ViewDriverAccidentsComponent implements OnInit {
       //fail to load accident program stage
     });
   }
+
+  search(searchText) {
+    this.AccidentService.searchEvents(searchText).then(drivers =>{
+      this.events = drivers;
+    })
+  }
+
+  //pageChange(page) {
+  //  this.AccidentService.getEvents({page:page}).then(drivers =>{
+  //    this.events = drivers;
+  //  })
+  //}
 
 }

@@ -14,8 +14,14 @@ export class AccidentService extends ProgramStageService{
     return Accident;
   }
 
-  getAccientsByIds(accidentIds){
-    alert(accidentIds);
+  getAccidentsByIds(accidentIds){
+    return new Promise((resolve, reject) => {
+      this.getEvents({event :accidentIds.join(";")}).then((eventWrapper:any) => {
+        resolve(eventWrapper);
+      },error=>{
+        reject(error);
+      });
+    });
   }
 
   getEventsByVehicle(id){

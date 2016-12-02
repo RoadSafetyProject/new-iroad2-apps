@@ -44,14 +44,42 @@ export class VehicleCaptureHomeComponent implements OnInit {
     this.menuActions =[
       {
         title : "View Vehicle",
-        url : "vehicles/:id"
+        url : "vehicles/:id/view"
       },{
-        title : "Add Business Licence",
-        url : "sumatra/vehicles/:id/business-history/add"
+        title : "Edit Vehicle",
+        url : "vehicles/:id/update"
       },{
-        title : "View Business Licence",
-        url : "sumatra/vehicles/:id/business-history"
-      }];
+        title : "Add insurance",
+        url : "vehicles/:id/insurances/add"
+      },{
+        title : "View insurance",
+        url : "vehicles/:id/insurances"
+      },{
+        title : "Add Vehicle Licence",
+        url : "vehicles/:id/insurances/add"
+      },{
+        title : "View Vehicle Licence",
+        url : "vehicles/:id/insurances"
+      },{
+        title : "Add Vehicle Owner",
+        url : "vehicles/:id/owner-history/add"
+      },{
+        title : "View Vehicle Owner's History",
+        url : "vehicles/:id/owner-history"
+      },{
+        title : "Add Vehicle Inspection",
+        url : "vehicles/:id/inspection/add"
+      },{
+        title : "View Vehicle Inspection",
+        url : "vehicles/:id/inspection"
+      },{
+        title : "View Accidents",
+        url : "vehicles/:id/accidents"
+      },{
+        title : "View Offences",
+        url : "vehicles/:id/offences"
+      }
+    ]
   }
 
 }

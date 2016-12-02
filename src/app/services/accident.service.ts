@@ -13,6 +13,17 @@ export class AccidentService extends ProgramStageService{
   getSchema():any {
     return Accident;
   }
+
+  getAccidentsByIds(accidentIds){
+    return new Promise((resolve, reject) => {
+      this.getEvents({event :accidentIds.join(";")}).then((eventWrapper:any) => {
+        resolve(eventWrapper);
+      },error=>{
+        reject(error);
+      });
+    });
+  }
+
   getEventsByVehicle(id){
     return this.getEventsByDataElement("Program_Vehicle",id);
   }

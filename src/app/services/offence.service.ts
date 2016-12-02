@@ -16,4 +16,7 @@ export class OffenceService extends ProgramStageService{
   getEventsByVehicle(id){
     return this.getEventsByDataElement("Program_Vehicle",id);
   }
+  getEventsByDriver(driverId){
+    return this.getEventsByDataElement("Program_Driver",driverId);
+  }
 }

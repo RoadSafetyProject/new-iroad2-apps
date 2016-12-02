@@ -13,6 +13,11 @@ export class AccidentService extends ProgramStageService{
   getSchema():any {
     return Accident;
   }
+
+  getAccientsByIds(accidentIds){
+    alert(accidentIds);
+  }
+
   getEventsByVehicle(id){
     return this.getEventsByDataElement("Program_Vehicle",id);
   }

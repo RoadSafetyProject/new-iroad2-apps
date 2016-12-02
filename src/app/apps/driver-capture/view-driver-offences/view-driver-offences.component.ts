@@ -29,7 +29,6 @@ export class ViewDriverOffencesComponent implements OnInit {
   }
 
   search(searchText) {
-    console.log(searchText);
     if(searchText == ""){
       this.ngOnInit()
     }else{

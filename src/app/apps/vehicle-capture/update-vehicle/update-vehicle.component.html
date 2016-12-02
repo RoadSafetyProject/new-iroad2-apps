@@ -1,3 +1,90 @@
-<p>
-  update-vehicle works!
-</p>
+<h3>
+  Driver Capture App
+</h3>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="#vehicles/all">Home</a></li>
+  <li class="breadcrumb-item">Edit Vehicle</li>
+</ol>
+
+<div class="row">
+  <div class="col-sm-9 col-md-9 col-lg-10">
+    <div class="card">
+      <div class="card-header">
+        Edit Vehicle
+      </div>
+      <div class="card-block" *ngIf="(vehicleProgramStage && vehicle)">
+        <dhis-event-add [(programStage)]="vehicleProgramStage" [(event)]="vehicle"></dhis-event-add>
+      </div>
+    </div>
+    <div *ngIf="!(vehicleProgramStage && vehicle)">
+      <app-loader [text]="'Loading...'"></app-loader>
+    </div>
+  </div>
+
+  <div class="col-sm-3 col-md-3 col-lg-2">
+    <div class="card">
+      <div class="card-header">
+        Related Menu
+      </div>
+      <div class="card-block">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/vehicles',id,'view']">View Vehicle</a>
+          </li>
+          <div class="dropdown-divider"></div>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/vehicles',id,'business-history']">Bussiness History</a>
+          </li>
+          <div class="dropdown-divider"></div>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/vehicles',id,'insurances','add']">Add Insurance</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/vehicles',id,'insurances']">View Insurance</a>
+          </li>
+          <div class="dropdown-divider"></div>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/vehicles',id,'licence','add']">Add Vehicle License</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/vehicles',id,'licence']">View Vehicle License</a>
+          </li>
+          <div class="dropdown-divider"></div>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/vehicles',id,'owner-history','add']">Add Owner History</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/vehicles',id,'owner-history']">View Owner History</a>
+          </li>
+          <div class="dropdown-divider"></div>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/vehicles',id,'inspections','add']">Add Inspection</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/vehicles',id,'inspections']">View Inspections</a>
+          </li>
+          <div class="dropdown-divider"></div>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/vehicles',id,'accidents']">Accidents</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/vehicles',id,'offences']">Offences</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        Main Menu
+      </div>
+      <div class="card-block">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/drivers','all']">View Drivers</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>

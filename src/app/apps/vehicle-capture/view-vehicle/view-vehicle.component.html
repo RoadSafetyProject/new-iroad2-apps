@@ -24,49 +24,46 @@
       <div class="card-block">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/vehicles',vehicle.event,'business-history','add']">Edit Vehicle</a>
+            <a class="nav-link" [routerLink]="['/vehicles',id,'update']">Edit Vehicle</a>
           </li>
           <div class="dropdown-divider"></div>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/vehicles',vehicle.event,'business-history','add']">Add New Bussiness Lisence</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/vehicles',vehicle.event,'business-history']">Bussiness History</a>
+            <a class="nav-link" [routerLink]="['/vehicles',id,'business-history']">Bussiness History</a>
           </li>
           <div class="dropdown-divider"></div>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/vehicles',vehicle.event,'insurances','add']">Add Insurance</a>
+            <a class="nav-link" [routerLink]="['/vehicles',id,'insurances','add']">Add Insurance</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/vehicles',vehicle.event,'insurances']">View Insurance</a>
-          </li>
-          <div class="dropdown-divider"></div>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/vehicles',vehicle.event,'licence','add']">Add Vehicle License</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/vehicles',vehicle.event,'licence']">View Vehicle License</a>
+            <a class="nav-link" [routerLink]="['/vehicles',id,'insurances']">View Insurance</a>
           </li>
           <div class="dropdown-divider"></div>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/vehicles',vehicle.event,'owner-history','add']">Add Owner History</a>
+            <a class="nav-link" [routerLink]="['/vehicles',id,'licence','add']">Add Vehicle License</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/vehicles',vehicle.event,'owner-history']">View Owner History</a>
-          </li>
-          <div class="dropdown-divider"></div>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/vehicles',vehicle.event,'inspections','add']">Add Inspection</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/vehicles',vehicle.event,'inspections']">View Inspections</a>
+            <a class="nav-link" [routerLink]="['/vehicles',id,'licence']">View Vehicle License</a>
           </li>
           <div class="dropdown-divider"></div>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/vehicles',vehicle.event,'accidents']">Accidents</a>
+            <a class="nav-link" [routerLink]="['/vehicles',id,'owner-history','add']">Add Owner History</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/vehicles',vehicle.event,'offences']">Offences</a>
+            <a class="nav-link" [routerLink]="['/vehicles',id,'owner-history']">View Owner History</a>
+          </li>
+          <div class="dropdown-divider"></div>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/vehicles',id,'inspections','add']">Add Inspection</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/vehicles',id,'inspections']">View Inspections</a>
+          </li>
+          <div class="dropdown-divider"></div>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/vehicles',id,'accidents']">Accidents</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/vehicles',id,'offences']">Offences</a>
           </li>
         </ul>
       </div>

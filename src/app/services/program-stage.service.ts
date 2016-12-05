@@ -32,7 +32,10 @@ export abstract class ProgramStageService {
     return new Promise((resolve, reject) => {
       let url = "../../../api/events.json?program=" + this.programStage.program.id;
       if(additionalParams){
-        url +="&"+additionalParams;
+        Object.keys(additionalParams).forEach((key)=>{
+          url +="&"+key +"=" + additionalParams[key];
+        })
+
       }
       this.http.get(url).subscribe((results) =>{
         resolve(results.json());
@@ -138,7 +141,7 @@ export abstract class ProgramStageService {
           if (eventIDs.length == 0) {
             resolve({events:[],pager:{}});
           } else {
-            this.getEvents("event="+eventIDs.join(";")).then((eventWrapper) => {
+            this.getEvents({event :eventIDs.join(";")}).then((eventWrapper) => {
               resolve(eventWrapper);
             })
           }

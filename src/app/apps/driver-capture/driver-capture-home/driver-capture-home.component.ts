@@ -31,6 +31,7 @@ export class DriverCaptureHomeComponent implements OnInit {
 
   search(searchText) {
     this.DriverService.searchEvents(searchText).then(drivers =>{
+      console.log(drivers.events);
       this.drivers = drivers;
     })
   }

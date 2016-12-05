@@ -1,0 +1,21 @@
+{
+    "version": "0.1",
+    "name": "Sumatra",
+    "description": "Water Point",
+    "launch_path": "index.html#/vehicles",
+    "icons": {
+        "16": "assets/vehicle.png",
+        "48": "assets/vehicle.png",
+        "128": "assets/vehicle.png"
+    },
+    "developer": {
+        "name": "HISPTZ",
+        "url": ""
+    },
+    "default_locale": "en",
+    "activities": {
+        "dhis": {
+            "href": "/"
+        }
+    }
+}

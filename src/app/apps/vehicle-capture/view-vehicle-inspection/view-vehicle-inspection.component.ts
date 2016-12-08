@@ -33,4 +33,20 @@ export class ViewVehicleInspectionComponent implements OnInit {
     });
   }
 
+  search(searchText) {
+    if(searchText == ""){
+      this.ngOnInit()
+    }else{
+      this.VehicleInspectionService.searchEvents(searchText).then(events =>{
+        this.events = events;
+      })
+    }
+  }
+
+  pageChange(page) {
+    this.VehicleInspectionService.getEvents({page:page}).then(drivers =>{
+      this.events = drivers;
+    })
+  }
+
 }

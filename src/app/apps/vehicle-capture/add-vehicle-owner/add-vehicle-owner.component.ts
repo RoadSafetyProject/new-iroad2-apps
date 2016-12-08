@@ -25,7 +25,6 @@ export class AddVehicleOwnerComponent implements OnInit {
       this.programStage = programStage;
       let dataElementName = "Program_Vehicle";
       programStage.programStageDataElements.forEach((programStageDataElement :any)=>{
-        console.log(programStageDataElement.dataElement.name.toLowerCase() == dataElementName.toLowerCase())
         if(programStageDataElement.dataElement.name.toLowerCase() == dataElementName.toLowerCase()){
           this.relationDataElementValueObject[programStageDataElement.dataElement.id] = this.id;
         }

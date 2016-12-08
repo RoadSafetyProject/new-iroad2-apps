@@ -31,15 +31,15 @@ export class ViewVehicleOffencesComponent implements OnInit {
   }
 
   search(searchText) {
-    console.log(searchText);
     if(searchText == ""){
       this.ngOnInit()
     }else{
-      this.offenceService.searchEvents(searchText).then(offenceEvents =>{
-        this.offenceEvents = offenceEvents;
+      this.offenceService.searchEvents(searchText).then(events =>{
+        this.offenceEvents = events;
       })
     }
   }
+
   initiateMenuActions(){
     this.menuActions =[
       {

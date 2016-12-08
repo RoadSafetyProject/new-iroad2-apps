@@ -30,14 +30,18 @@ export class ViewVehicleInsurancesComponent implements OnInit {
     })
   }
   search(searchText) {
-    console.log(searchText);
-    this.vehicleInsuranceService.searchEvents(searchText).then(vehicleHistory =>{
-      this.vehicleInsuranceHistory = vehicleHistory;
-    })
+    if(searchText == ""){
+      this.ngOnInit()
+    }else{
+      this.vehicleInsuranceService.searchEvents(searchText).then(events =>{
+        this.vehicleInsuranceHistory = events;
+      })
+    }
   }
+
   pageChange(page) {
-    this.vehicleInsuranceService.getEvents({page:page}).then(vehicleInsuranceHistory =>{
-      this.vehicleInsuranceHistory = vehicleInsuranceHistory;
+    this.vehicleInsuranceService.getEvents({page:page}).then(drivers =>{
+      this.vehicleInsuranceHistory = drivers;
     })
   }
 

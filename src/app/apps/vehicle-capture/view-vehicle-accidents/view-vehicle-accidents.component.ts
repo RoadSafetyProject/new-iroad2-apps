@@ -42,9 +42,4 @@ export class ViewVehicleAccidentsComponent implements OnInit {
     });
   }
 
-  search(searchText) {
-    this.AccidentService.searchEvents(searchText).then(drivers =>{
-      this.accidents = drivers;
-    })
-  }
 }

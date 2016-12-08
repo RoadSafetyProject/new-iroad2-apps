@@ -33,4 +33,20 @@ export class ViewVehicleOwnerComponent implements OnInit {
     })
   }
 
+  search(searchText) {
+    if(searchText == ""){
+      this.ngOnInit()
+    }else{
+      this.VehicleOwnerHistoryService.searchEvents(searchText).then(events =>{
+        this.events = events;
+      })
+    }
+  }
+
+  pageChange(page) {
+    this.VehicleOwnerHistoryService.getEvents({page:page}).then(drivers =>{
+      this.events = drivers;
+    })
+  }
+
 }

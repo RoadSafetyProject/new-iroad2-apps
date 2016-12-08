@@ -30,14 +30,18 @@ export class ViewVehicleBusinessLicenceComponent implements OnInit {
     })
   }
   search(searchText) {
-    console.log(searchText);
-    this.businessHistoryService.searchEvents(searchText).then(vehicleHistory =>{
-      this.vehicleHistory = vehicleHistory;
-    })
+    if(searchText == ""){
+      this.ngOnInit()
+    }else{
+      this.businessHistoryService.searchEvents(searchText).then(events =>{
+        this.vehicleHistory = events;
+      })
+    }
   }
+
   pageChange(page) {
-    this.businessHistoryService.getEvents({page:page}).then(vehicleHistory =>{
-      this.vehicleHistory = vehicleHistory;
+    this.businessHistoryService.getEvents({page:page}).then(drivers =>{
+      this.vehicleHistory = drivers;
     })
   }
 

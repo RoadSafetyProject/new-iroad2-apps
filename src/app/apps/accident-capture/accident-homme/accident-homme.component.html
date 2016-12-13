@@ -1,3 +1,44 @@
-<p>
-  accident-homme works!
-</p>
+
+<h3>
+  Accident Capture App
+</h3>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="#accidents/all">Home</a></li>
+  <li class="breadcrumb-item">Accident list</li>
+</ol>
+
+<div class="row">
+  <div class="col-sm-9 col-md-9 col-lg-10">
+    <div class="card">
+      <div class="card-header">
+        Accident List
+      </div>
+      <div class="card-block" *ngIf="(programStage && events)">
+        <dhis-table [(menuActions)]="menuActions"
+                    [(programStage)]="programStage" [(eventWrapper)]="events"
+
+                    (onSearch)="search($event)" (onPageChange)="pageChange($event)"></dhis-table>
+      </div>
+    </div>
+    <div *ngIf="!(programStage && events)">
+      <app-loader [text]="'Loading...'"></app-loader>
+    </div>
+  </div>
+
+  <div class="col-sm-3 col-md-3 col-lg-2">
+    <div class="card">
+      <div class="card-header">
+        Main Menu
+      </div>
+      <div class="card-block">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/accidents','add']">Add Accident</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+

@@ -14,9 +14,7 @@
         New Accident
       </div>
       <div class="card-block" *ngIf="programStage">
-        <!--<dhis-table [(menuActions)]="menuActions"-->
-        <!--[(programStage)]="programStage" [(eventWrapper)]="drivers"-->
-        <!--(onSearch)="search($event)" (onPageChange)="pageChange($event)"></dhis-table>-->
+        <dhis-event-add [(programStage)]="programStage" ></dhis-event-add>
       </div>
     </div>
     <div *ngIf="!programStage">

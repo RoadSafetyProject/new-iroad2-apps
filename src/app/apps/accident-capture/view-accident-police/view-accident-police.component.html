@@ -1,3 +1,41 @@
-<p>
-  view-accident-police works!
-</p>
+
+<h3>
+  Accident Capture App
+</h3>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="#accidents/all">Home</a></li>
+  <li class="breadcrumb-item">View Accident's Police Officer</li>
+</ol>
+
+<div class="row">
+  <div class="col-sm-9 col-md-9 col-lg-10">
+    <div class="card">
+      <div class="card-header">
+        View Accident's Police Officer
+      </div>
+      <div class="card-block" *ngIf="(programStage)">
+        <!--<dhis-event [(event)]="event" [(programStage)]="programStage"></dhis-event>-->
+      </div>
+    </div>
+    <div *ngIf="!(programStage)">
+      <app-loader [text]="'Loading...'"></app-loader>
+    </div>
+  </div>
+
+  <div class="col-sm-3 col-md-3 col-lg-2">
+    <div class="card">
+      <div class="card-header">
+        Main Menu
+      </div>
+      <div class="card-block">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/accidents','all']">View Accident List</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+

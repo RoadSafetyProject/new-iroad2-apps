@@ -79,7 +79,7 @@ import {SumatraSearchBusinessLicenseComponent} from "./apps/sumatra/sumatra-sear
 import {SumatraViewBusinessLicenseComponent} from "./apps/sumatra/sumatra-view-business-license/sumatra-view-business-license.component";
 
 export const routes: Routes  = [
-  { path: '', redirectTo : "accidents/all",pathMatch : "full"},
+  { path: '', redirectTo : "offences/all",pathMatch : "full"},
 
   { path: 'vehicles', redirectTo : "vehicles/all",pathMatch : "full"},
   { path: 'vehicles/all', component: VehicleCaptureHomeComponent },
@@ -123,7 +123,7 @@ export const routes: Routes  = [
   { path: 'offences/:id/payment/add', component: AddOffencePaymentComponent },
   { path: 'offences/:id/vehicle', component: ViewOffenceVehicleComponent },
   { path: 'offences/:id/driver', component: ViewOffenceDriverComponent },
-  { path: 'offences:id/police', component: ViewOffencePoliceComponent },
+  { path: 'offences/:id/police', component: ViewOffencePoliceComponent },
 
   { path: 'accident-view', component: AccidentViewHomeComponent },
   { path: 'community', component: CommunityPolicingHomeComponent },

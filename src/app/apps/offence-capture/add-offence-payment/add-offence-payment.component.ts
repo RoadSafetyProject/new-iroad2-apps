@@ -1,24 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import {OffenceService} from "../../../services/offence.service";
+import { ActivatedRoute,Params,Router,NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-add-offence-payment',
   templateUrl: './add-offence-payment.component.html',
   styleUrls: ['./add-offence-payment.component.css'],
-  providers : [OffenceService]
 })
 export class AddOffencePaymentComponent implements OnInit {
 
-  private programStage : any;
+  private id;
 
-  constructor(private OffenceService : OffenceService) { }
+  constructor(private route: ActivatedRoute,private router: Router) {
+    this.route.params.forEach((params: Params) => {
+      this.id = params['id'];
+    });
+  }
 
   ngOnInit() {
-    this.OffenceService.getProgram().then(programStage=>{
-      this.programStage = programStage;
-    },error=>{
-      //fail to get programStage
-    });
+
   }
 
 }

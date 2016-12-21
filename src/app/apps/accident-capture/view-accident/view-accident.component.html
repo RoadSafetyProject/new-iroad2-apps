@@ -25,6 +25,30 @@
   <div class="col-sm-3 col-md-3 col-lg-2">
     <div class="card">
       <div class="card-header">
+        Related Menu
+      </div>
+      <div class="card-block">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/accidents',id,'update']">Edit Accident</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/accidents',id,'witnesses']">View Witnesses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/accidents',id,'update']">Add Accident Witnesses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/accidents',id,'vehicles']">View Accident Vehicles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/accidents',id,'vehicles','add']">Add Accident Vehicle</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
         Main Menu
       </div>
       <div class="card-block">

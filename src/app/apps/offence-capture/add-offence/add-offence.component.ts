@@ -10,10 +10,11 @@ import {OffenceService} from "../../../services/offence.service";
 export class AddOffenceComponent implements OnInit {
 
   private programStage : any;
-
+  private redirectUrlOnSave : string;
   constructor(private OffenceService : OffenceService) { }
 
   ngOnInit() {
+    this.redirectUrlOnSave = "offences/:id/view";
     this.OffenceService.getProgram().then(programStage=>{
       this.programStage = programStage;
     },error=>{

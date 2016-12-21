@@ -4,6 +4,7 @@ import {Location} from '@angular/common';
 import * as moment from 'moment';
 import {EventService} from "../../services/event.service";
 import {Event} from "../../models/event";
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'dhis-event-add',
@@ -16,6 +17,7 @@ export class DhisEventAddComponent implements OnInit {
   @Input() programStage:ProgramStage;
   @Input() relationDataElementValueObject : any;
   @Input() event : Event;
+  @Input() redirectUrlOnSave : string;
 
   private dataValuesObject:any;
   private showDatePicker:any;
@@ -25,7 +27,8 @@ export class DhisEventAddComponent implements OnInit {
 
   //todo validation fields using form builder directive
   //todo handling of files for example photo uploading
-  constructor(private location:Location,private eventService:EventService) {
+  //todo select 2 for normal select
+  constructor(private location:Location,private eventService:EventService,private router: Router) {
     this.showDatePicker = {};
     this.dataValuesObject = {};
   }
@@ -80,6 +83,12 @@ export class DhisEventAddComponent implements OnInit {
     }
   }
 
+  redirect(eventId) :void{
+    console.log(eventId);
+    let url = this.redirectUrlOnSave.replace(':id',eventId);
+    this.router.navigate([url]);
+  }
+
   cancel():void {
     this.location.back();
   }
@@ -96,9 +105,16 @@ export class DhisEventAddComponent implements OnInit {
     //checking whether form is valid or not for submission process
     if(formValidationResult.isFormValid){
       this.isLoadingData = true;
-      this.eventService.saveOrUpdateEvent(this.dataValuesObject,this.programStage,this.event).then(response=>{
+      this.eventService.saveOrUpdateEvent(this.dataValuesObject,this.programStage,this.event).then((responseData :any)=>{
         this.isLoadingData = false;
-        this.cancel();
+        let response = responseData.response;
+        let eventId = (this.event && this.event.event) ?this.event.event : response.importSummaries[0].reference;
+        console.log(response,eventId);
+        if(this.redirectUrlOnSave && this.redirectUrlOnSave != null){
+          this.redirect(eventId);
+        }else{
+          this.cancel();
+        }
       },error=>{
         this.isLoadingData = false;
         console.log('ops error occurred ',error);

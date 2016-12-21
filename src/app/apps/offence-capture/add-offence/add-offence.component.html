@@ -14,7 +14,7 @@
         New Offence
       </div>
       <div class="card-block" *ngIf="programStage">
-        <dhis-event-add [(programStage)]="programStage" ></dhis-event-add>
+        <dhis-event-add [(programStage)]="programStage" [(redirectUrlOnSave)]="redirectUrlOnSave" ></dhis-event-add>
       </div>
     </div>
     <div *ngIf="!programStage">

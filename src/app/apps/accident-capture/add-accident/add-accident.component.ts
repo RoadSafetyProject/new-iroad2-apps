@@ -10,9 +10,11 @@ import {AccidentService} from "../../../services/accident.service";
 export class AddAccidentComponent implements OnInit {
 
   private programStage  :any;
+  private redirectUrlOnSave : string;
   constructor(private AccidentService : AccidentService) { }
 
   ngOnInit() {
+    this.redirectUrlOnSave = "accidents/:id/view";
     this.AccidentService.getProgram().then(programStage=>{
       this.programStage = programStage;
     },error=>{

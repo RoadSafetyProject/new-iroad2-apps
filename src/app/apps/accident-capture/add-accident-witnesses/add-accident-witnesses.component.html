@@ -5,14 +5,14 @@
 <ol class="breadcrumb">
   <li class="breadcrumb-item"><a href="#accidents/all">Home</a></li>
   <li class="breadcrumb-item"><a class="nav-link" [routerLink]="['/accidents',id,'view']">Accident</a></li>
-  <li class="breadcrumb-item">View Accident witness</li>
+  <li class="breadcrumb-item">Add Accident witness</li>
 </ol>
 
 <div class="row">
   <div class="col-sm-9 col-md-9 col-lg-10">
     <div class="card">
       <div class="card-header">
-        View Accident Witness
+        Add Accident Witness
       </div>
       <div class="card-block" *ngIf="(programStage)">
         <!--<dhis-event [(event)]="event" [(programStage)]="programStage"></dhis-event>-->
@@ -24,18 +24,6 @@
   </div>
 
   <div class="col-sm-3 col-md-3 col-lg-2">
-    <div class="card">
-      <div class="card-header">
-        Related Menu
-      </div>
-      <div class="card-block">
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/accidents',id,'View']">Back to Accident</a>
-          </li>
-        </ul>
-      </div>
-    </div>
     <div class="card">
       <div class="card-header">
         Main Menu

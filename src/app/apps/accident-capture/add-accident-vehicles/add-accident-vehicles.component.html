@@ -4,20 +4,21 @@
 </h3>
 <ol class="breadcrumb">
   <li class="breadcrumb-item"><a href="#accidents/all">Home</a></li>
-  <li class="breadcrumb-item">View Accident</li>
+  <li class="breadcrumb-item"><a class="nav-link" [routerLink]="['/accidents',id,'view']">Accident</a></li>
+  <li class="breadcrumb-item">Add Accident Vehicle</li>
 </ol>
 
 <div class="row">
   <div class="col-sm-9 col-md-9 col-lg-10">
     <div class="card">
       <div class="card-header">
-        View Accident
+        Add Accident Vehicle
       </div>
-      <div class="card-block" *ngIf="(programStage && event)">
-        <dhis-event [(event)]="event" [(programStage)]="programStage"></dhis-event>
+      <div class="card-block" *ngIf="(programStage)">
+        <!--<dhis-event [(event)]="event" [(programStage)]="programStage"></dhis-event>-->
       </div>
     </div>
-    <div *ngIf="!(programStage && event)">
+    <div *ngIf="!(programStage)">
       <app-loader [text]="'Loading...'"></app-loader>
     </div>
   </div>
@@ -30,19 +31,7 @@
       <div class="card-block">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/accidents',id,'update']">Edit Accident</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/accidents',id,'witnesses']">View Witnesses</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/accidents',id,'witnesses','add']">Add Accident Witnesses</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/accidents',id,'vehicles']">View Accident Vehicles</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/accidents',id,'vehicles','add']">Add Accident Vehicle</a>
+            <a class="nav-link" [routerLink]="['/accidents',id,'View']">Back to Accident</a>
           </li>
         </ul>
       </div>

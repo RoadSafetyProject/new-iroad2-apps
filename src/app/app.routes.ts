@@ -58,6 +58,8 @@ import { ViewAccidentVehiclePassengersComponent } from './apps/accident-capture/
 import { ViewAccidentPassengersComponent } from './apps/accident-capture/view-accident-passengers/view-accident-passengers.component';
 import { ViewAccidentVehicleDriversComponent } from './apps/accident-capture/view-accident-vehicle-drivers/view-accident-vehicle-drivers.component';
 import { ViewAccidentPoliceComponent } from './apps/accident-capture/view-accident-police/view-accident-police.component';
+import { AddAccidentWitnessesComponent } from './apps/accident-capture/add-accident-witnesses/add-accident-witnesses.component';
+import { AddAccidentVehiclesComponent } from './apps/accident-capture/add-accident-vehicles/add-accident-vehicles.component';
 
 //routes for vehicle capture app
 import { VehicleCaptureHomeComponent } from './apps/vehicle-capture/vehicle-capture-home/vehicle-capture-home.component';
@@ -106,7 +108,9 @@ export const routes: Routes  = [
   { path: 'accidents/:id/update', component: UpdateAccidentComponent },
   { path: 'accidents/:id/view', component: ViewAccidentComponent },
   { path: 'accidents/:id/witnesses', component: ViewAccidentWitnessesComponent },
+  { path: 'accidents/:id/witnesses/add', component: AddAccidentWitnessesComponent },
   { path: 'accidents/:id/vehicles', component: ViewAccidentVehiclesComponent },
+  { path: 'accidents/:id/vehicles/add', component: AddAccidentVehiclesComponent },
   { path: 'accidents/:id/vehicles/:vehicleId/passengers', component: ViewAccidentVehiclePassengersComponent },
   { path: 'accidents/:id/vehicles/all/passengers', component: ViewAccidentPassengersComponent },
   { path: 'accidents/:id/vehicles/:vehicleId/drivers', component: ViewAccidentVehicleDriversComponent },

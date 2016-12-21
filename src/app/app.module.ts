@@ -82,6 +82,8 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { OrderByPipe } from './pipes/order-by.pipe';
 import { SumatraViewBusinessLicenseComponent } from './apps/sumatra/sumatra-view-business-license/sumatra-view-business-license.component';
 import { SumatraSearchBusinessLicenseComponent } from './apps/sumatra/sumatra-search-business-license/sumatra-search-business-license.component';
+import { AddAccidentWitnessesComponent } from './apps/accident-capture/add-accident-witnesses/add-accident-witnesses.component';
+import { AddAccidentVehiclesComponent } from './apps/accident-capture/add-accident-vehicles/add-accident-vehicles.component';
 
 
 @NgModule({
@@ -122,7 +124,9 @@ import { SumatraSearchBusinessLicenseComponent } from './apps/sumatra/sumatra-se
     LoaderComponent,
     OrderByPipe,
     SumatraViewBusinessLicenseComponent,
-    SumatraSearchBusinessLicenseComponent
+    SumatraSearchBusinessLicenseComponent,
+    AddAccidentWitnessesComponent,
+    AddAccidentVehiclesComponent
   ],
   imports: [
     BrowserModule,

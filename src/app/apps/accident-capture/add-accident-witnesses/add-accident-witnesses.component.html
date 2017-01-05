@@ -15,7 +15,7 @@
         Add Accident Witness
       </div>
       <div class="card-block" *ngIf="(programStage)">
-        <!--<dhis-event [(event)]="event" [(programStage)]="programStage"></dhis-event>-->
+        {{ programStage|json}}
       </div>
     </div>
     <div *ngIf="!(programStage)">

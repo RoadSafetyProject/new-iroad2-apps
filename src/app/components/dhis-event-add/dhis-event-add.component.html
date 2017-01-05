@@ -20,6 +20,16 @@
     </th>
     <td *ngIf="!programStageDataElement.allowProvidedElsewhere">
 
+      <div *ngIf="programStageDataElement.dataElement.valueType == 'TRACKER_ASSOCIATE'">
+        <ng-select *ngIf="relations[programStageDataElement.dataElement.id].loaded"
+          [options]='relations[programStageDataElement.dataElement.id].options'
+          (opened)="onSelectOpened(programStageDataElement.dataElement.id)"
+          (closed)="onSelectClosed(programStageDataElement.dataElement.id)"
+          (selected)="onSelected(programStageDataElement.dataElement.id,$event)"
+          (deselected)="onDeselected($event)">
+        </ng-select>
+        <input style="display:none" type="text" class="form-control" [(ngModel)]="dataValuesObject[programStageDataElement.dataElement.id]" >
+      </div>
       <div *ngIf="programStageDataElement.dataElement.optionSet"  >
         <select class="form-control" [(ngModel)]="dataValuesObject[programStageDataElement.dataElement.id]">
           <option value="">Select {{programStageDataElement.dataElement.name}}</option>

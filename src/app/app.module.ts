@@ -84,6 +84,7 @@ import { SumatraViewBusinessLicenseComponent } from './apps/sumatra/sumatra-view
 import { SumatraSearchBusinessLicenseComponent } from './apps/sumatra/sumatra-search-business-license/sumatra-search-business-license.component';
 import { AddAccidentWitnessesComponent } from './apps/accident-capture/add-accident-witnesses/add-accident-witnesses.component';
 import { AddAccidentVehiclesComponent } from './apps/accident-capture/add-accident-vehicles/add-accident-vehicles.component';
+import {SelectModule} from 'angular2-select';
 
 
 @NgModule({
@@ -130,6 +131,7 @@ import { AddAccidentVehiclesComponent } from './apps/accident-capture/add-accide
   ],
   imports: [
     BrowserModule,
+    SelectModule,
     FormsModule,
     HttpModule,DatepickerModule,TooltipModule,
     ContextMenuModule.forRoot({

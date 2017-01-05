@@ -3,6 +3,9 @@ import {Http} from '@angular/http';
 import {ProgramStage} from "../models/program-stage";
 import {IEvent,Event} from "../models/event";
 import {DataValue} from "../models/data-value";
+import {DriverService} from "./driver.service";
+import {ProgramStageService} from "./program-stage.service";
+import {VehicleService} from "./vehicle.service";
 
 @Injectable()
 export class EventService {
@@ -132,4 +135,11 @@ export class EventService {
     });
   }
 
+  getProgramService(programName):ProgramStageService{
+    if(programName == "Driver"){
+      return new DriverService(this.http);
+    }else if(programName == "Vehicle"){
+      return new VehicleService(this.http);
+    }
+  }
 }

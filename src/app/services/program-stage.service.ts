@@ -30,6 +30,25 @@ export abstract class ProgramStageService {
   }
   getEvents(additionalParams?){
     return new Promise((resolve, reject) => {
+      if(this.programStage){
+        this._getEvents(additionalParams).then((results)=>{
+          resolve(results);
+        },(error)=>{
+          reject(error);
+        })
+      }else{
+        this.getProgram().then(() =>{
+          this._getEvents(additionalParams).then((results)=>{
+            resolve(results);
+          },(error)=>{
+            reject(error);
+          })
+        })
+      }
+    });
+  }
+  _getEvents(additionalParams?){
+    return new Promise((resolve, reject) => {
       let url = "../../../api/events.json?program=" + this.programStage.program.id;
       if(additionalParams){
         Object.keys(additionalParams).forEach((key)=>{

@@ -5,6 +5,7 @@ import * as moment from 'moment';
 import {EventService} from "../../services/event.service";
 import {Event} from "../../models/event";
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import {DriverService} from "../../services/driver.service";
 
 @Component({
   selector: 'dhis-event-add',
@@ -33,6 +34,9 @@ export class DhisEventAddComponent implements OnInit {
     this.dataValuesObject = {};
   }
 
+  relations = {
+
+  }
   ngOnInit() {
     if(this.relationDataElementValueObject){
       this.dataValuesObject = this.relationDataElementValueObject;
@@ -45,6 +49,12 @@ export class DhisEventAddComponent implements OnInit {
           this.dataValuesObject[programStageDataElement.dataElement.id] = "";
         }else if(programStageDataElement.dataElement.valueType == 'TRUE_ONLY'){
           this.dataValuesObject[programStageDataElement.dataElement.id] = "";
+        }else if(programStageDataElement.dataElement.valueType == 'TRACKER_ASSOCIATE'){
+          this.relations[programStageDataElement.dataElement.id]= {
+            loaded:false,
+            program:programStageDataElement.dataElement.name.replace("Program_",""),
+            options:[]
+          }
         }
       });
     }
@@ -53,9 +63,79 @@ export class DhisEventAddComponent implements OnInit {
         this.dataValuesObject[dataValue.dataElement]=dataValue.value;
       });
     }
-    this.isLoadingData = false;
+    this.loadRelations().then(()=>{
+      this.isLoadingData = false;
+    });
   }
 
+  loadRelations(){
+    return new Promise((resolve,reject)=>{
+      let promises = [];
+      Object.keys(this.relations).forEach((key)=>{
+        promises.push(this.populatEvents(key));
+      })
+      Promise.all(promises).then(()=>{
+        resolve();
+      },()=>{
+        reject();
+      })
+    })
+  }
+  populatEvents(id){
+    let service = this.eventService.getProgramService(this.relations[id].program);
+    return new Promise((resolve,reject)=>{
+      service.getProgram().then(programStage=>{
+        service.getEvents().then((result)=>{
+          console.log(programStage);
+          let primaryId = "";
+          programStage.programStageDataElements.forEach((programStageDataElement) =>{
+            if(programStageDataElement.dataElement.code == "id_" + this.relations[id].program.toLowerCase()){
+              primaryId =  programStageDataElement.dataElement.id;
+            }
+          })
+          console.log(result);
+          result.events.forEach((event) =>{
+            let option = {
+              value: event.event,
+              label:""
+            }
+            event.dataValues.forEach((dataValue) =>{
+              if(dataValue.dataElement == primaryId){
+                option.label = dataValue.value;
+              }
+            })
+            if(option.label != ""){
+              this.relations[id].options.push(option);
+            }
+          })
+          this.relations[id].loaded = true;
+          resolve();
+        },()=>{
+          reject();
+        })
+      },()=>{
+        reject();
+      })
+    })
+  }
+  onSelectOpened(id) {
+    this.relations[id].options.push({"value":"bl","label":"Betal"});
+    this.relations[id].loaded = true;
+    console.log('Select dropdown opened.');
+  }
+
+  onSelectClosed(id) {
+    console.log('Select dropdown closed.');
+  }
+
+  onSelected(id,item) {
+    this.dataValuesObject[id] = item.value;
+    console.log('Selected: ' + item.value + ', ' + item.label);
+  }
+
+  onDeselected(item) {
+    console.log('Deselected: ' + item.value + ', ' + item.label);
+  }
 
   /**
    * toggle date picker

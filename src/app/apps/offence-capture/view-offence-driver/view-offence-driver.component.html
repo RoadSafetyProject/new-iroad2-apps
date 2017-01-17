@@ -13,16 +13,25 @@
       <div class="card-header">
         View Offence's Driver
       </div>
-      <div class="card-block" *ngIf="(programStage)">
-        <!--<dhis-event-add [(programStage)]="programStage" ></dhis-event-add>-->
+      <div class="card-block">
+        <dhis-event [(event)]="driver" [(programStage)]="driverProgramStage"></dhis-event>
       </div>
-    </div>
-    <div *ngIf="!(programStage)">
-      <app-loader [text]="'Loading...'"></app-loader>
     </div>
   </div>
 
   <div class="col-sm-3 col-md-3 col-lg-2">
+    <div class="card">
+      <div class="card-header">
+        Related Menu
+      </div>
+      <div class="card-block">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/offences',id]">Back to Offence</a>
+          </li>
+        </ul>
+      </div>
+    </div>
     <div class="card">
       <div class="card-header">
         Main Menu

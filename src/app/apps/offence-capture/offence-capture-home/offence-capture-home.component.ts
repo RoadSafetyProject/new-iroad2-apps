@@ -56,11 +56,11 @@ export class OffenceCaptureHomeComponent implements OnInit {
         url : "offences/:id/registry"
       },
       {
-        title : "View Offence payment",
+        title : "View Offence Payment",
         url : "offences/:id/payment"
       },
       {
-        title : "Add Offence payment",
+        title : "Add Offence Payment",
         url : "offences/:id/payment/add"
       },
       {
@@ -72,7 +72,7 @@ export class OffenceCaptureHomeComponent implements OnInit {
         url : "offences/:id/driver"
       },
       {
-        title : "View Offence Police officer",
+        title : "View Offence Police Officer",
         url : "offences/:id/police"
       },
     ];

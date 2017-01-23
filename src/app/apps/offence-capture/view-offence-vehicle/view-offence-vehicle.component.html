@@ -13,12 +13,9 @@
       <div class="card-header">
         View Offence's Vehicle
       </div>
-      <div class="card-block" *ngIf="(programStage)">
-        <!--<dhis-event-add [(programStage)]="programStage" ></dhis-event-add>-->
+      <div class="card-block">
+        <dhis-event [(event)]="vehicle" [(programStage)]="vehicleProgramStage"></dhis-event>
       </div>
-    </div>
-    <div *ngIf="!(programStage)">
-      <app-loader [text]="'Loading...'"></app-loader>
     </div>
   </div>
 

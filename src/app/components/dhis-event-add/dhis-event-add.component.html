@@ -9,7 +9,7 @@
   </tr>
   <tr  *ngFor="let programStageDataElement of programStage.programStageDataElements| orderBy : 'sortOrder': true">
     <th scope="row" *ngIf="!programStageDataElement.allowProvidedElsewhere">
-      {{ programStageDataElement.dataElement.name }}
+      {{ programStageDataElement.dataElement.name |relationLabelConverter}}
       <span  *ngIf="programStageDataElement.compulsory">*</span>
       <span class="pull-right" *ngIf="programStageDataElement.dataElement.description">
         <span tooltipPlacement="top" tooltip="{{programStageDataElement.dataElement.description}}">

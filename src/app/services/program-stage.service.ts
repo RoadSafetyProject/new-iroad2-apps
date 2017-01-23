@@ -168,4 +168,13 @@ export abstract class ProgramStageService {
       })
     });
   }
+  getDataElementByName(dataElementName){
+    let dataElement = undefined;
+    this.programStage.programStageDataElements.forEach((programStageDataElement) =>{
+      if(programStageDataElement.dataElement.name == dataElementName){
+        dataElement = programStageDataElement.dataElement;
+      }
+    });
+    return dataElement;
+  }
 }

@@ -6,6 +6,10 @@ import {EventService} from "../../services/event.service";
 import {Event} from "../../models/event";
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import {DriverService} from "../../services/driver.service";
+import {IEvent} from "../../models/event";
+import {IProgramStageDataElement} from "../../models/program-stage-data-element";
+import {IEventsWrapper} from "../../models/event";
+import {IProgramStage} from "../../models/program-stage";
 
 @Component({
   selector: 'dhis-event-add',
@@ -15,7 +19,7 @@ import {DriverService} from "../../services/driver.service";
 })
 export class DhisEventAddComponent implements OnInit {
 
-  @Input() programStage:ProgramStage;
+  @Input() programStage:IProgramStage;
   @Input() relationDataElementValueObject : any;
   @Input() event : Event;
   @Input() redirectUrlOnSave : string;
@@ -85,16 +89,14 @@ export class DhisEventAddComponent implements OnInit {
     let service = this.eventService.getProgramService(this.relations[id].program);
     return new Promise((resolve,reject)=>{
       service.getProgram().then(programStage=>{
-        service.getEvents().then((result)=>{
-          console.log(programStage);
+        service.getEvents().then((result:IEventsWrapper)=>{
           let primaryId = "";
-          programStage.programStageDataElements.forEach((programStageDataElement) =>{
+          programStage.programStageDataElements.forEach((programStageDataElement:IProgramStageDataElement) =>{
             if(programStageDataElement.dataElement.code == "id_" + this.relations[id].program.toLowerCase()){
               primaryId =  programStageDataElement.dataElement.id;
             }
           })
-          console.log(result);
-          result.events.forEach((event) =>{
+          result.events.forEach((event:IEvent) =>{
             let option = {
               value: event.event,
               label:""

@@ -8,7 +8,8 @@ import {OffenceService} from "../../../services/offence.service";
 @Component({
   selector: 'app-view-offence-driver',
   templateUrl: './view-offence-driver.component.html',
-  styleUrls: ['./view-offence-driver.component.css']
+  styleUrls: ['./view-offence-driver.component.css'],
+  providers:[DriverService,OffenceService]
 })
 export class ViewOffenceDriverComponent implements OnInit {
   driverProgramStage;

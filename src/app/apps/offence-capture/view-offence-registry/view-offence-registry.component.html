@@ -1,28 +1,42 @@
-
 <h3>
   Offence Capture App
 </h3>
 <ol class="breadcrumb">
   <li class="breadcrumb-item"><a href="#offences/all">Home</a></li>
-  <li class="breadcrumb-item">View Offence's Registry</li>
+  <li class="breadcrumb-item">Offences List</li>
 </ol>
 
 <div class="row">
   <div class="col-sm-9 col-md-9 col-lg-10">
     <div class="card">
       <div class="card-header">
-        View Offence's Registry
+        Offences List
       </div>
-      <div class="card-block" *ngIf="(programStage)">
-        <!--<dhis-event-add [(programStage)]="programStage" ></dhis-event-add>-->
+      <div class="card-block" *ngIf="(programStage && events)">
+        <dhis-table [(menuActions)]="menuActions"
+                    [(programStage)]="programStage" [(eventWrapper)]="events"
+
+                    (onSearch)="search($event)" (onPageChange)="pageChange($event)"></dhis-table>
       </div>
     </div>
-    <div *ngIf="!(programStage)">
+    <div *ngIf="!(programStage && events)">
       <app-loader [text]="'Loading...'"></app-loader>
     </div>
   </div>
 
   <div class="col-sm-3 col-md-3 col-lg-2">
+    <div class="card">
+      <div class="card-header">
+        Related Menu
+      </div>
+      <div class="card-block">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/offences',id]">Back to Offence</a>
+          </li>
+        </ul>
+      </div>
+    </div>
     <div class="card">
       <div class="card-header">
         Main Menu
@@ -38,5 +52,6 @@
   </div>
 
 </div>
+
 
 

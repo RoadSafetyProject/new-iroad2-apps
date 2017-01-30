@@ -1,12 +1,12 @@
 {
     "version": "0.1",
-    "name": "Vehicle Capture",
-    "description": "Vehicle Capture",
-    "launch_path": "index.html#/vehicles",
+    "name": "Offence Capture",
+    "description": "Offence Capture",
+    "launch_path": "index.html#/offences",
     "icons": {
-        "16": "assets/vehicle.png",
-        "48": "assets/vehicle.png",
-        "128": "assets/vehicle.png"
+        "16": "assets/offence.png",
+        "48": "assets/offence.png",
+        "128": "assets/offence.png"
     },
     "developer": {
         "name": "HISPTZ",

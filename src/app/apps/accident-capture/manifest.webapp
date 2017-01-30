@@ -1,12 +1,12 @@
 {
     "version": "0.1",
-    "name": "Vehicle Capture",
-    "description": "Vehicle Capture",
+    "name": "Accident Capture",
+    "description": "Accident Capture",
     "launch_path": "index.html#/vehicles",
     "icons": {
-        "16": "assets/vehicle.png",
-        "48": "assets/vehicle.png",
-        "128": "assets/vehicle.png"
+        "16": "assets/accident.png",
+        "48": "assets/accident.png",
+        "128": "assets/accident.png"
     },
     "developer": {
         "name": "HISPTZ",

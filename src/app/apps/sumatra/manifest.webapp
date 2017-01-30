@@ -1,7 +1,7 @@
 {
     "version": "0.1",
     "name": "Sumatra",
-    "description": "Water Point",
+    "description": "Sumatra",
     "launch_path": "index.html#/sumatra/vehicles",
     "icons": {
         "16": "assets/sumatra.png",

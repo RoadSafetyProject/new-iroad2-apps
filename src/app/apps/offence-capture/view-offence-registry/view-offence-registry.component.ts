@@ -28,7 +28,6 @@ export class ViewOffenceRegistryComponent implements OnInit {
     this.offenceRegistryService.getProgram().then(programStage=>{
       this.programStage = programStage;
       this.offenceRegistryService.getEventsByOffence(this.id).then(events=>{
-        console.log("Events:",events);
         this.events = events;
       },error=>{
         //fail to get events for accident program
@@ -51,46 +50,8 @@ export class ViewOffenceRegistryComponent implements OnInit {
   }
 
   initiateMenuActions(){
-    this.menuActions =[
-      {
-        title : "View Offence",
-        url : "offences/:id/view"
-      },
-      {
-        title : "Edit Offence",
-        url : "offences/:id/update"
-      },
-      {
-        title : "View Offence's Registry",
-        url : "offences/:id/registry"
-      },
-      {
-        title : "View Offence Payment",
-        url : "offences/:id/payment"
-      },
-      {
-        title : "Add Offence Payment",
-        url : "offences/:id/payment/add"
-      },
-      {
-        title : "View Offence Vehicle",
-        url : "offences/:id/vehicle"
-      },
-      {
-        title : "View Offence Driver",
-        url : "offences/:id/driver"
-      },
-      {
-        title : "View Offence Police Officer",
-        url : "offences/:id/police"
-      },
-    ];
+    this.menuActions = [];
   }
 
-  getEvent(){
-    return new Promise((resolve,reject)=>{
-
-    })
-  }
 
 }

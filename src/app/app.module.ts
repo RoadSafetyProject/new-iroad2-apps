@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ContextMenuModule } from 'angular2-contextmenu';
-import { DatepickerModule } from 'ng2-bootstrap';
-import { TooltipModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { DatepickerModule } from 'ng2-bootstrap/datepicker';
+import { TooltipModule } from 'ng2-bootstrap/tooltip';
 
 import { LocationStrategy,HashLocationStrategy } from '@angular/common';
 import {routing} from "./app.routes";
@@ -135,7 +135,7 @@ import { RelationLabelConverterPipe } from './pipes/relation-label-converter.pip
     BrowserModule,
     SelectModule,
     FormsModule,
-    HttpModule,DatepickerModule,TooltipModule,
+    HttpModule,DatepickerModule.forRoot(),TooltipModule.forRoot(),
     ContextMenuModule.forRoot({
       useBootstrap4: true,
     }),

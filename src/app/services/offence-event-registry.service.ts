@@ -15,7 +15,7 @@ export class OffenceEventRegistryService extends ProgramStageService{
 
   getOffenceRegistryIdsByOffenceEvent(id){
     return new Promise((resolve,reject)=>{
-      this.getEventsByDataElement("Program_Offence_Event",id).then((results)=>{
+      this.getEventsByDataElement("Program_Offence_Event",id).then((results:any)=>{
         let events = [];
         let relationDataElement = this.getDataElementByName("Program_Offence_Registry").id;
         results.events.forEach((event)=>{

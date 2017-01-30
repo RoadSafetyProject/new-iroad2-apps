@@ -85,6 +85,7 @@ import { SumatraSearchBusinessLicenseComponent } from './apps/sumatra/sumatra-se
 import { AddAccidentWitnessesComponent } from './apps/accident-capture/add-accident-witnesses/add-accident-witnesses.component';
 import { AddAccidentVehiclesComponent } from './apps/accident-capture/add-accident-vehicles/add-accident-vehicles.component';
 import {SelectModule} from 'angular2-select';
+import { RelationLabelConverterPipe } from './pipes/relation-label-converter.pipe';
 
 
 @NgModule({
@@ -127,7 +128,8 @@ import {SelectModule} from 'angular2-select';
     SumatraViewBusinessLicenseComponent,
     SumatraSearchBusinessLicenseComponent,
     AddAccidentWitnessesComponent,
-    AddAccidentVehiclesComponent
+    AddAccidentVehiclesComponent,
+    RelationLabelConverterPipe,
   ],
   imports: [
     BrowserModule,

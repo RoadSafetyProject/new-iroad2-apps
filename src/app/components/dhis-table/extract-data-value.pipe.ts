@@ -13,7 +13,7 @@ export class ExtractDataValuePipe implements PipeTransform {
       if(dataValue.dataElement == dataElement.id){
         value = dataValue.value
       }
-    })
+    });
     return value;
   }
 

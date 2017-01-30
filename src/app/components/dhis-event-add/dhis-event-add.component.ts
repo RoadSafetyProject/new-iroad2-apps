@@ -88,7 +88,7 @@ export class DhisEventAddComponent implements OnInit {
   populatEvents(id){
     let service = this.eventService.getProgramService(this.relations[id].program);
     return new Promise((resolve,reject)=>{
-      service.getProgram().then(programStage=>{
+      service.getProgram().then((programStage:any)=>{
         service.getEvents().then((result:IEventsWrapper)=>{
           let primaryId = "";
           programStage.programStageDataElements.forEach((programStageDataElement:IProgramStageDataElement) =>{

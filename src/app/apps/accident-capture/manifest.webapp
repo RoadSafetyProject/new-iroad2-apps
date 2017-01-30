@@ -2,7 +2,7 @@
     "version": "0.1",
     "name": "Accident Capture",
     "description": "Accident Capture",
-    "launch_path": "index.html#/vehicles",
+    "launch_path": "index.html#/accidents",
     "icons": {
         "16": "assets/accident.png",
         "48": "assets/accident.png",
